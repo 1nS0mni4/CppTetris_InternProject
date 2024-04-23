@@ -9,5 +9,6 @@
 #endif
 
 #include "CorePch.h"
+#include "Network.h"
 
 using namespace std;
