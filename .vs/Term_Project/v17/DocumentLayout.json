@@ -7,20 +7,8 @@
       "RelativeMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\CorePch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Types.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Types.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\CorePch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\CorePch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\pch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\pch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{575B5E65-48B9-4EE8-9A61-6BC5FC407F3B}|DummyClient\\DummyClient.vcxproj|D:\\personal\\projects\\Github\\TermProject\\DummyClient\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -33,6 +21,18 @@
     {
       "AbsoluteMoniker": "D:0:0:{D6D8A376-AE46-4EA3-B6F7-75C94B3A128E}|RelayServer\\RelayServer.vcxproj|D:\\personal\\projects\\Github\\TermProject\\RelayServer\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D6D8A376-AE46-4EA3-B6F7-75C94B3A128E}|RelayServer\\RelayServer.vcxproj|solutionrelative:RelayServer\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Types.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Types.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\pch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\pch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{45252FC9-A391-4BA3-8AEC-20C57CF655DC}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D6D8A376-AE46-4EA3-B6F7-75C94B3A128E}|RelayServer\\RelayServer.vcxproj|D:\\personal\\projects\\Github\\TermProject\\RelayServer\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -74,34 +74,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Types.h",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Types.h",
-              "RelativeDocumentMoniker": "ServerCore\\Types.h",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Types.h",
-              "RelativeToolTip": "ServerCore\\Types.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-23T08:59:54.332Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CorePch.cpp",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\CorePch.cpp",
-              "RelativeDocumentMoniker": "ServerCore\\CorePch.cpp",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\CorePch.cpp",
-              "RelativeToolTip": "ServerCore\\CorePch.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-23T08:59:22.924Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -112,12 +86,37 @@
               "RelativeToolTip": "ServerCore\\CorePch.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-23T08:59:20.05Z",
+              "WhenOpened": "2024-04-23T09:16:18.153Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "CorePch.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\CorePch.cpp",
+              "RelativeDocumentMoniker": "ServerCore\\CorePch.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\CorePch.cpp",
+              "RelativeToolTip": "ServerCore\\CorePch.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-23T09:15:55.51Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Types.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Types.h",
+              "RelativeDocumentMoniker": "ServerCore\\Types.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Types.h",
+              "RelativeToolTip": "ServerCore\\Types.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-23T08:59:54.332Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "pch.cpp",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\pch.cpp",
               "RelativeDocumentMoniker": "ServerCore\\pch.cpp",
@@ -125,12 +124,11 @@
               "RelativeToolTip": "ServerCore\\pch.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-23T08:58:50.886Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T08:58:50.886Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "pch.h",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\pch.h",
               "RelativeDocumentMoniker": "ServerCore\\pch.h",
@@ -138,8 +136,7 @@
               "RelativeToolTip": "ServerCore\\pch.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-23T08:58:36.094Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T08:58:36.094Z"
             },
             {
               "$type": "Document",
@@ -151,8 +148,7 @@
               "RelativeToolTip": "MatchServer\\pch.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-23T08:56:21.822Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T08:56:21.822Z"
             },
             {
               "$type": "Document",
@@ -164,8 +160,7 @@
               "RelativeToolTip": "DummyClient\\pch.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-23T08:56:15.849Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T08:56:15.849Z"
             },
             {
               "$type": "Document",
@@ -177,44 +172,43 @@
               "RelativeToolTip": "RelayServer\\pch.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-23T08:56:05.576Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T08:56:05.576Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "pch.h",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\pch.h",
               "RelativeDocumentMoniker": "DummyClient\\pch.h",
               "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\pch.h",
               "RelativeToolTip": "DummyClient\\pch.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAUAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-23T08:55:53.374Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "pch.h",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\MatchServer\\pch.h",
               "RelativeDocumentMoniker": "MatchServer\\pch.h",
               "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\MatchServer\\pch.h",
               "RelativeToolTip": "MatchServer\\pch.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAUAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-23T08:55:48.479Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "pch.h",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\RelayServer\\pch.h",
               "RelativeDocumentMoniker": "RelayServer\\pch.h",
               "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\RelayServer\\pch.h",
               "RelativeToolTip": "RelayServer\\pch.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAUAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-23T08:55:39.787Z",
               "EditorCaption": ""
@@ -229,8 +223,7 @@
               "RelativeToolTip": "RelayServer\\main.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-23T08:55:33.823Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T08:55:33.823Z"
             },
             {
               "$type": "Document",
@@ -242,8 +235,7 @@
               "RelativeToolTip": "MatchServer\\main.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-23T08:55:30.477Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T08:55:30.477Z"
             },
             {
               "$type": "Document",
@@ -255,8 +247,7 @@
               "RelativeToolTip": "DummyClient\\main.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-23T08:55:26.98Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-23T08:55:26.98Z"
             },
             {
               "$type": "Document",
