@@ -1,1 +1,5 @@
-﻿  Server.vcxproj -> D:\personal\Tetris\Binary\Debug\Server\Server.exe
+﻿  pch.cpp
+  db.cpp
+  main.cpp
+  코드를 생성하고 있습니다...
+  Server.vcxproj -> D:\personal\projects\Github\TermProject\Binary\Debug\Server\Server.exe
