@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Network">
+      <UniqueIdentifier>{a003e8e5-e1c7-47be-ab53-e637e43a69c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{a360c2b6-5217-4796-85e3-a4042c5d4037}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Session">
+      <UniqueIdentifier>{0ac6468c-8088-4019-906f-7e2dd4832d19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\PCH">
+      <UniqueIdentifier>{9f979880-3dec-48c0-8c6d-890b3f00e4c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Buffer">
+      <UniqueIdentifier>{51fac442-bad5-4aee-8556-e0ef1c701f9c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="OvlpCallback.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Session.cpp">
+      <Filter>Session</Filter>
+    </ClCompile>
+    <ClCompile Include="SessionManager.cpp">
+      <Filter>Session</Filter>
+    </ClCompile>
+    <ClCompile Include="CorePch.cpp">
+      <Filter>Utils\PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Utils\PCH</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="OvlpCallback.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Session.h">
+      <Filter>Session</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionManager.h">
+      <Filter>Session</Filter>
+    </ClInclude>
+    <ClInclude Include="CorePch.h">
+      <Filter>Utils\PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Utils\PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="Defines.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
