@@ -1,5 +1,7 @@
 #pragma once
 #include "pch.h"
+#include "Packet.h"
+#include "OvlpCallback.h"
 
 class Session {
 public:
@@ -12,17 +14,18 @@ public:
 
 public:
 	void Init(SOCKET socket, SOCKADDR_IN remoteAdr);
-	int Send();
+	int Send(Packet packet);
 	int Recv();
 
 private:
 	UINT32 _sessionID;
-	SOCKET _socket;
 	SOCKADDR_IN _remoteAdr;
+	SOCKET _socket;
 
 public:
-	WSABUF recvBuf, sendBuf;
 	DWORD sentBytes, recvBytes, flags;
+	WSABUF recvBuf, sendBuf;
+	
 
 
 };

@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "Session.h"
+#include "Packet.h"
+#include "OvlpCallback.h"
 
 Session::Session(int sessionID) 
 	: _sessionID(sessionID) {
@@ -20,7 +22,10 @@ void Session::Init(SOCKET socket, SOCKADDR_IN remoteAdr) {
 	//TODO: Receive Memory buffer from SendBuffer, RecvBuffer;
 }
 
-int Session::Send() {
+int Session::Send(Packet packet) {
+
+	
+
 	return 0;
 }
 

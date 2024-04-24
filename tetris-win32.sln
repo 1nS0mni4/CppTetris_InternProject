@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DummyClient", "DummyClient\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerCore", "ServerCore\ServerCore.vcxproj", "{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PacketGenerator", "PacketGenerator\PacketGenerator.vcxproj", "{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}.Release|x64.Build.0 = Release|x64
 		{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}.Release|x86.ActiveCfg = Release|Win32
 		{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}.Release|x86.Build.0 = Release|Win32
+		{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}.Debug|x64.ActiveCfg = Debug|x64
+		{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}.Debug|x64.Build.0 = Debug|x64
+		{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}.Debug|x86.ActiveCfg = Debug|Win32
+		{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}.Debug|x86.Build.0 = Debug|Win32
+		{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}.Release|x64.ActiveCfg = Release|x64
+		{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}.Release|x64.Build.0 = Release|x64
+		{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}.Release|x86.ActiveCfg = Release|Win32
+		{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

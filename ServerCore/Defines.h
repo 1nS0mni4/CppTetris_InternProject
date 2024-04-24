@@ -13,3 +13,7 @@ private:\
 	x(x& other) = delete;\
 	x& operator=(const x&& other) = delete;\
 	x(x&& other) = delete;
+
+
+#define SENDBUF_SIZE		65535
+#define RECVBUF_SIZE		65535

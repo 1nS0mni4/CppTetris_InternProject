@@ -1,19 +1,20 @@
-﻿  pch.cpp
-  CorePch.cpp
-  OvlpCallback.cpp
+﻿  OvlpCallback.cpp
+  Packet.cpp
+D:\Projects\Github\TermProject\ServerCore\OvlpCallback.cpp(24,16): warning C4101: 'hbInfo' :참조되지 않은 지역 변수입니다.
+  (소스 파일 '/OvlpCallback.cpp'을(를) 컴파일하는 중)
+  
+D:\Projects\Github\TermProject\ServerCore\OvlpCallback.cpp(22,18): warning C4101: 'lpOvlp' :참조되지 않은 지역 변수입니다.
+  (소스 파일 '/OvlpCallback.cpp'을(를) 컴파일하는 중)
+  
+D:\Projects\Github\TermProject\ServerCore\OvlpCallback.cpp(116,8): warning C4101: 'sendBytes' :참조되지 않은 지역 변수입니다.
+  (소스 파일 '/OvlpCallback.cpp'을(를) 컴파일하는 중)
+  
+D:\Projects\Github\TermProject\ServerCore\OvlpCallback.cpp(140,8): warning C4101: 'recvBytes' :참조되지 않은 지역 변수입니다.
+  (소스 파일 '/OvlpCallback.cpp'을(를) 컴파일하는 중)
+  
+  RecvBuffer.cpp
+  SendBuffer.cpp
   Session.cpp
   SessionManager.cpp
-D:\personal\projects\Github\TermProject\ServerCore\OvlpCallback.cpp(23,16): warning C4101: 'hbInfo' :참조되지 않은 지역 변수입니다.
-  (소스 파일 '/OvlpCallback.cpp'을(를) 컴파일하는 중)
-  
-D:\personal\projects\Github\TermProject\ServerCore\OvlpCallback.cpp(21,18): warning C4101: 'lpOvlp' :참조되지 않은 지역 변수입니다.
-  (소스 파일 '/OvlpCallback.cpp'을(를) 컴파일하는 중)
-  
-D:\personal\projects\Github\TermProject\ServerCore\OvlpCallback.cpp(115,8): warning C4101: 'sendBytes' :참조되지 않은 지역 변수입니다.
-  (소스 파일 '/OvlpCallback.cpp'을(를) 컴파일하는 중)
-  
-D:\personal\projects\Github\TermProject\ServerCore\OvlpCallback.cpp(138,8): warning C4101: 'recvBytes' :참조되지 않은 지역 변수입니다.
-  (소스 파일 '/OvlpCallback.cpp'을(를) 컴파일하는 중)
-  
   코드를 생성하고 있습니다...
-  ServerCore.vcxproj -> D:\personal\projects\Github\TermProject\Libraries\Debug\ServerCore.lib
+  ServerCore.vcxproj -> D:\Projects\Github\TermProject\Libraries\Debug\ServerCore.lib

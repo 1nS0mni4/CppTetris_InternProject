@@ -16,6 +16,9 @@
     <Filter Include="Utils\Buffer">
       <UniqueIdentifier>{51fac442-bad5-4aee-8556-e0ef1c701f9c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Packet">
+      <UniqueIdentifier>{a4e82ed4-2c19-41a7-a42b-a8ccc81d6cda}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OvlpCallback.cpp">
@@ -32,6 +35,15 @@
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Utils\PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="Packet.cpp">
+      <Filter>Packet</Filter>
+    </ClCompile>
+    <ClCompile Include="RecvBuffer.cpp">
+      <Filter>Utils\Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="SendBuffer.cpp">
+      <Filter>Utils\Buffer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +64,15 @@
     </ClInclude>
     <ClInclude Include="Defines.h">
       <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
+    <ClInclude Include="RecvBuffer.h">
+      <Filter>Utils\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="SendBuffer.h">
+      <Filter>Utils\Buffer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

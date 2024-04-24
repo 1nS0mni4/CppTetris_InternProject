@@ -6,6 +6,7 @@ OvlpCallback::OvlpCallback() {
 	//for(int i = 0; i < 100; i++){
 	//	_ovlpPool.push(new WSAOVERLAPPED);
 	//}
+	//TODO: 아마 싱글턴이 나을듯.
 }
 
 OvlpCallback::~OvlpCallback() {
@@ -128,6 +129,7 @@ void CALLBACK OvlpCallback::RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LP
 
 		//WSASend(hSock, bufInfo, 1, &sendBytes, 0, lpOverlapped, SendCompRoutine);
 		WSARecv(hSock, bufInfo, 1, &(hbInfo->recvBytes), &(hbInfo->flags), lpOverlapped, RecvCompRoutine);
+		//TODO: Session으로 옮기기
 	}
 }
 
@@ -139,6 +141,8 @@ void CALLBACK OvlpCallback::SendCompRoutine(DWORD dwError, DWORD szRecvBytes, LP
 	DWORD flagInfo = 0;
 
 	WSARecv(hSock, bufInfo, 1, &(hbInfo->recvBytes), &(hbInfo->flags), lpOverlapped, RecvCompRoutine);
+
+	//TODO: Session으로 옮기기
 }
 
 void OvlpCallback::ErrorHandling(const char* message) {
