@@ -7,4 +7,3 @@
 #endif
 
 #include "CorePch.h"
-#undef _SERVER_

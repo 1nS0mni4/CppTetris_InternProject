@@ -1,17 +1,18 @@
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
+
 #include "pch.h"
+#include "ClientSession.h"
 #include "OvlpCallback.h"
 
 int main(int argc, char* argv[]) {
-	OvlpCallback& netMod = OvlpCallback::GetInstance();
 
-	if (netMod.Start() == SOCKET_ERROR)
+	if (OvlpCallback::GetInstance().Start() == SOCKET_ERROR)
 		return -1;
 
-	if (netMod.BindnListen("127.0.0.1", 9190) == -1)
+	if (OvlpCallback::GetInstance().BindnListen("127.0.0.1", 9190) == -1)
 		return -1;
 
-	std::thread t1(&OvlpCallback::AcceptLoop, &netMod);
+	std::thread t1(&OvlpCallback::AcceptLoop<ClientSession>, &OvlpCallback::GetInstance());
 
 	std::string input;
 
@@ -23,7 +24,8 @@ int main(int argc, char* argv[]) {
 
 		//TODO: 콘솔 커맨드 기능 추가
 	}
-	netMod.Close();
+
+	OvlpCallback::GetInstance().Close();
 	t1.join();
 
 	std::cout << "Server Closed" << std::endl;

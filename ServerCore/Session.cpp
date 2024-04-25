@@ -42,7 +42,6 @@ void Session::Disconnect() {
 	shutdown(_socket, SD_BOTH);
 	closesocket(_socket);
 	Clear();
-	SessionManager::GetInstance().RemoveSession(_sessionID);
 }
 
 void Session::Clear() {
@@ -50,25 +49,6 @@ void Session::Clear() {
 	memset(&_remoteAdr, 0, sizeof(_remoteAdr));
 	memset(recvBuf, 0, SESSION_RECVBUF_SIZE);
 	_read = _write = 0;
-}
-
-template <typename T>
-int Session::Send(T packet) {
-	int size = 0;
-	Segment seg = SendBuffer::GetInstance().write(packet, size);
-
-	{
-		lock_guard<std::mutex> guard(sendMtx);
-		WSABUF buf;
-		buf.buf = seg;
-		buf.len = size;
-		sPending.push(buf);
-	}
-	
-	if (sPending.size() <= 1)
-		SendSegment();
-
-	return size;
 }
 
 void Session::SendSegment() {

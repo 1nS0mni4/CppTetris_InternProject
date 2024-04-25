@@ -10,6 +10,9 @@
     <Filter Include="Packet">
       <UniqueIdentifier>{48d50ab1-db8c-4839-b95d-b59e764ac656}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Session">
+      <UniqueIdentifier>{9a48bff5-1a14-45e7-af82-06c60dfcfb43}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -22,11 +25,13 @@
       <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="ServerPacketHandler.cpp" />
+    <ClCompile Include="ClientSession.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Utils</Filter>
     </ClInclude>
     <ClInclude Include="ServerPacketHandler.h" />
+    <ClInclude Include="ClientSession.h" />
   </ItemGroup>
 </Project>

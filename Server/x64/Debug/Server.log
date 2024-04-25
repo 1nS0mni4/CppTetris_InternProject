@@ -1,2 +1,19 @@
-﻿  ServerPacketHandler.cpp
-  Server.vcxproj -> D:\personal\projects\Github\TermProject\Binary\Debug\Server\Server.exe
+﻿  ClientSession.cpp
+  main.cpp
+D:\Projects\Github\TermProject\ServerCore\SessionManager.h(57,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  D:\Projects\Github\TermProject\ServerCore\SessionManager.h(57,11):
+  템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+  	D:\Projects\Github\TermProject\Server\main.cpp(15,87):
+  	컴파일되는 함수 템플릿 인스턴스화 'void OvlpCallback::AcceptLoop<ClientSession>(void)'에 대한 참조를 확인하세요.
+  	D:\Projects\Github\TermProject\ServerCore\OvlpCallback.h(32,2):
+  	컴파일되는 클래스 템플릿 인스턴스화 'SessionManager<ClientSession>'에 대한 참조를 확인하세요.
+  	D:\Projects\Github\TermProject\ServerCore\SessionManager.h(56,7):
+  	클래스 템플릿 멤버 함수 'void SessionManager<ClientSession>::AddSession(int)'을(를) 컴파일하는 중입니다.
+  		D:\Projects\Github\TermProject\ServerCore\SessionManager.h(39,15):
+  		'SessionManager<ClientSession>::CreateSession'에서 'SessionManager<ClientSession>::AddSession'에 대한 첫 번째 참조를 확인하세요.
+  		D:\Projects\Github\TermProject\ServerCore\OvlpCallback.h(48,21):
+  		'OvlpCallback::AcceptLoop'에서 'SessionManager<ClientSession>::CreateSession'에 대한 첫 번째 참조를 확인하세요.
+  
+  코드를 생성하고 있습니다...
+  Server.vcxproj -> D:\Projects\Github\TermProject\Binary\Debug\Server\Server.exe

@@ -2,10 +2,10 @@
   DrawEngine.cpp
   Game.cpp
   Level.cpp
-D:\personal\projects\Github\TermProject\tetris-win32-master\src\Level.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
-D:\personal\projects\Github\TermProject\tetris-win32-master\src\Level.cpp(7,15): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\tetris-win32-master\src\Level.cpp(1,1): warning C4819: 현재 코드 페이지(949)에서 표시할 수 없는 문자가 파일에 들어 있습니다. 데이터가 손실되지 않게 하려면 해당 파일을 유니코드 형식으로 저장하십시오.
+D:\Projects\Github\TermProject\tetris-win32-master\src\Level.cpp(7,15): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   main.cpp
   Piece.cpp
   PieceSet.cpp
   코드를 생성하고 있습니다...
-  tetris-win32.vcxproj -> D:\personal\projects\Github\TermProject\Binary\Debug\Tetris\tetris-win32.exe
+  tetris-win32.vcxproj -> D:\Projects\Github\TermProject\Binary\Debug\Tetris\tetris-win32.exe

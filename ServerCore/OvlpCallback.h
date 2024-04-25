@@ -1,36 +1,13 @@
 #pragma once
 #include "pch.h"
 #include "Defines.h"
-#include "CorePch.h"
+#include "Session.h"
+#include "SessionManager.h"
 
 #define BUF_SIZE 1024
 
 class OvlpCallback {
 	SINGLETON(OvlpCallback);
-
-protected:
-	class OvlpPool {	
-	private:
-		std::queue<LPWSAOVERLAPPED> _ovlpPool;
-		//TODO: vector로 바꾸는게 나을듯
-
-	public:
-		OvlpPool(int poolCnt) {
-
-		}
-		~OvlpPool() {
-
-		}
-
-		LPWSAOVERLAPPED get() {
-
-		}
-
-		void release(LPWSAOVERLAPPED released) {
-
-		}
-
-	};
 
 private:
 	typedef struct {
@@ -45,19 +22,40 @@ private:
 public:
 	int Start();
 
-#ifdef _SERVER_
+
 	int BindnListen(std::string ipAddress,
 					USHORT port,
 					int backlog = 5);
-	void AcceptLoop();
 
-#endif
 
-#ifdef _CLIENT_
+	template <typename T = Session>
+	void AcceptLoop() {
+		while (!_isClosed) {
+			int recvAdrSz = sizeof(_remoteAdr);
+
+			SleepEx(100, TRUE);
+			_remoteSock = ::accept(_localSock, (SOCKADDR*)&_remoteAdr, &recvAdrSz);
+			if (_remoteSock == INVALID_SOCKET) {
+				if (WSAGetLastError() != WSAEWOULDBLOCK)
+					ErrorHandling("::accept() error");
+
+				continue;
+			}
+
+			puts("client connected");
+
+
+			Session* session = SessionManager<T>::GetInstance().CreateSession();
+
+			session->Init(_remoteSock, _remoteAdr);
+			session->Recv();
+		}
+	}
+
 	int Connect(ADDRESS_FAMILY family,
 				std::string remoteIpAddress,
 				USHORT rmPort);
-#endif
+
 
 	void Close();
 

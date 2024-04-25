@@ -1,16 +1,11 @@
 ﻿  OvlpCallback.cpp
-D:\personal\projects\Github\TermProject\ServerCore\OvlpCallback.cpp(25,16): warning C4101: 'hbInfo' :참조되지 않은 지역 변수입니다.
+D:\Projects\Github\TermProject\ServerCore\OvlpCallback.cpp(19,16): warning C4101: 'hbInfo' :참조되지 않은 지역 변수입니다.
   (소스 파일 '/OvlpCallback.cpp'을(를) 컴파일하는 중)
   
-D:\personal\projects\Github\TermProject\ServerCore\OvlpCallback.cpp(23,18): warning C4101: 'lpOvlp' :참조되지 않은 지역 변수입니다.
+D:\Projects\Github\TermProject\ServerCore\OvlpCallback.cpp(17,18): warning C4101: 'lpOvlp' :참조되지 않은 지역 변수입니다.
   (소스 파일 '/OvlpCallback.cpp'을(를) 컴파일하는 중)
   
-  PacketHandler.cpp
-  SendBuffer.cpp
   Session.cpp
   SessionManager.cpp
-D:\personal\projects\Github\TermProject\ServerCore\SessionManager.cpp(25,21): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/SessionManager.cpp'을(를) 컴파일하는 중)
-  
   코드를 생성하고 있습니다...
-  ServerCore.vcxproj -> D:\personal\projects\Github\TermProject\Libraries\Debug\ServerCore.lib
+  ServerCore.vcxproj -> D:\Projects\Github\TermProject\Libraries\Debug\ServerCore.lib

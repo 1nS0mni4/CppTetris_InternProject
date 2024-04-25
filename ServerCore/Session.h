@@ -1,7 +1,7 @@
 #pragma once
 #include "pch.h"
 #include "Packet.h"
-#include "OvlpCallback.h"
+#include "SendBuffer.h"
 
 #define SESSION_RECVBUF_SIZE		1024
 
@@ -39,10 +39,26 @@ public:
 	void Init(SOCKET socket, SOCKADDR_IN remoteAdr);
 
 	template <typename T = Packet>
-	int Send(T packet);
+	int Send(T packet) {
+		int size = 0;
+		Segment seg = SendBuffer::GetInstance().write(packet, size);
+
+		{
+			lock_guard<std::mutex> guard(sendMtx);
+			WSABUF buf;
+			buf.buf = seg;
+			buf.len = size;
+			sPending.push(buf);
+		}
+
+		if (sPending.size() <= 1)
+			SendSegment();
+
+		return size;
+	}
 	void Recv();
 	
-	void Disconnect();
+	virtual void Disconnect();
 	void Clear();
 
 	static void CALLBACK RecvCompRoutine(DWORD, DWORD, LPWSAOVERLAPPED, DWORD);
@@ -59,7 +75,7 @@ protected:
 	/**********************************************************
 				[Internal Use Purpose Variables]
 	***********************************************************/
-private:
+protected:
 	UINT32 _sessionID;
 	SOCKADDR_IN _remoteAdr;
 	SOCKET _socket;

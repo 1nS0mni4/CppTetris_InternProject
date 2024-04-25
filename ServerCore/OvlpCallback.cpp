@@ -3,19 +3,13 @@
 #include "OvlpCallback.h"
 #include "SessionManager.h"
 
+
 OvlpCallback::OvlpCallback() {
-	//for(int i = 0; i < 100; i++){
-	//	_ovlpPool.push(new WSAOVERLAPPED);
-	//}
-	//TODO: 아마 싱글턴이 나을듯.
+
 }
 
 OvlpCallback::~OvlpCallback() {
-	//while (_ovlpPool.empty() != false) {
-	//	LPWSAOVERLAPPED ovlp = _ovlpPool.front();
-	//	_ovlpPool.pop();
-	//	delete ovlp;
-	//}
+
 }
 
 int OvlpCallback::Start() {
@@ -37,7 +31,7 @@ int OvlpCallback::Start() {
 
 	return 0;
 }
-#ifdef _SERVER_
+
 int OvlpCallback::BindnListen(std::string ipAddress, USHORT port, int backlog) {
 	memset(&_localAdr, 0, sizeof(_localAdr));
 	_localAdr.sin_family = AF_INET;
@@ -56,9 +50,7 @@ int OvlpCallback::BindnListen(std::string ipAddress, USHORT port, int backlog) {
 
 	return 0;
 }
-#endif
 
-#ifdef _CLIENT_
 int OvlpCallback::Connect(ADDRESS_FAMILY family, std::string remoteIpAddress, USHORT rmPort) {
 	memset(&_remoteAdr, 0, sizeof(_remoteAdr));
 	_remoteAdr.sin_family = family;
@@ -71,27 +63,6 @@ int OvlpCallback::Connect(ADDRESS_FAMILY family, std::string remoteIpAddress, US
 	}
 
 	return 0;
-}
-#endif
-void OvlpCallback::AcceptLoop() {
-	while (!_isClosed) {
-		int recvAdrSz = sizeof(_remoteAdr);
-
-		SleepEx(100, TRUE);
-		_remoteSock = ::accept(_localSock, (SOCKADDR*)&_remoteAdr, &recvAdrSz);
-		if (_remoteSock == INVALID_SOCKET) {
-			if (WSAGetLastError() != WSAEWOULDBLOCK)
-				ErrorHandling("::accept() error");
-
-			continue;
-		}
-
-		puts("client connected");
-
-		Session* session = SessionManager::GetInstance().CreateSession();
-		session->Init(_remoteSock, _remoteAdr);
-		session->Recv();
-	}
 }
 
 void OvlpCallback::Close() {

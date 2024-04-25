@@ -1,4 +1,5 @@
-D:\personal\projects\Github\TermProject\Server\db.cpp;D:\personal\projects\Github\TermProject\Server\x64\Debug\db.obj
-D:\personal\projects\Github\TermProject\Server\main.cpp;D:\personal\projects\Github\TermProject\Server\x64\Debug\main.obj
-D:\personal\projects\Github\TermProject\Server\pch.cpp;D:\personal\projects\Github\TermProject\Server\x64\Debug\pch.obj
-D:\personal\projects\Github\TermProject\Server\ServerPacketHandler.cpp;D:\personal\projects\Github\TermProject\Server\x64\Debug\ServerPacketHandler.obj
+D:\Projects\Github\TermProject\Server\ClientSession.cpp;D:\Projects\Github\TermProject\Server\x64\Debug\ClientSession.obj
+D:\Projects\Github\TermProject\Server\db.cpp;D:\Projects\Github\TermProject\Server\x64\Debug\db.obj
+D:\Projects\Github\TermProject\Server\main.cpp;D:\Projects\Github\TermProject\Server\x64\Debug\main.obj
+D:\Projects\Github\TermProject\Server\pch.cpp;D:\Projects\Github\TermProject\Server\x64\Debug\pch.obj
+D:\Projects\Github\TermProject\Server\ServerPacketHandler.cpp;D:\Projects\Github\TermProject\Server\x64\Debug\ServerPacketHandler.obj
