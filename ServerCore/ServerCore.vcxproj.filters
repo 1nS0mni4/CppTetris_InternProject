@@ -42,7 +42,9 @@
     <ClCompile Include="SendBuffer.cpp">
       <Filter>Utils\Buffer</Filter>
     </ClCompile>
-    <ClCompile Include="PacketHandler.cpp" />
+    <ClCompile Include="PacketHandler.cpp">
+      <Filter>Packet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OvlpCallback.h">
@@ -69,6 +71,8 @@
     <ClInclude Include="SendBuffer.h">
       <Filter>Utils\Buffer</Filter>
     </ClInclude>
-    <ClInclude Include="PacketHandler.h" />
+    <ClInclude Include="PacketHandler.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

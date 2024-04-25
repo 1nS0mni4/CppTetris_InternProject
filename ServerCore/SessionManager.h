@@ -11,15 +11,15 @@ public:
 		return instance;
 	}
 
-private:
+protected:
 	SessionManager() {
 
 	}
-	~SessionManager(){
+	virtual ~SessionManager(){
 		_sessions.clear();
 	}
 
-private:
+protected:
 	atomic<int> _sessionCnt;
 	std::mutex _mutex;
 
@@ -52,7 +52,7 @@ public:
 		_sessionCnt--;
 	}
 
-private:
+protected:
 	void AddSession(int count) {
 		int idx = _sessions.size();
 		for (int i = idx; i <= idx + count; i++) {
@@ -61,7 +61,7 @@ private:
 		}
 	}
 
-private:
+protected:
 	vector<T*> _sessions;
 	priority_queue<int, vector<int>, less<int>> _onClosed;
 

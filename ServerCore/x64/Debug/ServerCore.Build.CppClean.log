@@ -2,13 +2,13 @@ d:\projects\github\termproject\servercore\x64\debug\servercore.pch
 d:\projects\github\termproject\libraries\debug\servercore.pdb
 d:\projects\github\termproject\libraries\debug\servercore.idb
 d:\projects\github\termproject\servercore\x64\debug\pch.obj
-d:\projects\github\termproject\servercore\x64\debug\sendbuffer.obj
-d:\projects\github\termproject\servercore\x64\debug\packet.obj
-d:\projects\github\termproject\servercore\x64\debug\corepch.obj
 d:\projects\github\termproject\servercore\x64\debug\sessionmanager.obj
 d:\projects\github\termproject\servercore\x64\debug\session.obj
+d:\projects\github\termproject\servercore\x64\debug\sendbuffer.obj
 d:\projects\github\termproject\servercore\x64\debug\packethandler.obj
+d:\projects\github\termproject\servercore\x64\debug\packet.obj
 d:\projects\github\termproject\servercore\x64\debug\ovlpcallback.obj
+d:\projects\github\termproject\servercore\x64\debug\corepch.obj
 d:\projects\github\termproject\libraries\debug\servercore.lib
 d:\projects\github\termproject\servercore\x64\debug\servercore.tlog\cl.command.1.tlog
 d:\projects\github\termproject\servercore\x64\debug\servercore.tlog\cl.items.tlog

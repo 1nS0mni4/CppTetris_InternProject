@@ -2,14 +2,21 @@
 #include "ServerPacketHandler.h"
 
 ServerPacketHandler::ServerPacketHandler() {
-
+	Init();
 }
 
 ServerPacketHandler::~ServerPacketHandler() {
 
 }
 
-int ServerPacketHandler::HandlePacket(Session* session, Packet* packet, USHORT packetID) {
-	return -1;
+void ServerPacketHandler::HandlePacket(Session* session, Packet packet, USHORT packetID) {
+	
 }
 
+void ServerPacketHandler::Init() {
+
+}
+
+void ServerPacketHandler::Register() {
+
+}

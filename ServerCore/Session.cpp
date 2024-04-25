@@ -100,7 +100,8 @@ void CALLBACK Session::RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOV
 		size = packet.Read(segment);
 
 		PacketHandler::GetInstance().HandlePacket(session, &packet, packet.packetID());
-		//TODO: 처리 루틴 추가
+		
+		session->OnRecv(packet, packet.size());
 
 		std::cout << "Received: " << bufInfo->buf << '\n';
 		szRecvBytes -= size;

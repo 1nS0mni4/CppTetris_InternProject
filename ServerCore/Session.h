@@ -71,6 +71,12 @@ protected:
 	void SendSegment();
 	void OrganizeRecvBuf(int offset, int size);
 
+public:
+	virtual void OnSend() = 0;
+	virtual void OnRecv(Packet packet, USHORT packetID) = 0;
+	virtual void OnConnect() = 0;
+	virtual void OnDisconnect() = 0;
+
 
 	/**********************************************************
 				[Internal Use Purpose Variables]

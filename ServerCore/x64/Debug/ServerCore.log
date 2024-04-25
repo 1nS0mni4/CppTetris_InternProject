@@ -5,6 +5,7 @@ D:\Projects\Github\TermProject\ServerCore\OvlpCallback.cpp(19,16): warning C4101
 D:\Projects\Github\TermProject\ServerCore\OvlpCallback.cpp(17,18): warning C4101: 'lpOvlp' :참조되지 않은 지역 변수입니다.
   (소스 파일 '/OvlpCallback.cpp'을(를) 컴파일하는 중)
   
+  PacketHandler.cpp
   Session.cpp
   SessionManager.cpp
   코드를 생성하고 있습니다...

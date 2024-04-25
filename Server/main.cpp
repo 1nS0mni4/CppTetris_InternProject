@@ -3,6 +3,7 @@
 #include "pch.h"
 #include "ClientSession.h"
 #include "OvlpCallback.h"
+#include "PacketQueue.h"
 
 int main(int argc, char* argv[]) {
 
@@ -12,8 +13,9 @@ int main(int argc, char* argv[]) {
 	if (OvlpCallback::GetInstance().BindnListen("127.0.0.1", 9190) == -1)
 		return -1;
 
-	std::thread t1(&OvlpCallback::AcceptLoop<ClientSession>, &OvlpCallback::GetInstance());
-
+	std::thread packetFetchLoop(&PacketQueue::Flush, &PacketQueue::GetInstance());
+	std::thread acceptLoop(&OvlpCallback::AcceptLoop<ClientSession>, &OvlpCallback::GetInstance());
+	
 	std::string input;
 
 	while (true) {
@@ -26,7 +28,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	OvlpCallback::GetInstance().Close();
-	t1.join();
+	acceptLoop.join();
 
 	std::cout << "Server Closed" << std::endl;
 
