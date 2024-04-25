@@ -7,6 +7,9 @@
     <Filter Include="Utils">
       <UniqueIdentifier>{316a1add-083c-4dd9-8a2e-25ce9cdd2af8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Packet">
+      <UniqueIdentifier>{48d50ab1-db8c-4839-b95d-b59e764ac656}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,10 +21,12 @@
     <ClCompile Include="db.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="ServerPacketHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="ServerPacketHandler.h" />
   </ItemGroup>
 </Project>

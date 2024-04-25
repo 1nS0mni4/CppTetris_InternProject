@@ -6,7 +6,7 @@
 		return instance;\
 	}\
 \
-private:\
+protected:\
 	x();\
 	virtual ~x();\
 	x& operator=(const x& other) = delete;\
@@ -14,6 +14,8 @@ private:\
 	x& operator=(const x&& other) = delete;\
 	x(x&& other) = delete;
 
+
+#define INIT_SESSION_COUNT	100
 
 #define SENDBUF_SIZE		65535
 #define RECVBUF_SIZE		65535

@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Session.h"
 #include "OvlpCallback.h"
+#include "SessionManager.h"
 
 OvlpCallback::OvlpCallback() {
 	//for(int i = 0; i < 100; i++){
@@ -87,18 +88,9 @@ void OvlpCallback::AcceptLoop() {
 
 		puts("client connected");
 
-		LPWSAOVERLAPPED lpOvlp = (LPWSAOVERLAPPED)malloc(sizeof(WSAOVERLAPPED));
-		memset(lpOvlp, 0, sizeof(WSAOVERLAPPED));
-
-		LPPER_IO_DATA hbInfo = (LPPER_IO_DATA)malloc(sizeof(PER_IO_DATA));
-		hbInfo->hSocket = _remoteSock;
-		(hbInfo->wsaBuf).buf = hbInfo->buf;
-		(hbInfo->wsaBuf).len = BUF_SIZE;
-		hbInfo->recvBytes = hbInfo->sentBytes = 0;
-		hbInfo->flags = 0;
-		
-		lpOvlp->hEvent = (HANDLE)hbInfo;
-		WSARecv(_remoteSock, &(hbInfo->wsaBuf), 1, &(hbInfo->recvBytes), &(hbInfo->flags), lpOvlp, RecvCompRoutine);
+		Session* session = SessionManager::GetInstance().CreateSession();
+		session->Init(_remoteSock, _remoteAdr);
+		session->Recv();
 	}
 }
 
@@ -107,42 +99,6 @@ void OvlpCallback::Close() {
 	closesocket(_remoteSock);
 	closesocket(_localSock);
 	WSACleanup();
-}
-
-void CALLBACK OvlpCallback::RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOVERLAPPED lpOverlapped, DWORD flags) {
-	LPPER_IO_DATA hbInfo = (LPPER_IO_DATA)lpOverlapped->hEvent;
-	SOCKET hSock = hbInfo->hSocket;
-	LPWSABUF bufInfo = &(hbInfo->wsaBuf);
-	DWORD sendBytes;
-
-	if (szRecvBytes == 0) {
-		closesocket(hSock);
-		free(lpOverlapped->hEvent); free(lpOverlapped);
-		puts("Client disconnected...");
-	}
-	else {
-		bufInfo->len = szRecvBytes;
-
-		//TODO: 처리 루틴 추가
-
-		std::cout << "Received: " << bufInfo->buf << '\n';
-
-		//WSASend(hSock, bufInfo, 1, &sendBytes, 0, lpOverlapped, SendCompRoutine);
-		WSARecv(hSock, bufInfo, 1, &(hbInfo->recvBytes), &(hbInfo->flags), lpOverlapped, RecvCompRoutine);
-		//TODO: Session으로 옮기기
-	}
-}
-
-void CALLBACK OvlpCallback::SendCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOVERLAPPED lpOverlapped, DWORD flags) {
-	LPPER_IO_DATA hbInfo = (LPPER_IO_DATA)lpOverlapped->hEvent;
-	SOCKET hSock = hbInfo->hSocket;
-	LPWSABUF bufInfo = &(hbInfo->wsaBuf);
-	DWORD recvBytes;
-	DWORD flagInfo = 0;
-
-	WSARecv(hSock, bufInfo, 1, &(hbInfo->recvBytes), &(hbInfo->flags), lpOverlapped, RecvCompRoutine);
-
-	//TODO: Session으로 옮기기
 }
 
 void OvlpCallback::ErrorHandling(const char* message) {

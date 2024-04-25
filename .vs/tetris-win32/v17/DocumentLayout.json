@@ -3,8 +3,76 @@
   "WorkspaceRootPath": "D:\\personal\\projects\\Github\\TermProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\ServerPacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Session.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\ServerPacketHandler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\OvlpCallback.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\PERSONAL\\PROJECTS\\GITHUB\\TERMPROJECT\\SERVERCORE\\PACKETHANDLER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:SERVERCORE\\PACKETHANDLER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\PERSONAL\\PROJECTS\\GITHUB\\TERMPROJECT\\SERVERCORE\\DEFINES.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:SERVERCORE\\DEFINES.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\PacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\PacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\SessionManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\SessionManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Session.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\SessionManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\SessionManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Packet.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\SendBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\SendBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Packet.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\OvlpCallback.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\SendBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\SendBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}|PacketGenerator\\PacketGenerator.vcxproj|D:\\personal\\projects\\Github\\TermProject\\PacketGenerator\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}|PacketGenerator\\PacketGenerator.vcxproj|solutionrelative:PacketGenerator\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +82,246 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "pch.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\pch.h",
+              "RelativeDocumentMoniker": "ServerCore\\pch.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\pch.h",
+              "RelativeToolTip": "ServerCore\\pch.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-25T06:26:57.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Defines.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Defines.h",
+              "RelativeDocumentMoniker": "ServerCore\\Defines.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Defines.h",
+              "RelativeToolTip": "ServerCore\\Defines.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-25T05:41:39.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SessionManager.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\SessionManager.h",
+              "RelativeDocumentMoniker": "ServerCore\\SessionManager.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\SessionManager.h",
+              "RelativeToolTip": "ServerCore\\SessionManager.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-25T00:42:17.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Packet.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.h",
+              "RelativeDocumentMoniker": "ServerCore\\Packet.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.h",
+              "RelativeToolTip": "ServerCore\\Packet.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-25T00:40:28.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Session.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.h",
+              "RelativeDocumentMoniker": "ServerCore\\Session.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.h",
+              "RelativeToolTip": "ServerCore\\Session.h",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-25T03:10:13.091Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ServerPacketHandler.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.h",
+              "RelativeDocumentMoniker": "Server\\ServerPacketHandler.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.h",
+              "RelativeToolTip": "Server\\ServerPacketHandler.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-25T09:29:23.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PacketHandler.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\PacketHandler.h",
+              "RelativeDocumentMoniker": "ServerCore\\PacketHandler.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\PacketHandler.h",
+              "RelativeToolTip": "ServerCore\\PacketHandler.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-25T06:20:04.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "OvlpCallback.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.h",
+              "RelativeDocumentMoniker": "ServerCore\\OvlpCallback.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.h",
+              "RelativeToolTip": "ServerCore\\OvlpCallback.h",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAewCgAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-25T00:46:32.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "SendBuffer.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\SendBuffer.cpp",
+              "RelativeDocumentMoniker": "ServerCore\\SendBuffer.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\SendBuffer.cpp",
+              "RelativeToolTip": "ServerCore\\SendBuffer.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-25T01:12:53.007Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ServerPacketHandler.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.cpp",
+              "RelativeDocumentMoniker": "Server\\ServerPacketHandler.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.cpp",
+              "RelativeToolTip": "Server\\ServerPacketHandler.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-25T09:30:04.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PacketHandler.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\PacketHandler.cpp",
+              "RelativeDocumentMoniker": "ServerCore\\PacketHandler.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\PacketHandler.cpp",
+              "RelativeToolTip": "ServerCore\\PacketHandler.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-25T09:23:23.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\main.cpp",
               "RelativeDocumentMoniker": "Server\\main.cpp",
               "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\main.cpp",
               "RelativeToolTip": "Server\\main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAJAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-24T09:58:46.966Z",
+              "WhenOpened": "2024-04-25T06:48:40.403Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SendBuffer.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\SendBuffer.h",
+              "RelativeDocumentMoniker": "ServerCore\\SendBuffer.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\SendBuffer.h",
+              "RelativeToolTip": "ServerCore\\SendBuffer.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-25T02:02:04.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Session.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp",
+              "RelativeDocumentMoniker": "ServerCore\\Session.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp",
+              "RelativeToolTip": "ServerCore\\Session.cpp",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAwwGcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-25T00:41:04.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OvlpCallback.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.cpp",
+              "RelativeDocumentMoniker": "ServerCore\\OvlpCallback.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.cpp",
+              "RelativeToolTip": "ServerCore\\OvlpCallback.cpp",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAEIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-25T01:12:47.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Packet.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.cpp",
+              "RelativeDocumentMoniker": "ServerCore\\Packet.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.cpp",
+              "RelativeToolTip": "ServerCore\\Packet.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-25T00:40:31.494Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SessionManager.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\SessionManager.cpp",
+              "RelativeDocumentMoniker": "ServerCore\\SessionManager.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\SessionManager.cpp",
+              "RelativeToolTip": "ServerCore\\SessionManager.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-25T00:42:36.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "main.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\PacketGenerator\\main.cpp",
+              "RelativeDocumentMoniker": "PacketGenerator\\main.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\PacketGenerator\\main.cpp",
+              "RelativeToolTip": "PacketGenerator\\main.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-25T02:23:23.256Z",
               "EditorCaption": ""
             }
           ]

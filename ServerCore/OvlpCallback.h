@@ -9,10 +9,10 @@ class OvlpCallback {
 	SINGLETON(OvlpCallback);
 
 protected:
-	class OvlpPool {
+	class OvlpPool {	
 	private:
 		std::queue<LPWSAOVERLAPPED> _ovlpPool;
-
+		//TODO: vector로 바꾸는게 나을듯
 
 	public:
 		OvlpPool(int poolCnt) {
@@ -62,8 +62,7 @@ public:
 	void Close();
 
 public:
-	static void CALLBACK RecvCompRoutine(DWORD, DWORD, LPWSAOVERLAPPED, DWORD);
-	static void CALLBACK SendCompRoutine(DWORD, DWORD, LPWSAOVERLAPPED, DWORD);
+
 	void ErrorHandling(const char* message);
 
 private:

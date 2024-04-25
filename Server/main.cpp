@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
 		if (strcmp(input.c_str(), "quit") == 0 || strcmp(input.c_str(), "Quit") == 0)
 			break;
 
-		//TODO: console commands
+		//TODO: 콘솔 커맨드 기능 추가
 	}
 	netMod.Close();
 	t1.join();

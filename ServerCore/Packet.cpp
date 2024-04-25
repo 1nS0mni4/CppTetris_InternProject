@@ -2,7 +2,8 @@
 #include "Packet.h"
 
 
-Packet::Packet(USHORT packetID) : _packetID(packetID), _size(0) { }
+Packet::Packet() : _packetID(0), _size(0) {}
+Packet::Packet(PacketType packetID) : _packetID((USHORT)packetID), _size(0) { }
 Packet::~Packet() { }
 
 int Packet::Read(char* segment) {
@@ -57,7 +58,7 @@ TestPacket::~TestPacket() { }
 int TestPacket::Read(char* segment) {
 	int offset = Packet::Read(segment);
 
-	_data = *Packet::getSegment<int>(segment, offset, sizeof(int));
+	data = *Packet::getSegment<int>(segment, offset, sizeof(int));
 
 	return offset;
 }
@@ -65,7 +66,7 @@ int TestPacket::Read(char* segment) {
 int TestPacket::Write(char* buffer) {
 	int offset = Packet::Write(buffer);
 
-	*Packet::getSegment<int>(buffer, offset, sizeof(int)) = _data;
+	*Packet::getSegment<int>(buffer, offset, sizeof(int)) = data;
 
 	return offset;
 }

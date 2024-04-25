@@ -1,8 +1,11 @@
 #pragma once
 #pragma pack(1)
 #include "pch.h"
+#include <typeinfo>
 
-enum PacketType : USHORT{
+using Segment = char*;
+
+enum class PacketType : USHORT {
 	TestPacket = 0,
 	CtS_LoginAccess = 1,
 
@@ -14,12 +17,16 @@ protected:
 	USHORT _size;
 
 public:
-	Packet(USHORT packetID);
+	Packet();
+	Packet(PacketType packetID);
 	virtual ~Packet();
 
 public:
 	virtual int Read(char* segment);
 	virtual int Write(char* buffer);
+
+	USHORT packetID() { return _packetID; }
+	USHORT size() { return _size; }
 
 protected:
 	template <typename T>
@@ -43,11 +50,8 @@ public:
 	int Read(char* segment) override;
 	int Write(char* buffer) override;
 
-private:
-	int _data;
-
 public:
-	int getData() { return _data; }
+	int data;
 };
 
 class CtS_LoginAccessPacket : public Packet {
@@ -59,10 +63,6 @@ public:
 	int Write(char* buffer) override;
 
 private:
-	std::string _id;
-	std::string _pwd;
-
-public:
-	std::string getID() { return _id; }
-	std::string getPWD() { return _pwd; }
+	std::string id;
+	std::string pwd;
 };
