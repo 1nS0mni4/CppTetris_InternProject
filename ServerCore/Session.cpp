@@ -53,8 +53,12 @@ void Session::SendSegment() {
 		if (sPending.empty())
 			return;
 
-		sendInfo->wsaBuf = sPending.front();
-		sPending.pop();
+		//TODO: 여기도 벡터 두개로 쌓인거 한번에 몰아서 보내면 좋을듯
+		//TODO: sendInfo->buf에 쌓인 패킷 순서대로 오프셋줘서 덮어쓰기 한 담에 len +=해주면 될듯
+
+		//Packet* packet;// = sPending.back
+		//int size = packet->Write(sendInfo->buf);
+		//sendInfo->wsaBuf.len = size;
 	}
 
 	int result = ::WSASend(_socket, &(sendInfo->wsaBuf), 1, &sentBytes, 0, sendOvlp, SendCompRoutine);

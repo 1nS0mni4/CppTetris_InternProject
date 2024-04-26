@@ -58,7 +58,7 @@ int main(int argc, char* argv[]) {
 		while (true) {
 			TestPacket packet;
 			packet.data = 1;
-			int size = packet.Write(hbInfo->buf, 0);
+			int size = packet.Write(hbInfo->buf);
 
 			(hbInfo->wsaBuf).buf = hbInfo->buf;
 			hbInfo->wsaBuf.len = size;
@@ -66,19 +66,19 @@ int main(int argc, char* argv[]) {
 			lpOvlp->hEvent = (HANDLE)hbInfo;
 			WSASend(hSock, &(hbInfo->wsaBuf), 1, &recvBytes, 0, lpOvlp, SendCompRoutine);
 
-			Sleep(1000);
+			Sleep(1);
 			memset(hbInfo->buf, 0, 1024);
 
 			TestPacket packet2;
 			packet2.data = 1000;
-			size = packet2.Write(hbInfo->buf, 0);
+			size = packet2.Write(hbInfo->buf);
 
 			(hbInfo->wsaBuf).buf = hbInfo->buf;
 			hbInfo->wsaBuf.len = size;
 
 			lpOvlp->hEvent = (HANDLE)hbInfo;
 			WSASend(hSock, &(hbInfo->wsaBuf), 1, &recvBytes, 0, lpOvlp, SendCompRoutine);
-			Sleep(1000);
+			Sleep(1);
 		}
 
 			while (true);

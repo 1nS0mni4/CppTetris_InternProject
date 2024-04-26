@@ -17,16 +17,10 @@ int Packet::Read(char* segment) {
 	return offset;
 }
 
-int Packet::Write(char* buffer, int offset) {
+int Packet::Write(char* buffer) {
 	((USHORT*)buffer)[0] = _packetID;
 	((USHORT*)buffer)[1] = _size;
 	return _size;
-}
-
-template <typename T>
-T* Packet::getSegment(char* segment, int offset, int size) {
-	char* startPos = &(segment[offset]);
-	return &(((T*)startPos)[0]);
 }
 
 CtS_LoginAccessPacket::CtS_LoginAccessPacket() : Packet(PacketType::CtS_LoginAccess) { }
@@ -40,8 +34,8 @@ int CtS_LoginAccessPacket::Read(char* segment) {
 	return index;
 }
 
-int CtS_LoginAccessPacket::Write(char* buffer, int offset) {
-	int index = Packet::Write(buffer, offset);
+int CtS_LoginAccessPacket::Write(char* buffer) {
+	int index = Packet::Write(buffer);
 
 	//TODO: ³»¿ë Ã¤¿ì±â.. ±ÍÂú
 
@@ -60,12 +54,12 @@ int TestPacket::Read(char* segment) {
 	return index;
 }
 
-int TestPacket::Write(char* buffer, int offset) {
+int TestPacket::Write(char* buffer) {
 	_size += PACKET_HEADER_SIZE;
-	*((int*)&(buffer[offset + _size])) = data;
+	*((int*)&(buffer[_size])) = data;
 	_size += sizeof(int);
 
-	Packet::Write(buffer, offset);
+	Packet::Write(buffer);
 	return _size;
 }
 

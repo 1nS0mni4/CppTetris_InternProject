@@ -22,14 +22,10 @@ public:
 
 public:
 	virtual int Read(char* segment);
-	virtual int Write(char* buffer, int offset);
+	virtual int Write(char* buffer);
 
 	USHORT packetID() { return _packetID; }
 	USHORT size() { return _size; }
-
-protected:
-	template <typename T>
-	T* getSegment(char* segment, int offset, int size);
 
 public:
 	static char* Promote(Packet* packet, char* segment);
@@ -41,7 +37,7 @@ public:
 	~GamePacket() override;
 
 	virtual int Read(char* segment);
-	virtual int Write(char* buffer, int offset);
+	virtual int Write(char* buffer);
 };
 
 class TestPacket : public Packet {
@@ -50,7 +46,7 @@ public:
 	~TestPacket() override;
 
 	int Read(char* segment) override;
-	int Write(char* buffer, int offset) override;
+	int Write(char* buffer) override;
 
 public:
 	int data;
@@ -62,7 +58,7 @@ public:
 	~CtS_LoginAccessPacket() override;
 
 	int Read(char* segment) override;
-	int Write(char* buffer, int offset) override;
+	int Write(char* buffer) override;
 
 private:
 	std::string id;

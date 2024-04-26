@@ -41,23 +41,12 @@ public:
 	void Initialize(SOCKET socket, SOCKADDR_IN remoteAdr);
 
 	template <typename T = Packet>
-	int Send(T packet) {
+	int Send(T* packet) {
 		lock_guard<std::mutex> guard(sendMtx);
-		if (sizeof(T) > _sdWrite - _sdUsed)
-			OrganizeSendBuf();
 
-		Packet packe;
-		int size = packe.Write(sendInfo->buf, _sdUsed);
-		sendInfo->wsaBuf.len = size;
-	
-		
-		char* total = SendBuffer::GetInstance().write(packet, size);
-		{
 
-			
 
-			sPending.push(sendInfo->wsaBuf);
-		}
+		//TODO: PacketQueue가 버퍼를 전달하는게 아니라 Packet*를 가지고 풀링해야됨.
 
 		if (sPending.size() <= 1)
 			SendSegment();
@@ -96,7 +85,7 @@ protected:
 	SOCKADDR_IN _remoteAdr;
 	SOCKET _socket;
 
-	std::queue<WSABUF> sPending;
+	std::vector<Packet*> sPending;
 	std::mutex sendMtx;
 	std::atomic<bool> recvAtm;
 	int _rcRead, _rcWrite;
