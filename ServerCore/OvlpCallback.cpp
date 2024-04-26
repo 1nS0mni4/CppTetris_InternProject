@@ -32,10 +32,7 @@ int OvlpCallback::Start() {
 int OvlpCallback::BindnListen(std::string ipAddress, USHORT port, int backlog) {
 	memset(&_localAdr, 0, sizeof(_localAdr));
 	_localAdr.sin_family = AF_INET;
-	if (ipAddress.empty() == false)
-		_localAdr.sin_addr.S_un.S_addr = inet_addr(ipAddress.c_str());
-	else
-		_localAdr.sin_addr.S_un.S_addr = htonl(INADDR_ANY);
+	_localAdr.sin_addr.S_un.S_addr = inet_addr(ipAddress.c_str());
 	_localAdr.sin_port = htons(port);
 
 	if (::bind(_localSock, (SOCKADDR*)&_localAdr, sizeof(_localAdr)) == SOCKET_ERROR) {

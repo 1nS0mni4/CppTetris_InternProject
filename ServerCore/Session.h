@@ -1,21 +1,24 @@
 #pragma once
 #include "pch.h"
 #include "Packet.h"
+#include "Defines.h"
 #include "SendBuffer.h"
-
-#define SESSION_RECVBUF_SIZE		1024
+#include "SessionManager.h"
 
 class Session {
+#pragma region Internal Structs
 public:
 	/**********************************************************
 				[Structure only use for OVERLAPPED->hEvent ]
 	***********************************************************/
-	typedef struct SessionInfo {
+	typedef struct {
 		Session* session;
-		LPWSABUF wsaBuf;
-	} SendInfo, RecvInfo, * lpSessionInfo, * lpSendInfo, * lpRecvInfo;
+		WSABUF wsaBuf;
+		char buf[65535];
+	}PER_IO_DATA, * LPPER_IO_DATA;
+#pragma endregion
 
-
+#pragma region Functions
 	/**********************************************************
 						[Constructor / Destructor]
 	***********************************************************/
@@ -36,19 +39,18 @@ public:
 				 [Init / Send / Recv / Disconnect]
 	***********************************************************/
 public:
-	void Init(SOCKET socket, SOCKADDR_IN remoteAdr);
+	void Initialize(SOCKET socket, SOCKADDR_IN remoteAdr);
 
 	template <typename T = Packet>
 	int Send(T packet) {
 		int size = 0;
-		Segment seg = SendBuffer::GetInstance().write(packet, size);
-
+		char* total = SendBuffer::GetInstance().write(packet, size);
 		{
 			lock_guard<std::mutex> guard(sendMtx);
-			WSABUF buf;
-			buf.buf = seg;
-			buf.len = size;
-			sPending.push(buf);
+			strcpy_s(sendInfo->buf, SENDBUF_SIZE, total);
+			sendInfo->wsaBuf.len = size;
+
+			sPending.push(sendInfo->wsaBuf);
 		}
 
 		if (sPending.size() <= 1)
@@ -76,8 +78,9 @@ public:
 	virtual int OnRecv(char* packet, int size) = 0;
 	virtual void OnConnect() = 0;
 	virtual void OnDisconnect() = 0;
+#pragma endregion
 
-
+#pragma region Variables
 	/**********************************************************
 				[Internal Use Purpose Variables]
 	***********************************************************/
@@ -89,7 +92,6 @@ protected:
 	std::queue<WSABUF> sPending;
 	std::mutex sendMtx;
 	std::atomic<bool> recvAtm;
-	char* recvBuf;
 	int _read, _write;
 
 	/**********************************************************
@@ -97,7 +99,8 @@ protected:
 	***********************************************************/
 public:
 	DWORD sentBytes, recvBytes, flags;
-	WSABUF wsaRecvBuf, wsaSendBuf;
-	SessionInfo sendInfo, recvInfo;
+
 	LPWSAOVERLAPPED sendOvlp, recvOvlp;
+	LPPER_IO_DATA sendInfo, recvInfo;
+#pragma endregion
 };

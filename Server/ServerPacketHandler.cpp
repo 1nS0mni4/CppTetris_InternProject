@@ -35,7 +35,7 @@ static void TestPacketHandler(Session* session, char* segment, USHORT size) {
 	if (size != packet.Read(segment))
 		return;
 
-	cout << "Session: " << " Sended: " << packet.data << '\n';
+	//cout << "Session: " << session->GetSessionID() << " Sended: " << packet.data << '\n';
 
 	return;
 }

@@ -5,7 +5,7 @@
 PacketQueue::PacketQueue() {
 	_isClosed = false;
 
-	lock_guard<std::mutex> guard(m_Pool);
+	lock_guard<std::mutex> guard(m_pool);
 
 	for (int i = 0; i < PACKETDATA_POOL_SIZE; i++) {
 		pool.push_back(new PacketData());
@@ -28,13 +28,13 @@ void PacketQueue::Push(Session* session, char* segment, USHORT packetID, USHORT 
 	data->packetID = packetID;
 	data->size = size;
 
-	lock_guard<std::mutex> guard(m_Store);
+	lock_guard<std::mutex> guard(m_store);
 	store.push_back(data);
 }
 
 void PacketQueue::Flush() {
 	while (_isClosed == false) {
-		lock_guard<std::mutex> guard(m_Fetch);
+		lock_guard<std::mutex> guard(m_fetch);
 		vector<PacketData*> flushed;
 
 		while (fetch.empty() == false) {
@@ -46,7 +46,7 @@ void PacketQueue::Flush() {
 		}
 
 		if (store.size() > 0) {
-			lock_guard<std::mutex> guard(m_Store);
+			lock_guard<std::mutex> guard(m_store);
 			fetch = store;
 			store.clear();
 		}
@@ -58,7 +58,7 @@ void PacketQueue::Flush() {
 vector<PacketData*> PacketQueue::GetPD(int count) {
 	vector<PacketData*> ret;
 
-	lock_guard<std::mutex> guard(m_Pool);
+	lock_guard<std::mutex> guard(m_pool);
 	for (int i = 0; i < count; i++) {
 		ret.push_back(pool.back());
 		pool.pop_back();
@@ -68,7 +68,7 @@ vector<PacketData*> PacketQueue::GetPD(int count) {
 }
 
 void PacketQueue::ReleasePD(vector<PacketData*>& releasee) {
-	lock_guard<std::mutex> guard(m_Pool);
+	lock_guard<std::mutex> guard(m_pool);
 	int size = releasee.size();
 
 	for (int i = 0; i < size; i++) {

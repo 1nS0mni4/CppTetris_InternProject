@@ -37,6 +37,6 @@ public:
 private:
 	vector<PacketData*> store, fetch, pool;
 	atomic<bool> _isClosed;
-	std::mutex m_Store, m_Fetch, m_Pool;
+	std::mutex m_store, m_fetch, m_pool;
 };
 

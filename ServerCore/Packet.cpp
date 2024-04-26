@@ -17,11 +17,8 @@ int Packet::Read(char* segment) {
 	return offset;
 }
 
-int Packet::Write(char* buffer) {
+int Packet::Write(char* buffer, int offset) {
 	((USHORT*)buffer)[0] = _packetID;
-	_size += sizeof(_packetID);
-	_size += sizeof(_size);
-
 	((USHORT*)buffer)[1] = _size;
 	return _size;
 }
@@ -36,38 +33,39 @@ CtS_LoginAccessPacket::CtS_LoginAccessPacket() : Packet(PacketType::CtS_LoginAcc
 CtS_LoginAccessPacket::~CtS_LoginAccessPacket() {}
 
 int CtS_LoginAccessPacket::Read(char* segment) {
-	int offset = Packet::Read(segment);
+	int index = Packet::Read(segment);
 
 	//TODO: 문자열은 앞에 USHORT로 먼저 사이즈, 그 다음 데이터가 온다.
 
-	return offset;
+	return index;
 }
 
-int CtS_LoginAccessPacket::Write(char* buffer) {
-	int offset = Packet::Write(buffer);
+int CtS_LoginAccessPacket::Write(char* buffer, int offset) {
+	int index = Packet::Write(buffer, offset);
 
 	//TODO: 내용 채우기.. 귀찮
 
-	return offset;
+	return index;
 }
 
 TestPacket::TestPacket() : Packet(PacketType::TestPacket){ }
 TestPacket::~TestPacket() { }
 
 int TestPacket::Read(char* segment) {
-	int offset = Packet::Read(segment);
+	int index = Packet::Read(segment);
 
-	data = *Packet::getSegment<int>(segment, offset, sizeof(int));
-	offset += sizeof(int);
+	data = *((int*)(&(segment[index])));
+	index += sizeof(int);
 
-	return offset;
+	return index;
 }
 
-int TestPacket::Write(char* buffer) {
-	*Packet::getSegment<int>(buffer, PACKET_HEADER_SIZE + _size, sizeof(int)) = data;
+int TestPacket::Write(char* buffer, int offset) {
+	_size += PACKET_HEADER_SIZE;
+	*((int*)&(buffer[offset + _size])) = data;
 	_size += sizeof(int);
 
-	Packet::Write(buffer);
+	Packet::Write(buffer, offset);
 	return _size;
 }
 

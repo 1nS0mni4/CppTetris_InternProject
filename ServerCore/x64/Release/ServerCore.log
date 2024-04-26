@@ -1,0 +1,9 @@
+﻿  pch.cpp
+  CorePch.cpp
+  OvlpCallback.cpp
+  Packet.cpp
+  PacketHandler.cpp
+  SendBuffer.cpp
+  Session.cpp
+  SessionManager.cpp
+  ServerCore.vcxproj -> D:\Projects\Github\TermProject\Libraries\Release\ServerCore.lib

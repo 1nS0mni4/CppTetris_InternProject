@@ -1,0 +1,11 @@
+﻿  코드를 생성하고 있습니다.
+  0 of 556 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  코드를 생성했습니다.
+ServerCore.lib(Packet.obj) : warning LNK4020: ''의 형식 레코드가 손상되었습니다. 디버거에서 일부 기호와 형식에 액세스할 수 없습니다.
+ServerCore.lib(Packet.obj) : warning LNK4020: ''의 형식 레코드가 손상되었습니다. 디버거에서 일부 기호와 형식에 액세스할 수 없습니다.
+ServerCore.lib(SendBuffer.obj) : warning LNK4020: ''의 형식 레코드가 손상되었습니다. 디버거에서 일부 기호와 형식에 액세스할 수 없습니다.
+ServerCore.lib(SendBuffer.obj) : warning LNK4020: ''의 형식 레코드가 손상되었습니다. 디버거에서 일부 기호와 형식에 액세스할 수 없습니다.
+ServerCore.lib(SendBuffer.obj) : warning LNK4020: ''의 형식 레코드가 손상되었습니다. 디버거에서 일부 기호와 형식에 액세스할 수 없습니다.
+  Server.vcxproj -> D:\Projects\Github\TermProject\Binary\Release\Server\Server.exe

@@ -22,7 +22,7 @@ public:
 
 public:
 	virtual int Read(char* segment);
-	virtual int Write(char* buffer);
+	virtual int Write(char* buffer, int offset);
 
 	USHORT packetID() { return _packetID; }
 	USHORT size() { return _size; }
@@ -41,7 +41,7 @@ public:
 	~GamePacket() override;
 
 	virtual int Read(char* segment);
-	virtual int Write(char* buffer);
+	virtual int Write(char* buffer, int offset);
 };
 
 class TestPacket : public Packet {
@@ -50,7 +50,7 @@ public:
 	~TestPacket() override;
 
 	int Read(char* segment) override;
-	int Write(char* buffer) override;
+	int Write(char* buffer, int offset) override;
 
 public:
 	int data;
@@ -62,7 +62,7 @@ public:
 	~CtS_LoginAccessPacket() override;
 
 	int Read(char* segment) override;
-	int Write(char* buffer) override;
+	int Write(char* buffer, int offset) override;
 
 private:
 	std::string id;

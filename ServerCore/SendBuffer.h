@@ -2,8 +2,6 @@
 #include "pch.h"
 #include "Defines.h"
 #include "Packet.h"
-#include <span>
-#include <spanstream>
 
 class SendBuffer {
 	SINGLETON(SendBuffer);
@@ -17,7 +15,7 @@ public:
 			Reorganize();
 
 		char* startPos = &(_segment[_cursor]);
-		size = packet.Write(startPos);
+		size = packet.Write(startPos, 0);
 		_cursor += size;
 
 		return startPos;
