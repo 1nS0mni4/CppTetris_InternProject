@@ -3,7 +3,7 @@
 #include "Defines.h"
 #include "Session.h"
 
-template <typename T>
+template <typename T = Session>
 class SessionManager {
 public:
 	static SessionManager<T>& GetInstance() {
@@ -25,12 +25,12 @@ protected:
 
 public:
 	void Init() {
-		AddSession<T>(INIT_SESSION_COUNT);
+		AddSession(INIT_SESSION_COUNT);
 
 		_sessionCnt = 0;
 	}
 
-	Session* CreateSession() {
+	T* CreateSession() {
 		int sessionID = -1;
 		{
 			lock_guard<std::mutex> guard(_mutex);

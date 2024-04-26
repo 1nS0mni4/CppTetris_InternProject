@@ -1,8 +1,8 @@
-D:\Projects\Github\TermProject\ServerCore\CorePch.cpp;D:\Projects\Github\TermProject\ServerCore\x64\Debug\CorePch.obj
-D:\Projects\Github\TermProject\ServerCore\OvlpCallback.cpp;D:\Projects\Github\TermProject\ServerCore\x64\Debug\OvlpCallback.obj
-D:\Projects\Github\TermProject\ServerCore\Packet.cpp;D:\Projects\Github\TermProject\ServerCore\x64\Debug\Packet.obj
-D:\Projects\Github\TermProject\ServerCore\PacketHandler.cpp;D:\Projects\Github\TermProject\ServerCore\x64\Debug\PacketHandler.obj
-D:\Projects\Github\TermProject\ServerCore\pch.cpp;D:\Projects\Github\TermProject\ServerCore\x64\Debug\pch.obj
-D:\Projects\Github\TermProject\ServerCore\SendBuffer.cpp;D:\Projects\Github\TermProject\ServerCore\x64\Debug\SendBuffer.obj
-D:\Projects\Github\TermProject\ServerCore\Session.cpp;D:\Projects\Github\TermProject\ServerCore\x64\Debug\Session.obj
-D:\Projects\Github\TermProject\ServerCore\SessionManager.cpp;D:\Projects\Github\TermProject\ServerCore\x64\Debug\SessionManager.obj
+D:\personal\projects\Github\TermProject\ServerCore\CorePch.cpp;D:\personal\projects\Github\TermProject\ServerCore\x64\Debug\CorePch.obj
+D:\personal\projects\Github\TermProject\ServerCore\OvlpCallback.cpp;D:\personal\projects\Github\TermProject\ServerCore\x64\Debug\OvlpCallback.obj
+D:\personal\projects\Github\TermProject\ServerCore\Packet.cpp;D:\personal\projects\Github\TermProject\ServerCore\x64\Debug\Packet.obj
+D:\personal\projects\Github\TermProject\ServerCore\PacketHandler.cpp;D:\personal\projects\Github\TermProject\ServerCore\x64\Debug\PacketHandler.obj
+D:\personal\projects\Github\TermProject\ServerCore\pch.cpp;D:\personal\projects\Github\TermProject\ServerCore\x64\Debug\pch.obj
+D:\personal\projects\Github\TermProject\ServerCore\SendBuffer.cpp;D:\personal\projects\Github\TermProject\ServerCore\x64\Debug\SendBuffer.obj
+D:\personal\projects\Github\TermProject\ServerCore\Session.cpp;D:\personal\projects\Github\TermProject\ServerCore\x64\Debug\Session.obj
+D:\personal\projects\Github\TermProject\ServerCore\SessionManager.cpp;D:\personal\projects\Github\TermProject\ServerCore\x64\Debug\SessionManager.obj

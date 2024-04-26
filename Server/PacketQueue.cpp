@@ -2,23 +2,48 @@
 #include "PacketQueue.h"
 #include "ServerPacketHandler.h"
 
-PacketQueue::PacketQueue() { }
-PacketQueue::~PacketQueue() { }
+PacketQueue::PacketQueue() { 
+	_isClosed = false;
 
-void PacketQueue::Push(Session* session, Packet& packet, USHORT packetID) {
+	lock_guard<std::mutex> guard(m_Pool);
+
+	for (int i = 0; i < PACKETDATA_POOL_SIZE; i++) {
+		pool.push_back(new PacketData());
+	}
+}
+
+PacketQueue::~PacketQueue() { 
+	if (store.size() > 0) {
+		while (!store.empty()) {
+			PacketData* deleted = store.back(); store.pop_back();
+			delete deleted;
+		}
+	}
+}
+
+void PacketQueue::Push(Session* session, char* segment, USHORT packetID, USHORT size) {
+	PacketData* data = GetPD().back();
+	data->session = session;
+	data->segment = segment;
+	data->packetID = packetID;
+	data->size = size;
+	
 	lock_guard<std::mutex> guard(m_Store);
-	store.push_back({ session, packet, packetID });
+	store.push_back(data);
 }
 
 void PacketQueue::Flush() {
-	while (true) {
+	while (_isClosed == false) {
+		SleepEx(100, TRUE);
 		lock_guard<std::mutex> guard(m_Fetch);
+		vector<PacketData*> flushed;
 
 		while (fetch.empty() == false) {
-			PacketData data = fetch.back();
+			PacketData* data = fetch.back();
 			fetch.pop_back();
 
-			ServerPacketHandler::GetInstance().HandlePacket(data.session, data.packet, data.packetID);
+			ServerPacketHandler::GetInstance().HandlePacket(data->session, data->segment, data->packetID, data->size);
+			flushed.push_back(data);
 		}
 
 		if (store.size() > 0) {
@@ -26,6 +51,32 @@ void PacketQueue::Flush() {
 			fetch = store;
 			store.clear();
 		}
+
+		ReleasePD(flushed);
 	}
-	
 }
+
+vector<PacketData*> PacketQueue::GetPD(int count) {
+	vector<PacketData*> ret;
+
+	lock_guard<std::mutex> guard(m_Pool);
+	for (int i = 0; i < count; i++) {
+		ret.push_back(pool.back());
+		pool.pop_back();
+	}
+
+	return ret;
+}
+
+void PacketQueue::ReleasePD(vector<PacketData*>& releasee) {
+	lock_guard<std::mutex> guard(m_Pool);
+	int size = releasee.size();
+
+	for (int i = 0; i < size; i++) {
+		PacketData* data = releasee[i];
+		memset(data, 0, sizeof(PacketData));
+		pool.push_back(data);
+	}
+}
+
+void PacketQueue::Close() { _isClosed = true; }

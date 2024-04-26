@@ -69,11 +69,11 @@ public:
 	***********************************************************/
 protected:
 	void SendSegment();
-	void OrganizeRecvBuf(int offset, int size);
+	void OrganizeRecvBuf();
 
 public:
 	virtual void OnSend() = 0;
-	virtual void OnRecv(Packet packet, USHORT packetID) = 0;
+	virtual int OnRecv(char* packet, int size) = 0;
 	virtual void OnConnect() = 0;
 	virtual void OnDisconnect() = 0;
 

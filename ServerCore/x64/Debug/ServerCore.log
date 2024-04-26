@@ -1,12 +1,4 @@
-﻿  OvlpCallback.cpp
-D:\Projects\Github\TermProject\ServerCore\OvlpCallback.cpp(19,16): warning C4101: 'hbInfo' :참조되지 않은 지역 변수입니다.
-  (소스 파일 '/OvlpCallback.cpp'을(를) 컴파일하는 중)
-  
-D:\Projects\Github\TermProject\ServerCore\OvlpCallback.cpp(17,18): warning C4101: 'lpOvlp' :참조되지 않은 지역 변수입니다.
-  (소스 파일 '/OvlpCallback.cpp'을(를) 컴파일하는 중)
-  
-  PacketHandler.cpp
-  Session.cpp
-  SessionManager.cpp
-  코드를 생성하고 있습니다...
-  ServerCore.vcxproj -> D:\Projects\Github\TermProject\Libraries\Debug\ServerCore.lib
+﻿  Session.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\span(12): warning STL4038: The contents of <span> are available only with C++20 or later.
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\spanstream(11): warning STL4038: The contents of <spanstream> are available only with C++23 or later.
+  ServerCore.vcxproj -> D:\personal\projects\Github\TermProject\Libraries\Debug\ServerCore.lib

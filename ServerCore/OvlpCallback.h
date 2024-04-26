@@ -24,7 +24,7 @@ public:
 
 
 	int BindnListen(std::string ipAddress,
-					USHORT port,
+					USHORT port = 9190,
 					int backlog = 5);
 
 
@@ -33,7 +33,6 @@ public:
 		while (!_isClosed) {
 			int recvAdrSz = sizeof(_remoteAdr);
 
-			SleepEx(100, TRUE);
 			_remoteSock = ::accept(_localSock, (SOCKADDR*)&_remoteAdr, &recvAdrSz);
 			if (_remoteSock == INVALID_SOCKET) {
 				if (WSAGetLastError() != WSAEWOULDBLOCK)
@@ -44,17 +43,34 @@ public:
 
 			puts("client connected");
 
-
-			Session* session = SessionManager<T>::GetInstance().CreateSession();
+			T* session = SessionManager<T>::GetInstance().CreateSession();
 
 			session->Init(_remoteSock, _remoteAdr);
 			session->Recv();
 		}
 	}
 
-	int Connect(ADDRESS_FAMILY family,
+	template <typename T = Session>
+	T* Connect(ADDRESS_FAMILY family,
 				std::string remoteIpAddress,
-				USHORT rmPort);
+				USHORT rmPort) {
+		memset(&_remoteAdr, 0, sizeof(_remoteAdr));
+		_remoteAdr.sin_family = family;
+		_remoteAdr.sin_addr.S_un.S_addr = inet_addr(remoteIpAddress.c_str());
+		_remoteAdr.sin_port = htons(rmPort);
+
+		if (::connect(_localSock, (SOCKADDR*)&_remoteAdr, sizeof(_remoteAdr)) == SOCKET_ERROR) {
+			ErrorHandling("::connect() error");
+			return nullptr;
+		}
+
+
+		T* session = SessionManager<T>::GetInstance().CreateSession();
+		session->Init(_localSock, _remoteAdr);
+		session->Recv();
+
+		return session;
+	}
 
 
 	void Close();

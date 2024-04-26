@@ -1,7 +1,6 @@
 #pragma once
 #include "pch.h"
 #include "Session.h"
-#include "Session.h"
 #include "SessionManager.h"
 #include "ServerPacketHandler.h"
 
@@ -19,7 +18,7 @@ public:
 
 public:
 	virtual void OnSend() override;
-	virtual void OnRecv(Packet packet, USHORT packetID) override;
+	virtual int OnRecv(char* packet, int size) override;
 	virtual void OnConnect() override;
 	virtual void OnDisconnect() override;
 };

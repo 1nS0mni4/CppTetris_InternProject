@@ -3,14 +3,16 @@
 #include "ClientSession.h"
 #include "Packet.h"
 
-typedef void (* HandlerFunc)(Session* session, Packet* packet);
+typedef void (* HandlerFunc)(Session* session, char* segment, USHORT size);
+
+static void TestPacketHandler(Session* session, char* segment, USHORT size);
 
 class ServerPacketHandler {
 	SINGLETON(ServerPacketHandler);
 
 public:
 	void Init();
-	void HandlePacket(Session* session, Packet packet, USHORT packetID);
+	void HandlePacket(Session* session, char* packet, USHORT packetID, USHORT size);
 
 private:
 	void Register();

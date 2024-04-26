@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Packet.h"
+#include "Defines.h"
 
 
 Packet::Packet() : _packetID(0), _size(0) {}
@@ -8,23 +9,21 @@ Packet::~Packet() { }
 
 int Packet::Read(char* segment) {
 	int offset = 0;
-	_packetID = ((USHORT*)segment)[0 + offset];
+	_packetID = ((USHORT*)segment)[0];
 	offset += sizeof(USHORT);
-	_size =		((USHORT*)segment)[0 + offset];
+	_size =		((USHORT*)segment)[1];
 	offset += sizeof(USHORT);
 
 	return offset;
 }
 
 int Packet::Write(char* buffer) {
-	int offset = 0;
+	((USHORT*)buffer)[0] = _packetID;
+	_size += sizeof(_packetID);
+	_size += sizeof(_size);
 
-	((USHORT*)buffer)[0 + offset] = _packetID;
-	offset += sizeof(_packetID);
-	((USHORT*)buffer)[0 + offset] = _size;
-	offset += sizeof(_size);
-
-	return offset;
+	((USHORT*)buffer)[1] = _size;
+	return _size;
 }
 
 template <typename T>
@@ -47,7 +46,7 @@ int CtS_LoginAccessPacket::Read(char* segment) {
 int CtS_LoginAccessPacket::Write(char* buffer) {
 	int offset = Packet::Write(buffer);
 
-	//TODO: ³»¿ë¹° Ã¤¿ì±â.. ±ÍÂú
+	//TODO: ³»¿ë Ã¤¿ì±â.. ±ÍÂú
 
 	return offset;
 }
@@ -59,14 +58,29 @@ int TestPacket::Read(char* segment) {
 	int offset = Packet::Read(segment);
 
 	data = *Packet::getSegment<int>(segment, offset, sizeof(int));
+	offset += sizeof(int);
 
 	return offset;
 }
 
 int TestPacket::Write(char* buffer) {
-	int offset = Packet::Write(buffer);
+	*Packet::getSegment<int>(buffer, PACKET_HEADER_SIZE + _size, sizeof(int)) = data;
+	_size += sizeof(int);
 
-	*Packet::getSegment<int>(buffer, offset, sizeof(int)) = data;
+	Packet::Write(buffer);
+	return _size;
+}
 
-	return offset;
+#define PROMOTE(x) new (packet) x;
+char* Packet::Promote(Packet* packet, char* segment) {
+	USHORT packetID = ((USHORT*)segment)[1];
+
+	switch (packetID) {
+		case (USHORT)PacketType::TestPacket:		PROMOTE(TestPacket)				break;
+		case (USHORT)PacketType::CtS_LoginAccess:	PROMOTE(CtS_LoginAccessPacket)	break;
+
+		default:break;
+	}
+
+	return (char*)packet;
 }

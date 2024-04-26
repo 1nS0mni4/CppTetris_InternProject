@@ -8,21 +8,25 @@
 
 Session::Session(int sessionID) 
 	: _sessionID(sessionID),
-	sendOvlp(new WSAOVERLAPPED),
-	recvOvlp(new WSAOVERLAPPED) {
+	sendOvlp(new WSAOVERLAPPED()),
+	recvOvlp(new WSAOVERLAPPED()) {
 	memset(sendOvlp, 0, sizeof(WSAOVERLAPPED));
 	memset(recvOvlp, 0, sizeof(WSAOVERLAPPED));
 
-	sendOvlp->hEvent = (HANDLE)&sendInfo;
-	recvOvlp->hEvent = (HANDLE)&recvInfo;
+	{
+		recvBuf = (char*)malloc(SESSION_RECVBUF_SIZE);
+		memset(recvBuf, 0, sizeof(SESSION_RECVBUF_SIZE));
+		_read = _write = 0;
+		wsaRecvBuf.buf = recvBuf;
+		wsaRecvBuf.len = SESSION_RECVBUF_SIZE;
+	}
 
 	sendInfo.session = recvInfo.session = this;
 	sendInfo.wsaBuf = &wsaSendBuf;
 	recvInfo.wsaBuf = &wsaRecvBuf;
-	recvBuf = (char*)malloc(SESSION_RECVBUF_SIZE);
-	_read = _write = 0;
-	wsaRecvBuf.buf = recvBuf;
-	wsaRecvBuf.len = SESSION_RECVBUF_SIZE;
+
+	sendOvlp->hEvent = (HANDLE)&sendInfo;
+	recvOvlp->hEvent = (HANDLE)&recvInfo;
 }
 
 Session::~Session() {
@@ -61,7 +65,13 @@ void Session::SendSegment() {
 		sPending.pop();
 	}
 
-	::WSASend(_socket, &wsaSendBuf, 1, &sentBytes, 0, sendOvlp, SendCompRoutine);
+	int result = ::WSASend(_socket, &wsaSendBuf, 1, &sentBytes, 0, sendOvlp, SendCompRoutine);
+	if (result == SOCKET_ERROR) {
+		result = WSAGetLastError();
+		if (result == WSA_IO_PENDING) {
+			cout << "Send : IO Pending\n";
+		}
+	}
 }
 
 void CALLBACK Session::SendCompRoutine(DWORD dwError, DWORD szSentBytes, LPWSAOVERLAPPED lpOverlapped, DWORD flags) {
@@ -77,9 +87,14 @@ void Session::Recv() {
 	if (recvAtm.exchange(true))
 		return;
 	
-	OrganizeRecvBuf(_read, _write);
+	OrganizeRecvBuf();
 
-	::WSARecv(_socket, &wsaSendBuf, 1, &recvBytes, 0, recvOvlp, RecvCompRoutine);
+	int result = ::WSARecv(_socket, &wsaRecvBuf, 1, &recvBytes, &flags, recvOvlp, RecvCompRoutine);
+	if (result == SOCKET_ERROR) {
+		result = WSAGetLastError();
+		if (result == WSA_IO_PENDING)
+			cout << "Recv : IO Pending\n";
+	}
 }
 
 void CALLBACK Session::RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOVERLAPPED lpOverlapped, DWORD flags) {
@@ -90,39 +105,24 @@ void CALLBACK Session::RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOV
 	if (szRecvBytes == 0) {
 		puts("Client disconnected...");
 		return;
-	}
+	} 
 
-	int offset = 0;
-	int size = 0;
-	while (szRecvBytes <= 4) {
-		Packet packet;
-		Segment segment = &((bufInfo->buf)[offset]);
-		size = packet.Read(segment);
+	session->_write += szRecvBytes;
+	    
+	session->_read = session->OnRecv(bufInfo->buf, szRecvBytes);
 
-		PacketHandler::GetInstance().HandlePacket(session, &packet, packet.packetID());
-		
-		session->OnRecv(packet, packet.size());
-
-		std::cout << "Received: " << bufInfo->buf << '\n';
-		szRecvBytes -= size;
-		offset += size;
-	}
-
-	session->OrganizeRecvBuf(offset, szRecvBytes - size);
+	session->OrganizeRecvBuf();
 	session->recvAtm.exchange(false);
 	session->Recv();
 }
 
-void Session::OrganizeRecvBuf(int offset, int size) {
-	if (offset != size) {
-		strcpy_s(recvBuf, SESSION_RECVBUF_SIZE, recvBuf + offset);
-		_write = size;
+void Session::OrganizeRecvBuf() {
+	if (_write != _read) {
+		strcpy_s(recvBuf, SESSION_RECVBUF_SIZE, recvBuf + _read);
+		_write -= _read;
 		_read = 0;
 		return;
 	}
 
 	_read = _write = 0;
 }
-
-//WSASend(hSock, bufInfo, 1, &sendBytes, 0, lpOverlapped, SendCompRoutine);
-//WSARecv(hSock, bufInfo, 1, &(hbInfo->recvBytes), &(hbInfo->flags), lpOverlapped, RecvCompRoutine);

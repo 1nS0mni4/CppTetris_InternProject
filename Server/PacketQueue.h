@@ -3,10 +3,13 @@
 #include "Defines.h"
 #include "Session.h"
 
+#define PACKETDATA_POOL_SIZE		1000
+
 typedef struct PacketData {
 	Session* session;
-	Packet packet;
+	char* segment;
 	USHORT packetID;
+	USHORT size;
 };
 
 class PacketQueue {
@@ -25,13 +28,15 @@ public:
 
 
 public:
-	void Push(Session* session, Packet& packet, USHORT packetID);
-	
-public:
+	void Push(Session* session, char* segment, USHORT packetID, USHORT size);
 	void Flush();
+	vector<PacketData*> GetPD(int count = 1);
+	void ReleasePD(vector<PacketData*>& releasee);
+	void Close();
 
 private:
-	vector<PacketData> store, fetch;
-	std::mutex m_Store, m_Fetch;
+	vector<PacketData*> store, fetch, pool;
+	atomic<bool> _isClosed;
+	std::mutex m_Store, m_Fetch, m_Pool;
 };
 

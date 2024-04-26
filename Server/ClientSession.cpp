@@ -12,8 +12,20 @@ void ClientSession::OnSend() {
 
 }
 
-void ClientSession::OnRecv(Packet packet, USHORT packetID) {
-	PacketQueue::GetInstance().Push(this, packet, packetID);
+int ClientSession::OnRecv(char* segment, int totalSize) {
+	int processed = 0;
+
+	while (totalSize > PACKET_HEADER_SIZE) {
+		USHORT packetID = ((USHORT*)segment)[0];
+		USHORT size = ((USHORT*)segment)[1];
+
+		PacketQueue::GetInstance().Push(this, segment, packetID, size);
+
+		totalSize -= size;
+		processed += size;
+	}
+
+	return processed;
 }
 
 void ClientSession::OnConnect() {

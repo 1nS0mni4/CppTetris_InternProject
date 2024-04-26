@@ -9,14 +9,33 @@ ServerPacketHandler::~ServerPacketHandler() {
 
 }
 
-void ServerPacketHandler::HandlePacket(Session* session, Packet packet, USHORT packetID) {
-	
+void ServerPacketHandler::HandlePacket(Session* session, char* packet, USHORT packetID, USHORT size) {
+	_func[(PacketType)packetID](session, packet, size);
 }
 
 void ServerPacketHandler::Init() {
-
+	Register();
 }
 
 void ServerPacketHandler::Register() {
+	_func[PacketType::TestPacket] = TestPacketHandler;
+}
 
+static void TestPacketHandler(Session* session, char* segment, USHORT size) {
+	if (session == nullptr)
+		return;
+
+	if (segment == nullptr)
+		return;
+
+	if (size == 0)
+		return;
+
+	TestPacket packet;
+	if (size != packet.Read(segment))
+		return;
+
+	cout << "Session: " << " Sended: " << packet.data << '\n';
+
+	return;
 }

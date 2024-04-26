@@ -1,7 +1,6 @@
 #pragma once
 #pragma pack(1)
 #include "pch.h"
-#include <typeinfo>
 
 using Segment = char*;
 
@@ -31,6 +30,9 @@ public:
 protected:
 	template <typename T>
 	T* getSegment(char* segment, int offset, int size);
+
+public:
+	static char* Promote(Packet* packet, char* segment);
 };
 
 class GamePacket : public Packet{

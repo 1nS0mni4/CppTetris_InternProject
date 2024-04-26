@@ -33,3 +33,5 @@ protected:\
 
 #define SENDBUF_SIZE		65535
 #define RECVBUF_SIZE		65535
+
+#define PACKET_HEADER_SIZE		sizeof(USHORT) + sizeof(USHORT)
