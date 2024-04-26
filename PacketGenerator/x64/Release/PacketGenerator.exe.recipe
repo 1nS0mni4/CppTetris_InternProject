@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\Projects\Github\TermProject\x64\Release\PacketGenerator.exe</FullPath>
+      <FullPath>D:\Projects\Github\TermProject\Common\Release\PacketGenerator\PacketGenerator.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

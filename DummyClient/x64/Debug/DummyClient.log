@@ -1,1 +1,14 @@
-﻿  DummyClient.vcxproj -> D:\Projects\Github\TermProject\Binary\Debug\DummyClient\DummyClient.exe
+﻿  main.cpp
+D:\Projects\Github\TermProject\DummyClient\PacketQueue.h(13,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'PacketData' 왼쪽은 무시됩니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  
+D:\Projects\Github\TermProject\DummyClient\main.cpp(32,7): warning C4101: 'recvAdrSz' :참조되지 않은 지역 변수입니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  
+D:\Projects\Github\TermProject\DummyClient\main.cpp(126,8): warning C4101: 'sentBytes' :참조되지 않은 지역 변수입니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  
+D:\Projects\Github\TermProject\DummyClient\main.cpp(143,8): warning C4101: 'recvBytes' :참조되지 않은 지역 변수입니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  
+  DummyClient.vcxproj -> D:\Projects\Github\TermProject\Binary\Debug\DummyClient\DummyClient.exe

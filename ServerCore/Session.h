@@ -3,7 +3,6 @@
 #include "Packet.h"
 #include "Defines.h"
 #include "SendBuffer.h"
-#include "SessionManager.h"
 
 class Session {
 #pragma region Internal Structs
@@ -14,7 +13,7 @@ public:
 	typedef struct {
 		Session* session;
 		WSABUF wsaBuf;
-		char buf[65535];
+		char buf[SENDBUF_SIZE];
 	}PER_IO_DATA, * LPPER_IO_DATA;
 #pragma endregion
 
@@ -43,12 +42,19 @@ public:
 
 	template <typename T = Packet>
 	int Send(T packet) {
-		int size = 0;
+		lock_guard<std::mutex> guard(sendMtx);
+		if (sizeof(T) > _sdWrite - _sdUsed)
+			OrganizeSendBuf();
+
+		Packet packe;
+		int size = packe.Write(sendInfo->buf, _sdUsed);
+		sendInfo->wsaBuf.len = size;
+	
+		
 		char* total = SendBuffer::GetInstance().write(packet, size);
 		{
-			lock_guard<std::mutex> guard(sendMtx);
-			strcpy_s(sendInfo->buf, SENDBUF_SIZE, total);
-			sendInfo->wsaBuf.len = size;
+
+			
 
 			sPending.push(sendInfo->wsaBuf);
 		}
@@ -72,6 +78,7 @@ public:
 protected:
 	void SendSegment();
 	void OrganizeRecvBuf();
+	void OrganizeSendBuf();
 
 public:
 	virtual void OnSend() = 0;
@@ -92,7 +99,8 @@ protected:
 	std::queue<WSABUF> sPending;
 	std::mutex sendMtx;
 	std::atomic<bool> recvAtm;
-	int _read, _write;
+	int _rcRead, _rcWrite;
+	int _sdUsed, _sdWrite;
 
 	/**********************************************************
 				[External Use Purpose Variables]

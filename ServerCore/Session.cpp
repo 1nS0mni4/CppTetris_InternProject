@@ -31,7 +31,7 @@ void Session::Initialize(SOCKET socket, SOCKADDR_IN remoteAdr) {
 	_socket = socket;
 	_remoteAdr = remoteAdr;
 
-	_read = _write = 0;
+	_rcRead = _rcWrite = 0;
 	sentBytes = recvBytes = flags = 0;
 }
 
@@ -44,7 +44,7 @@ void Session::Disconnect() {
 void Session::Clear() {
 	_socket = INVALID_SOCKET;
 	memset(&_remoteAdr, 0, sizeof(_remoteAdr));
-	_read = _write = 0;
+	_rcRead = _rcWrite = 0;
 }
 
 void Session::SendSegment() {
@@ -89,25 +89,30 @@ void CALLBACK Session::RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOV
 		puts("Client disconnected...");
 		return;
 	} 
-	while ((session->_write + szRecvBytes) >= 50)
-		session->OrganizeRecvBuf();
 
-	session->_write += szRecvBytes;
-	    
-	session->_read += session->OnRecv(&(bufInfo.buf[session->_read]), szRecvBytes);
-
-	session->OrganizeRecvBuf();
+	session->OnRecv(bufInfo.buf, szRecvBytes);
 	session->recvAtm.exchange(false);
 	session->Recv();
 }
 
 void Session::OrganizeRecvBuf() {
-	if (_write != _read) {
-		strcpy_s(recvInfo->buf, RECVBUF_SIZE, &recvInfo->buf[_read]);
-		_write -= _read;
-		_read = 0;
+	if (_rcWrite != _rcRead) {
+		strcpy_s(recvInfo->buf, RECVBUF_SIZE, &recvInfo->buf[_rcRead]);
+		_rcWrite -= _rcRead;
+		_rcRead = 0;
 		return;
 	}
 
-	_read = _write = 0;
+	_rcRead = _rcWrite = 0;
+}
+
+void Session::OrganizeSendBuf() {
+	if (_sdWrite != _sdUsed) {
+		strcpy_s(sendInfo->buf, SENDBUF_SIZE, &(sendInfo->buf[_sdUsed]));
+		_sdWrite -= _sdUsed;
+		_sdUsed = 0;
+		return;
+	}
+
+	_sdUsed = _sdWrite = 0;
 }

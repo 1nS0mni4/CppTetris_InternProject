@@ -15,16 +15,17 @@ void ClientSession::OnSend() {
 int ClientSession::OnRecv(char* segment, int totalSize) {
 	int processed = 0;
 	char* buffer = segment;
+
 	while (totalSize > PACKET_HEADER_SIZE) {
-		USHORT packetID = *((USHORT*)&(segment[0]));
-		USHORT size = *((USHORT*)&(segment[2]));
+		volatile USHORT packetID = *((USHORT*)&(buffer[0]));
+		volatile USHORT size = *((USHORT*)&(buffer[2]));
 		
 		if (size > totalSize)
 			break;
 
-		PacketQueue::GetInstance().Push(this, segment, packetID, size);
+		PacketQueue::GetInstance().Push(this, buffer, packetID, size);
 
-		segment = segment + size;
+		buffer += size;
 		totalSize -= size;
 		processed += size;
 	}

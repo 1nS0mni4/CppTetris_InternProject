@@ -4,7 +4,7 @@
 #include "SessionManager.h"
 #include "ClientPacketHandler.h"
 
-class ServerSession : public Session{
+class ServerSession : public Session {
 public:
 	ServerSession(int sessionID) : Session(sessionID) {
 

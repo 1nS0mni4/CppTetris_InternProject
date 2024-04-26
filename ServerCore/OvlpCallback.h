@@ -68,26 +68,8 @@ public:
 
 		T* session = nullptr;
 		session = SessionManager<T>::GetInstance().CreateSession();
-		session->Init(_localSock, _remoteAdr);
+		session->Initialize(_localSock, _remoteAdr);
 		session->Recv();
-		//if (errCode == 0) {
-		//	session = SessionManager<T>::GetInstance().CreateSession();
-		//	session->Init(_localSock, _remoteAdr);
-		//	session->Recv();
-		//}
-
-		//if (errCode == SOCKET_ERROR) {
-		//	errCode = WSAGetLastError();
-		//	if (errCode == WSAEWOULDBLOCK) {
-		//		errCode = WaitForSingleObject((HANDLE)_localSock, INFINITE);
-
-		//		if (errCode == WAIT_OBJECT_0) {
-		//			session = SessionManager<T>::GetInstance().CreateSession();
-		//			session->Init(_localSock, _remoteAdr);
-		//			session->Recv();
-		//		}
-		//	}
-		//}
 
 		return session;
 	}
