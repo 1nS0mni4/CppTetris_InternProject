@@ -13,6 +13,9 @@
     <Filter Include="Session">
       <UniqueIdentifier>{9a48bff5-1a14-45e7-af82-06c60dfcfb43}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{af977cae-ed78-48ba-a35d-998f82a3bf85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -33,6 +36,8 @@
     <ClCompile Include="PacketQueue.cpp">
       <Filter>Packet</Filter>
     </ClCompile>
+    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="RoomManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -47,5 +52,7 @@
     <ClInclude Include="PacketQueue.h">
       <Filter>Packet</Filter>
     </ClInclude>
+    <ClInclude Include="Room.h" />
+    <ClInclude Include="RoomManager.h" />
   </ItemGroup>
 </Project>

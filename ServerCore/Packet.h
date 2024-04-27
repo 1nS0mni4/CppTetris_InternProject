@@ -1,5 +1,5 @@
 #pragma once
-#pragma pack(1)
+//#pragma pack(1)
 #include "pch.h"
 
 using Segment = char*;

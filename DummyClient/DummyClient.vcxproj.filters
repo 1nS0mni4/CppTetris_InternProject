@@ -27,7 +27,9 @@
     <ClCompile Include="ServerSession.cpp">
       <Filter>Session</Filter>
     </ClCompile>
-    <ClCompile Include="PacketQueue.cpp" />
+    <ClCompile Include="PacketQueue.cpp">
+      <Filter>Packet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -39,6 +41,8 @@
     <ClInclude Include="ServerSession.h">
       <Filter>Session</Filter>
     </ClInclude>
-    <ClInclude Include="PacketQueue.h" />
+    <ClInclude Include="PacketQueue.h">
+      <Filter>Packet</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

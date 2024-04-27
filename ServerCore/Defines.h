@@ -35,3 +35,6 @@ protected:\
 #define RECVBUF_SIZE		1024
 
 #define PACKET_HEADER_SIZE		sizeof(USHORT) + sizeof(USHORT)
+
+#define MAX_ROOM_COUNT		500
+#define MAX_ROOM_CAPACITY	2

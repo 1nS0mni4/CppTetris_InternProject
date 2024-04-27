@@ -2,21 +2,6 @@
 D:\Projects\Github\TermProject\Server\PacketQueue.h(24,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'PacketData' 왼쪽은 무시됩니다.
   (소스 파일 '/ClientSession.cpp'을(를) 컴파일하는 중)
   
-  PacketQueue.cpp
-D:\Projects\Github\TermProject\Server\PacketQueue.h(24,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'PacketData' 왼쪽은 무시됩니다.
-  (소스 파일 '/PacketQueue.cpp'을(를) 컴파일하는 중)
-  
-D:\Projects\Github\TermProject\Server\PacketQueue.cpp(13,22): warning C4267: '인수': 'size_t'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Projects\Github\TermProject\Server\PacketQueue.cpp(13,22): warning C4267:         with
-D:\Projects\Github\TermProject\Server\PacketQueue.cpp(13,22): warning C4267:         [
-D:\Projects\Github\TermProject\Server\PacketQueue.cpp(13,22): warning C4267:             _Ty=int
-D:\Projects\Github\TermProject\Server\PacketQueue.cpp(13,22): warning C4267:         ]
-  (소스 파일 '/PacketQueue.cpp'을(를) 컴파일하는 중)
-  
-D:\Projects\Github\TermProject\Server\PacketQueue.cpp(74,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/PacketQueue.cpp'을(를) 컴파일하는 중)
-  
-  ServerPacketHandler.cpp
   main.cpp
 D:\Projects\Github\TermProject\Server\PacketQueue.h(24,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'PacketData' 왼쪽은 무시됩니다.
   (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
@@ -34,5 +19,30 @@ D:\Projects\Github\TermProject\ServerCore\SessionManager.h(57,11): warning C4267
   		D:\Projects\Github\TermProject\Server\main.cpp(18,51):
   		'main'에서 'SessionManager<ClientSession>::Init'에 대한 첫 번째 참조를 확인하세요.
   
+  PacketQueue.cpp
+D:\Projects\Github\TermProject\Server\PacketQueue.h(24,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'PacketData' 왼쪽은 무시됩니다.
+  (소스 파일 '/PacketQueue.cpp'을(를) 컴파일하는 중)
+  
+D:\Projects\Github\TermProject\Server\PacketQueue.cpp(13,22): warning C4267: '인수': 'size_t'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\Server\PacketQueue.cpp(13,22): warning C4267:         with
+D:\Projects\Github\TermProject\Server\PacketQueue.cpp(13,22): warning C4267:         [
+D:\Projects\Github\TermProject\Server\PacketQueue.cpp(13,22): warning C4267:             _Ty=int
+D:\Projects\Github\TermProject\Server\PacketQueue.cpp(13,22): warning C4267:         ]
+  (소스 파일 '/PacketQueue.cpp'을(를) 컴파일하는 중)
+  
+D:\Projects\Github\TermProject\Server\PacketQueue.cpp(74,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PacketQueue.cpp'을(를) 컴파일하는 중)
+  
+  Room.cpp
+D:\Projects\Github\TermProject\Server\Room.h(9,40): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/Room.cpp'을(를) 컴파일하는 중)
+  
+  RoomManager.cpp
+D:\Projects\Github\TermProject\Server\Room.h(9,40): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/RoomManager.cpp'을(를) 컴파일하는 중)
+  
+  ServerPacketHandler.cpp
+D:\Projects\Github\TermProject\Server\RoomManager.cpp(14,18): error C2676: 이항 '[': 'std::queue<Room *,std::deque<Room *,std::allocator<Room *>>>'이(가) 이 연산자를 정의하지 않거나 미리 정의된 연산자에 허용되는 형식으로의 변환을 정의하지 않습니다.
+  (소스 파일 '/RoomManager.cpp'을(를) 컴파일하는 중)
+  
   코드를 생성하고 있습니다...
-  Server.vcxproj -> D:\Projects\Github\TermProject\Binary\Debug\Server\Server.exe
