@@ -10,10 +10,14 @@ public:
 	/**********************************************************
 				[Structure only use for OVERLAPPED->hEvent ]
 	***********************************************************/
-	typedef struct {
+	typedef class {
+	public:
 		Session* session;
 		WSABUF wsaBuf;
 		char buf[SENDBUF_SIZE];
+
+	public:
+
 	}PER_IO_DATA, * LPPER_IO_DATA;
 #pragma endregion
 
@@ -40,16 +44,18 @@ public:
 public:
 	void Initialize(SOCKET socket, SOCKADDR_IN remoteAdr);
 
+
+	//TODO: PacketPool에서 할당받고 여기에다 전달하면 될듯?
 	template <typename T = Packet>
 	int Send(T* packet) {
-		lock_guard<std::mutex> guard(sendMtx);
-
-
-
-		//TODO: PacketQueue가 버퍼를 전달하는게 아니라 Packet*를 가지고 풀링해야됨.
+		int size = 0;
+		{
+			lock_guard<std::mutex> guard(pendMtx);
+			sPending.push_back(packet);
+		}
 
 		if (sPending.size() <= 1)
-			SendSegment();
+			size = SendSegment();
 
 		return size;
 	}
@@ -65,7 +71,7 @@ public:
 				[Internal Use Purpose Functions]
 	***********************************************************/
 protected:
-	void SendSegment();
+	int SendSegment();
 	void OrganizeRecvBuf();
 	void OrganizeSendBuf();
 
@@ -86,7 +92,9 @@ protected:
 	SOCKET _socket;
 
 	std::vector<Packet*> sPending;
-	std::mutex sendMtx;
+	std::vector<Packet*> sending;
+
+	std::mutex pendMtx, sendMtx;
 	std::atomic<bool> recvAtm;
 	int _rcRead, _rcWrite;
 	int _sdUsed, _sdWrite;

@@ -33,40 +33,38 @@ void PacketQueue::Push(Session* session, char* segment, USHORT packetID, USHORT 
 
 void PacketQueue::Flush() {
 	while (_isClosed == false) {
-		SleepEx(1, TRUE);
-		lock_guard<std::mutex> guard(m_fetch);
-		vector<PacketData*> flushed;
-		int fetched = 0;
-		while (fetch.empty() == false) {
-			PacketData* data = fetch.back();
-			fetch.pop_back();
+		SleepEx(10, TRUE);
+		{
+			lock_guard<std::mutex> guard(m_fetch);
+			vector<PacketData*> flushed;
+			int fetched = 0;
+			while (fetch.empty() == false) {
+				PacketData* data = fetch.back();
+				fetch.pop_back();
 
-			ServerPacketHandler::GetInstance().HandlePacket(data->session, data->segment, data->packetID, data->size);
-			flushed.push_back(data);
-			fetched++;
+				ServerPacketHandler::GetInstance().HandlePacket(data->session, data->segment, data->packetID, data->size);
+				flushed.push_back(data);
+				fetched++;
+			}
+			ReleasePD(flushed);
+			//cout << "Fetched: " << fetched << '\n';
 		}
-		cout << "Fetched: " << fetched << '\n';
 
 		if (store.size() > 0) {
 			lock_guard<std::mutex> guard(m_store);
 			fetch = store;
 			store.clear();
 		}
-
-		ReleasePD(flushed);
 	}
 }
 
 PacketData* PacketQueue::GetPD() {
 	PacketData* ret;
+	while (pool.empty());
 
-	if (pool.size() <= 0)
-		ret = new PacketData();
-	else {
-		lock_guard<std::mutex> guard(m_pool);
-		ret = pool.back();
-		pool.pop_back();
-	}
+	lock_guard<std::mutex> guard(m_pool);
+	ret = pool.back();
+	pool.pop_back();
 	
 	return ret;
 }

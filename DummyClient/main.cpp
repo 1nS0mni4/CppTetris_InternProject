@@ -22,99 +22,101 @@ void CALLBACK SendCompRoutine(DWORD, DWORD, LPWSAOVERLAPPED, DWORD);
 
 int main(int argc, char* argv[]) {
 	{
-		WSADATA wsaData;
-		SOCKET hSock;
-		SOCKADDR_IN serverAdr;
-		LPWSAOVERLAPPED lpOvlp;
-		DWORD recvBytes;
-		LPPER_IO_DATA hbInfo;
-		DWORD mode = 1, flags = 0;
-		int recvAdrSz;
+		//WSADATA wsaData;
+		//SOCKET hSock;
+		//SOCKADDR_IN serverAdr;
+		//LPWSAOVERLAPPED lpOvlp;
+		//DWORD recvBytes;
+		//LPPER_IO_DATA hbInfo;
+		//DWORD mode = 1, flags = 0;
+		//int recvAdrSz;
 
-		if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
-			return -1;
+		//if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
+		//	return -1;
 
-		hSock = WSASocket(AF_INET, SOCK_STREAM, 0, NULL, 0, WSA_FLAG_OVERLAPPED);
-		if (hSock == INVALID_SOCKET)
-			return -1;
-		memset(&serverAdr, 0, sizeof(SOCKADDR_IN));
-		serverAdr.sin_family = PF_INET;
-		serverAdr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
-		serverAdr.sin_port = htons(9190);
+		//hSock = WSASocket(AF_INET, SOCK_STREAM, 0, NULL, 0, WSA_FLAG_OVERLAPPED);
+		//if (hSock == INVALID_SOCKET)
+		//	return -1;
+		//memset(&serverAdr, 0, sizeof(SOCKADDR_IN));
+		//serverAdr.sin_family = PF_INET;
+		//serverAdr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
+		//serverAdr.sin_port = htons(9190);
 
-		if (::connect(hSock, (SOCKADDR*)&serverAdr, sizeof(SOCKADDR_IN)) == SOCKET_ERROR) {
-			return -1;
-		}
+		//if (::connect(hSock, (SOCKADDR*)&serverAdr, sizeof(SOCKADDR_IN)) == SOCKET_ERROR) {
+		//	return -1;
+		//}
 
-		puts("server connected....");
+		//puts("server connected....");
 
-		lpOvlp = (LPWSAOVERLAPPED)malloc(sizeof(WSAOVERLAPPED));
-		memset(lpOvlp, 0, sizeof(WSAOVERLAPPED));
+		//lpOvlp = (LPWSAOVERLAPPED)malloc(sizeof(WSAOVERLAPPED));
+		//memset(lpOvlp, 0, sizeof(WSAOVERLAPPED));
 
-		hbInfo = (LPPER_IO_DATA)malloc(sizeof(PER_IO_DATA));
-		memset(hbInfo, 0, sizeof(PER_IO_DATA));
-		hbInfo->hServSock = hSock;		// ¿Ö DWORD·Î ÁÜ?
+		//hbInfo = (LPPER_IO_DATA)malloc(sizeof(PER_IO_DATA));
+		//memset(hbInfo, 0, sizeof(PER_IO_DATA));
+		//hbInfo->hServSock = hSock;		// ¿Ö DWORD·Î ÁÜ?
 
-		while (true) {
-			TestPacket packet;
-			packet.data = 1;
-			int size = packet.Write(hbInfo->buf);
+		//while (true) {
+		//	TestPacket packet;
+		//	packet.data = 1;
+		//	int size = packet.Write(hbInfo->buf);
 
-			(hbInfo->wsaBuf).buf = hbInfo->buf;
-			hbInfo->wsaBuf.len = size;
+		//	(hbInfo->wsaBuf).buf = hbInfo->buf;
+		//	hbInfo->wsaBuf.len = size;
 
-			lpOvlp->hEvent = (HANDLE)hbInfo;
-			WSASend(hSock, &(hbInfo->wsaBuf), 1, &recvBytes, 0, lpOvlp, SendCompRoutine);
+		//	lpOvlp->hEvent = (HANDLE)hbInfo;
+		//	WSASend(hSock, &(hbInfo->wsaBuf), 1, &recvBytes, 0, lpOvlp, SendCompRoutine);
 
-			Sleep(1);
-			memset(hbInfo->buf, 0, 1024);
+		//	Sleep(1);
+		//	memset(hbInfo->buf, 0, 1024);
 
-			TestPacket packet2;
-			packet2.data = 1000;
-			size = packet2.Write(hbInfo->buf);
+		//	TestPacket packet2;
+		//	packet2.data = 1000;
+		//	size = packet2.Write(hbInfo->buf);
 
-			(hbInfo->wsaBuf).buf = hbInfo->buf;
-			hbInfo->wsaBuf.len = size;
+		//	(hbInfo->wsaBuf).buf = hbInfo->buf;
+		//	hbInfo->wsaBuf.len = size;
 
-			lpOvlp->hEvent = (HANDLE)hbInfo;
-			WSASend(hSock, &(hbInfo->wsaBuf), 1, &recvBytes, 0, lpOvlp, SendCompRoutine);
-			Sleep(1);
-		}
+		//	lpOvlp->hEvent = (HANDLE)hbInfo;
+		//	WSASend(hSock, &(hbInfo->wsaBuf), 1, &recvBytes, 0, lpOvlp, SendCompRoutine);
+		//	Sleep(1);
+		//}
 
-			while (true);
+		//	while (true);
 
 
-		closesocket(hSock);
-		WSACleanup();
+		//closesocket(hSock);
+		//WSACleanup();
 	}
 
-	//SessionManager<ServerSession>::GetInstance().Init();
-	//std::thread packetFetchLoop(&PacketQueue::Flush, &PacketQueue::GetInstance());
+	SessionManager<ServerSession>::GetInstance().Init();
+	std::thread packetFetchLoop(&PacketQueue::Flush, &PacketQueue::GetInstance());
 
-	//if (OvlpCallback::GetInstance().Start() == SOCKET_ERROR)
-	//	return -1;
+	if (OvlpCallback::GetInstance().Start() == SOCKET_ERROR)
+		return -1;
 
-	//ServerSession* session = OvlpCallback::GetInstance().Connect<ServerSession>(PF_INET, "127.0.0.1", 9190);
-	//if (session == nullptr)
-	//	return -1;
+	ServerSession* session = OvlpCallback::GetInstance().Connect<ServerSession>(PF_INET, "127.0.0.1", 9190);
+	if (session == nullptr)
+		return -1;
 
-	//TestPacket packet;
-	//packet.data = 10;
+	TestPacket* packet = new TestPacket();
+	int i = 1;
+	packet->data = i;
 
-	//std::string input;
+	std::string input;
 
-	//while (true) {
-	//	Sleep(100);
+	while (true) {
+		session->Send<TestPacket>(packet);
+		Sleep(10);
+		new (packet) TestPacket;
+		packet->data = ++i;
+	}
 
-	//	session->Send<TestPacket>(packet);
-	//}
+	OvlpCallback::GetInstance().Close();
+	PacketQueue::GetInstance().Close();
 
-	//OvlpCallback::GetInstance().Close();
-	//PacketQueue::GetInstance().Close();
+	packetFetchLoop.join();
 
-	//packetFetchLoop.join();
-
-	//std::cout << "Server Closed" << std::endl;
+	std::cout << "Server Closed" << std::endl;
 
 	return 0;
 }

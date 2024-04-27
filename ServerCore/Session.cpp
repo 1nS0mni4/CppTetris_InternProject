@@ -47,23 +47,37 @@ void Session::Clear() {
 	_rcRead = _rcWrite = 0;
 }
 
-void Session::SendSegment() {
+int Session::SendSegment() {
+	lock_guard<std::mutex> guard(sendMtx);
+	int processed = 0;
 	{
-		lock_guard<std::mutex> guard(sendMtx);
+		lock_guard<std::mutex> guard(pendMtx);
+
+
 		if (sPending.empty())
-			return;
+			return 0;
 
-		//TODO: 여기도 벡터 두개로 쌓인거 한번에 몰아서 보내면 좋을듯
-		//TODO: sendInfo->buf에 쌓인 패킷 순서대로 오프셋줘서 덮어쓰기 한 담에 len +=해주면 될듯
-
-		//Packet* packet;// = sPending.back
-		//int size = packet->Write(sendInfo->buf);
-		//sendInfo->wsaBuf.len = size;
+		while (sPending.empty() == false) {
+			sending.push_back(sPending.back());
+			sPending.pop_back();
+		}
 	}
+
+	char* startPos = sendInfo->buf;
+	while (sending.empty() == false) {
+		Packet* packet = sending.back();
+		sending.pop_back();
+
+		int size = packet->Write(startPos);
+		startPos += size;
+		processed += size;
+	}
+	sendInfo->wsaBuf.len = processed;
 
 	int result = ::WSASend(_socket, &(sendInfo->wsaBuf), 1, &sentBytes, 0, sendOvlp, SendCompRoutine);
 	result = WSAGetLastError();
 	result;
+	return processed;
 }
 
 void CALLBACK Session::SendCompRoutine(DWORD dwError, DWORD szSentBytes, LPWSAOVERLAPPED lpOverlapped, DWORD flags) {
@@ -71,7 +85,8 @@ void CALLBACK Session::SendCompRoutine(DWORD dwError, DWORD szSentBytes, LPWSAOV
 	Session* session = info->session;
 	WSABUF buf = info->wsaBuf;
 
-	SendBuffer::GetInstance().setUsed(szSentBytes);
+	lock_guard<std::mutex> guard(session->pendMtx);
+	info->wsaBuf.len = 0;
 	session->SendSegment();
 }
 
@@ -93,7 +108,7 @@ void CALLBACK Session::RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOV
 		puts("Client disconnected...");
 		return;
 	} 
-
+	session->_rcWrite += szRecvBytes;
 	session->OnRecv(bufInfo.buf, szRecvBytes);
 	session->recvAtm.exchange(false);
 	session->Recv();

@@ -42,7 +42,7 @@ int CtS_LoginAccessPacket::Write(char* buffer) {
 	return index;
 }
 
-TestPacket::TestPacket() : Packet(PacketType::TestPacket){ }
+TestPacket::TestPacket() : Packet(PacketType::TestPacket) { data = 0; }
 TestPacket::~TestPacket() { }
 
 int TestPacket::Read(char* segment) {
