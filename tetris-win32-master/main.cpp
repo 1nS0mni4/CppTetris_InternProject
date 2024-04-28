@@ -106,7 +106,7 @@ LRESULT CALLBACK InputBoxProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
                     break;
 
                 case BN_CLICKED:
-
+                    //TODO: 계정 데이터 서버에 송신
 
                     break;
             }
@@ -221,20 +221,21 @@ int WINAPI ShowGame(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine
 
 
 
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                    PSTR szCmdLine, int iCmdShow) {
 
-    SessionManager<ServerSession>::GetInstance().Init();
-    std::thread packetFetchLoop(&PacketQueue::Flush, &PacketQueue::GetInstance());
+    //SessionManager<ServerSession>::GetInstance().Init();
+    //std::thread packetFetchLoop(&PacketQueue::Flush, &PacketQueue::GetInstance());
 
-    if (OvlpCallback::GetInstance().Start() == SOCKET_ERROR)
-        return -1;
+    //if (OvlpCallback::GetInstance().Start() == SOCKET_ERROR)
+    //    return -1;
 
-    session = OvlpCallback::GetInstance().Connect<ServerSession>(PF_INET, "127.0.0.1", 9190);
-    if (session == nullptr)
-        return -1;
+    //session = OvlpCallback::GetInstance().Connect<ServerSession>(PF_INET, "127.0.0.1", 9190);
+    //if (session == nullptr)
+    //    return -1;
 
-    ///ShowInputBox(hInstance, hPrevInstance, szCmdLine, iCmdShow);
+    //ShowInputBox(hInstance, hPrevInstance, szCmdLine, iCmdShow);
 
     ShowGame(hInstance, hPrevInstance, szCmdLine, iCmdShow);
 
@@ -245,7 +246,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     OvlpCallback::GetInstance().Close();
     PacketQueue::GetInstance().Close();
 
-    packetFetchLoop.join();
+    //packetFetchLoop.join();
     
 
     std::cout << "Server Closed" << std::endl;

@@ -1,5 +1,4 @@
 #pragma once
-//#pragma pack(1)
 #include "pch.h"
 
 using Segment = char*;
@@ -29,15 +28,6 @@ public:
 
 public:
 	static char* Promote(Packet* packet, char* segment);
-};
-
-class GamePacket : public Packet{
-public:
-	GamePacket();
-	~GamePacket() override;
-
-	virtual int Read(char* segment);
-	virtual int Write(char* buffer);
 };
 
 class TestPacket : public Packet {
