@@ -23,6 +23,9 @@ const int GAME_SPEED = 33;      // Update the game every GAME_SPEED millisecs (=
 const int TIMER_ID = 1;
 HINSTANCE hInst;
 static Session* session = nullptr;
+HWND inputBox;
+
+char username[20];
 
 #pragma region Procedures
 LRESULT CALLBACK GameInputProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) {
@@ -30,6 +33,8 @@ LRESULT CALLBACK GameInputProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lP
     PAINTSTRUCT ps;
     static Game* game;
     static DrawEngine* de;
+    static DrawEngine* ode;
+    static Game* ogame;
 
     switch (message) {
         case WM_CREATE:
@@ -37,6 +42,10 @@ LRESULT CALLBACK GameInputProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lP
 
             de = new DrawEngine(hdc, hwnd, PX_PER_BLOCK);
             game = new Game(*de);
+            ogame = new Game(*de);
+
+            //ode = new DrawEngine(hdc, hwnd, PX_PER_BLOCK, 203);
+            //ogame = new Game(*ode);
             SetTimer(hwnd, TIMER_ID, GAME_SPEED, NULL);
 
             ReleaseDC(hwnd, hdc);
@@ -83,7 +92,7 @@ LRESULT CALLBACK InputBoxProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 
     switch (message) {
         case WM_CREATE:
-            CreateWindowW(L"edit", NULL, WS_BORDER | WS_CHILD | WS_VISIBLE | ES_NUMBER | ES_RIGHT, 100, 20, 100, 25, hWnd, NULL, hInst, &lParam);
+            inputBox = CreateWindowW(L"edit", NULL, WS_BORDER | WS_CHILD | WS_VISIBLE | ES_NUMBER | ES_RIGHT, 100, 20, 100, 25, hWnd, NULL, hInst, &lParam);
             CreateWindowW(L"button", L"Connect", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, 100, 50, 100, 25, hWnd, NULL, hInst, NULL);
             break;
         case WM_LBUTTONDOWN:
@@ -100,14 +109,21 @@ LRESULT CALLBACK InputBoxProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
         case WM_COMMAND:
             switch (HIWORD(wParam)) {
                 case EN_CHANGE:
+                    InvalidateRect(hWnd, NULL, TRUE);
                     hdc = GetDC(hWnd);
-                    TextOutW(hdc, 100, 100, L"Edit컨트롤에 변화가 있습니다!", 19);
+
+                    if (GetWindowTextA(inputBox, username, GetWindowTextLength(inputBox) + 1) != NULL) {
+                        TextOutA(hdc, 100, 100, username, lstrlenA(username));
+                    }
+
                     ReleaseDC(hWnd, hdc);
                     break;
 
                 case BN_CLICKED:
-                    //TODO: 계정 데이터 서버에 송신
+                    CtS_LoginRequestPacket* packet = new CtS_LoginRequestPacket();
+                    packet->id = (char*)username;
 
+                    session->Send(packet);
                     break;
             }
             break;
@@ -237,23 +253,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
     //ShowInputBox(hInstance, hPrevInstance, szCmdLine, iCmdShow);
 
+    //CtS_LoginRequestPacket* packet = new CtS_LoginRequestPacket();
+    //packet->id = "test";
+    //session->Send(packet);
+
     ShowGame(hInstance, hPrevInstance, szCmdLine, iCmdShow);
 
 
-
-
-
-    OvlpCallback::GetInstance().Close();
-    PacketQueue::GetInstance().Close();
-
+    //OvlpCallback::GetInstance().Close();
+    //PacketQueue::GetInstance().Close();
+    //session->Disconnect();
     //packetFetchLoop.join();
-    
-
-    std::cout << "Server Closed" << std::endl;
 
     return 0;
-
-
-
-
 }

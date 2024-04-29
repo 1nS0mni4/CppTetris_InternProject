@@ -4,19 +4,14 @@
 #include "ClientSession.h"
 #include "OvlpCallback.h"
 #include "PacketQueue.h"
-
-//void CALLBACK RecvCompRoutine(DWORD, DWORD, LPWSAOVERLAPPED, DWORD);
-//void CALLBACK SendCompRoutine(DWORD, DWORD, LPWSAOVERLAPPED, DWORD);
-
-typedef struct {
-	SOCKET hClntSock;
-	char buf[1024];
-	WSABUF wsaBuf;
-}PER_IO_DATA, *LPPER_IO_DATA;
+#include "RoomManager.h"
+#include "JobQueue.h"
+#include "JobTimer.h"
+#include "ServerPacketHandler.h"
 
 int main(int argc, char* argv[]) {
 	SessionManager<ClientSession>::GetInstance().Init();
-	std::thread packetFetchLoop(&PacketQueue::Flush, &PacketQueue::GetInstance());
+	ServerPacketHandler::GetInstance().Init();
 
 	if (OvlpCallback::GetInstance().Start() == SOCKET_ERROR)
 		return -1;
@@ -24,8 +19,11 @@ int main(int argc, char* argv[]) {
 	if (OvlpCallback::GetInstance().BindnListen("127.0.0.1", 9190) == SOCKET_ERROR)
 		return -1;
 
-	
-	std::thread acceptLoop(&OvlpCallback::AcceptLoop<ClientSession>, &OvlpCallback::GetInstance());
+	std::thread fetchThread(&PacketQueue::Flush, &PacketQueue::GetInstance());
+	std::thread olvpThread(&OvlpCallback::AcceptLoop<ClientSession>, &OvlpCallback::GetInstance());
+	std::thread roomThread(&RoomManager::UpdateRooms, &RoomManager::GetInstance());
+	std::thread jobThread(&JobQueue::Fetch, &JobQueue::GetInstance());
+	std::thread timerThread(&JobTimer::OnUpdate, &JobTimer::GetInstance());
 	
 	std::string input;
 
@@ -35,14 +33,20 @@ int main(int argc, char* argv[]) {
 		//if (strcmp(input.c_str(), "quit") == 0 || strcmp(input.c_str(), "Quit") == 0)
 		//	break;
 
-		//TODO: 콘솔 커맨드 기능 추가
+		//TODO: 커맨드 기능 추가
 	}
 
-	OvlpCallback::GetInstance().Close();
 	PacketQueue::GetInstance().Close();
+	OvlpCallback::GetInstance().Close();
+	JobQueue::GetInstance().Close();
+	JobTimer::GetInstance().Close();
 
-	acceptLoop.join();
-	packetFetchLoop.join();
+	fetchThread.join();
+	olvpThread.join();
+	roomThread.join();
+	jobThread.join();
+	timerThread.join();
+
 
 	std::cout << "Server Closed" << std::endl;
 

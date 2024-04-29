@@ -20,4 +20,6 @@
 #include <mutex>
 #include <atomic>
 
+#include <functional>
+
 using namespace std;

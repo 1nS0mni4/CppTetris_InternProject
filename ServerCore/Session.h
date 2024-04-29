@@ -46,12 +46,11 @@ public:
 
 
 	//TODO: PacketPool에서 할당받고 여기에다 전달하면 될듯?
-	template <typename T = Packet>
-	int Send(T* packet) {
+	int Send(Packet* packet) {
 		int size = 0;
 		{
 			lock_guard<std::mutex> guard(pendMtx);
-			sPending.push_back(packet);
+			sPending.emplace_back(packet);
 		}
 
 		if (sPending.size() <= 1)
@@ -91,8 +90,8 @@ protected:
 	SOCKADDR_IN _remoteAdr;
 	SOCKET _socket;
 
-	std::vector<Packet*> sPending;
-	std::vector<Packet*> sending;
+	std::vector<shared_ptr<Packet>> sPending;
+	std::vector<shared_ptr<Packet>> sending;
 
 	std::mutex pendMtx, sendMtx;
 	std::atomic<bool> recvAtm;

@@ -1,8 +1,9 @@
 #include "DrawEngine.h"
 
 DrawEngine::DrawEngine(HDC hdc, HWND hwnd, int pxPerBlock,
+                       int x, int y,
                        int width, int height) :
-hdc(hdc), hwnd(hwnd), width(width), height(height)
+hdc(hdc), hwnd(hwnd), width(width), height(height), _x(x), _y(y)
 {
     GetClientRect(hwnd, &rect);
 
@@ -12,7 +13,7 @@ hdc(hdc), hwnd(hwnd), width(width), height(height)
     SetMapMode(hdc, MM_ISOTROPIC);
     SetViewportExtEx(hdc, pxPerBlock, pxPerBlock, 0);
     SetWindowExtEx(hdc, 1, -1, 0);
-    SetViewportOrgEx(hdc, 0, rect.bottom, 0);
+    SetViewportOrgEx(hdc, x, y + rect.bottom, 0);
 
     // Set default colors
     SetTextColor(hdc, RGB(255,255,255));
@@ -29,17 +30,17 @@ DrawEngine::~DrawEngine()
 void DrawEngine::drawBlock(int x, int y, COLORREF color)
 {
     HBRUSH hBrush = CreateSolidBrush(color);
-    rect.left = x;
-    rect.right = x + 1;
-    rect.top = y;
-    rect.bottom = y + 1;
+    rect.left = _x + x;
+    rect.right = _x + x + 1;
+    rect.top = _y + y;
+    rect.bottom = _y + y + 1;
 
     FillRect(hdc, &rect, hBrush);
 
     // Draw left and bottom black border
-    MoveToEx(hdc, x, y + 1, NULL);
-    LineTo(hdc, x, y);
-    LineTo(hdc, x + 1, y);
+    MoveToEx(hdc, _x + x, _y + y + 1, NULL);
+    LineTo(hdc, _x + x, _y + y);
+    LineTo(hdc, _x + x + 1, _y + y);
     DeleteObject(hBrush);
 }
 
@@ -53,11 +54,19 @@ void DrawEngine::drawInterface()
     rect.right = width + 8;
     FillRect(hdc, &rect, hBrush);
     DeleteObject(hBrush);
+
+    //hBrush = CreateSolidBrush(RGB(70, 70, 70));
+    //rect.top = height;
+    //rect.left = 203 + width;
+    //rect.bottom = 0;
+    //rect.right = 203 + width + 8;
+    //FillRect(hdc, &rect, hBrush);
+    //DeleteObject(hBrush);
 }
 
 void DrawEngine::drawText(TCHAR *szText, int x, int y) const
 {
-    TextOut(hdc, x, y, szText, lstrlen(szText));
+    TextOut(hdc, _x + x, _y + y, szText, lstrlen(szText));
 }
 
 void DrawEngine::drawScore(int score, int x, int y) const
@@ -65,7 +74,7 @@ void DrawEngine::drawScore(int score, int x, int y) const
     TCHAR szBuffer[20];
     int len = wsprintf(szBuffer, TEXT("Score: %6d"), score);
     SetBkMode(hdc, OPAQUE);
-    TextOut(hdc, x, y, szBuffer, len);
+    TextOut(hdc, _x + x, _y + y, szBuffer, len);
     SetBkMode(hdc, TRANSPARENT);
 }
 
@@ -74,14 +83,14 @@ void DrawEngine::drawSpeed(int speed, int x, int y) const
     TCHAR szBuffer[20];
     int len = wsprintf(szBuffer, TEXT("Speed: %6d"), speed);
     SetBkMode(hdc, OPAQUE);
-    TextOut(hdc, x, y, szBuffer, len);
+    TextOut(hdc, _x + x, _y + y, szBuffer, len);
     SetBkMode(hdc, TRANSPARENT);
 }
 
 void DrawEngine::drawNextPiece(Piece &piece, int x, int y)
 {
     TCHAR szBuffer[] = TEXT("Next:");
-    TextOut(hdc, x, y + 5, szBuffer, lstrlen(szBuffer));
+    TextOut(hdc, _x + x, _y + y + 5, szBuffer, lstrlen(szBuffer));
     COLORREF color = piece.getColor();
 
     // Draw the piece in a 4x4 square area
@@ -90,9 +99,9 @@ void DrawEngine::drawNextPiece(Piece &piece, int x, int y)
         for (int j = 0; j < 4; j++)
         {
             if (piece.isPointExists(i, j))
-                drawBlock(i + x, j + y, color);
+                drawBlock(i + x + _x, j + y + _y, color);
             else
-                drawBlock(i + x, j + y, RGB(0,0,0));
+                drawBlock(i + x + _x, j + y + _y, RGB(0,0,0));
         }
     }
 }

@@ -47,7 +47,7 @@ void PacketQueue::Flush() {
 				fetched++;
 			}
 			ReleasePD(flushed);
-			//cout << "Fetched: " << fetched << '\n';
+			cout << "Fetched: " << fetched << '\n';
 		}
 
 		if (store.size() > 0) {

@@ -59,6 +59,7 @@ public:
 		_remoteAdr.sin_family = family;
 		_remoteAdr.sin_addr.S_un.S_addr = inet_addr(remoteIpAddress.c_str());
 		_remoteAdr.sin_port = htons(rmPort);
+		//TODO: 이후에 개인 욕심으로 한번 시도해볼만한 것 -> AcceptEx도 포함.
 		//int errCode = WSAConnect(_localSock, (SOCKADDR*)&_remoteAdr, sizeof(SOCKADDR_IN), NULL, NULL, NULL, NULL);
 		
 		if (::connect(_localSock, (SOCKADDR*)&_remoteAdr, sizeof(SOCKADDR_IN)) == SOCKET_ERROR) {
@@ -81,7 +82,7 @@ public:
 	void ErrorHandling(const char* message);
 
 private:
-	SOCKET _localSock, _remoteSock;
+	SOCKET _localSock = 0, _remoteSock = 0;
 	SOCKADDR_IN _localAdr, _remoteAdr;
 
 };

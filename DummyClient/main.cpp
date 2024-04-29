@@ -31,17 +31,8 @@ int main(int argc, char* argv[]) {
 	if (session == nullptr)
 		return -1;
 
-	TestPacket* packet = new TestPacket();
-	int i = 1;
-	packet->data = i;
-
-	std::string input;
-
 	while (true) {
-		session->Send<TestPacket>(packet);
-		Sleep(10);
-		new (packet) TestPacket;
-		packet->data = ++i;
+
 	}
 
 	OvlpCallback::GetInstance().Close();
@@ -78,7 +69,6 @@ void CALLBACK SendCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOVERLAPPED 
 	DWORD recvBytes;
 
 	DWORD flagInfo = 0;
-	//WSARecv(hSock, bufInfo, 1, &recvBytes, &flagInfo, lpOverlapped, RecvCompRoutine);
 }
 
 void ErrorHandling(const char* message) {

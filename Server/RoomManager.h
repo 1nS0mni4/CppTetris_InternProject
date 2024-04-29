@@ -2,18 +2,19 @@
 #include "pch.h"
 #include "Defines.h"
 
-#include "Session.h"
+#include "ClientSession.h"
 #include "Room.h"
 
 class RoomManager {
 	SINGLETON(RoomManager);
 
 public:
-	void EnterRoom(Session* session);
-	void ExitRoom(Session* session);
+	void EnterRoom(ClientSession* session);
+	void ExitRoom(ClientSession* session);
 
 public:
 	void UpdateRooms();
+	void Close();
 
 private:
 	queue<Room*> _rooms;

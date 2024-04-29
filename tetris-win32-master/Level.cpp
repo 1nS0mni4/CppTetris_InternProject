@@ -1,7 +1,7 @@
 #include "Level.h"
 #include <ctime>
 
-Level::Level(DrawEngine &de, int width, int height) :
+Level::Level(DrawEngine &de, int x, int y, int width, int height) :
 de(de), width(width), height(height), lastTime(0.0), speed(500), score(-1)
 {
     srand(time(0));
@@ -15,7 +15,6 @@ de(de), width(width), height(height), lastTime(0.0), speed(500), score(-1)
             board[i][j] = RGB(0, 0, 0);
     }
 
-    // 初始化目前和下一個方塊
     current = 0;
     next = pieceSet.getRandomPiece();
 }

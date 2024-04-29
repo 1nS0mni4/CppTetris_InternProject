@@ -16,7 +16,7 @@ class Level
 public:
     // de: used to draw the level
     // width & height: level size in cells
-    Level(DrawEngine &de, int width = 10, int height = 20);
+    Level(DrawEngine &de, int x, int y, int width = 10, int height = 20);
     ~Level();
 
     // Draws the level

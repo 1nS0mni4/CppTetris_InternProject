@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Room.h"
 
+#include "ClientSession.h"
+
 Room::Room(UINT32 roomID) : _roomID(roomID){
     
 }
@@ -21,18 +23,23 @@ void Room::Enter(Session* session) {
 }
 
 void Room::Exit(Session* session) {
+    if (session == nullptr)
+        return;
+
     if (_sessions[session->GetSessionID()] == 0)
         return;
+
     ClientSession* s = (ClientSession*)session;
 
     _sessions[s->GetSessionID()] = 0;
     _scores[s->GetSessionID()] = 0;
 
-    //TODO: 동기화 패킷 전송
-
     if (_sessions.size() <= 0) {
         Clear();
+        return;
     }
+
+    //TODO: 동기화 패킷 전송
 }
 
 void Room::Update() {

@@ -50,8 +50,11 @@ int OvlpCallback::BindnListen(std::string ipAddress, USHORT port, int backlog) {
 
 void OvlpCallback::Close() {
 	_isClosed = true;
-	closesocket(_remoteSock);
-	closesocket(_localSock);
+	if(_remoteSock != 0)
+		closesocket(_remoteSock);
+
+	if(_localSock != 0)
+		closesocket(_localSock);
 	WSACleanup();
 }
 

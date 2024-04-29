@@ -36,6 +36,7 @@ void Session::Initialize(SOCKET socket, SOCKADDR_IN remoteAdr) {
 }
 
 void Session::Disconnect() {
+	OnDisconnect();
 	shutdown(_socket, SD_BOTH);
 	closesocket(_socket);
 	Clear();
@@ -53,7 +54,6 @@ int Session::SendSegment() {
 	{
 		lock_guard<std::mutex> guard(pendMtx);
 
-
 		if (sPending.empty())
 			return 0;
 
@@ -65,12 +65,12 @@ int Session::SendSegment() {
 
 	char* startPos = sendInfo->buf;
 	while (sending.empty() == false) {
-		Packet* packet = sending.back();
-		sending.pop_back();
+		Packet* packet = sending.back().get();
 
 		int size = packet->Write(startPos);
 		startPos += size;
 		processed += size;
+		sending.pop_back();
 	}
 	sendInfo->wsaBuf.len = processed;
 
@@ -106,6 +106,7 @@ void CALLBACK Session::RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOV
 
 	if (szRecvBytes == 0) {
 		puts("Client disconnected...");
+		session->Disconnect();
 		return;
 	} 
 	session->_rcWrite += szRecvBytes;

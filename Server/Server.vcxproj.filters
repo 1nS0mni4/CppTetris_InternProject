@@ -16,13 +16,22 @@
     <Filter Include="Game">
       <UniqueIdentifier>{af977cae-ed78-48ba-a35d-998f82a3bf85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Room">
+      <UniqueIdentifier>{92652526-396b-4dea-8bab-a5d5377a5e4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\PCH">
+      <UniqueIdentifier>{1b01ab04-b164-4fd5-b9e5-f1a67c430c64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Job">
+      <UniqueIdentifier>{10d89ea3-48a1-413e-8da5-c3e41908ab99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Job">
+      <UniqueIdentifier>{d723ee05-292b-4d50-a2c5-794e1aebda03}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>Utils</Filter>
     </ClCompile>
     <ClCompile Include="db.cpp">
       <Filter>Main</Filter>
@@ -36,13 +45,26 @@
     <ClCompile Include="PacketQueue.cpp">
       <Filter>Packet</Filter>
     </ClCompile>
-    <ClCompile Include="Room.cpp" />
-    <ClCompile Include="RoomManager.cpp" />
+    <ClCompile Include="Room.cpp">
+      <Filter>Game\Room</Filter>
+    </ClCompile>
+    <ClCompile Include="RoomManager.cpp">
+      <Filter>Game\Room</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Utils\PCH</Filter>
+    </ClCompile>
+    <ClCompile Include="Job.cpp">
+      <Filter>Job</Filter>
+    </ClCompile>
+    <ClCompile Include="JobQueue.cpp">
+      <Filter>Job</Filter>
+    </ClCompile>
+    <ClCompile Include="JobTimer.cpp">
+      <Filter>Job</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pch.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
     <ClInclude Include="ClientSession.h">
       <Filter>Session</Filter>
     </ClInclude>
@@ -52,7 +74,23 @@
     <ClInclude Include="PacketQueue.h">
       <Filter>Packet</Filter>
     </ClInclude>
-    <ClInclude Include="Room.h" />
-    <ClInclude Include="RoomManager.h" />
+    <ClInclude Include="Room.h">
+      <Filter>Game\Room</Filter>
+    </ClInclude>
+    <ClInclude Include="RoomManager.h">
+      <Filter>Game\Room</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Utils\PCH</Filter>
+    </ClInclude>
+    <ClInclude Include="Job.h">
+      <Filter>Job</Filter>
+    </ClInclude>
+    <ClInclude Include="JobQueue.h">
+      <Filter>Job</Filter>
+    </ClInclude>
+    <ClInclude Include="JobTimer.h">
+      <Filter>Job</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

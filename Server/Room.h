@@ -1,8 +1,8 @@
 #pragma once
 #include "pch.h"
 #include "Defines.h"
+#include "Session.h"
 
-#include "ClientSession.h"
 
 class Room {
 public:

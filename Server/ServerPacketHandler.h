@@ -3,7 +3,8 @@
 #include "ClientSession.h"
 #include "PacketHandler.h"
 
-static void TestPacketHandler(Session* session, char* segment, USHORT size);
+void TestPacketHandler(Session* session, char* segment, USHORT size);
+void CtS_LoginAccessPacketHandler(Session* session, char* segment, USHORT size);
 
 class ServerPacketHandler : public PacketHandler {
 	SINGLETON(ServerPacketHandler);

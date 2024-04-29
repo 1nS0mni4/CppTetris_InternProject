@@ -1,12 +1,10 @@
 #include "pch.h"
 #include "ClientSession.h"
 #include "PacketQueue.h"
+#include "ServerPacketHandler.h"
 
 
-void ClientSession::Disconnect() {
-	Session::Disconnect();
-	ClientSessionManager::GetInstance().RemoveSession(_sessionID);
-}
+
 
 void ClientSession::OnSend() {
 
@@ -38,5 +36,11 @@ void ClientSession::OnConnect() {
 }
 
 void ClientSession::OnDisconnect() {
+	if (_room)
+		_room->Exit(this);
+}
 
+void ClientSession::Disconnect() {
+	ClientSessionManager::GetInstance().RemoveSession(_sessionID);
+	Session::Disconnect();
 }

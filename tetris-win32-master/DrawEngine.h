@@ -15,6 +15,7 @@ public:
     // pxPerBlock: cell size in pixels
     // width & height: level width and height
     DrawEngine(HDC hdc, HWND hwnd, int pxPerBlock = 25,
+               int x = 0, int y = 0,
                int width = 10, int height = 20);
     ~DrawEngine();
 
@@ -38,6 +39,8 @@ protected:
     RECT rect;   // For internal temporary usage
     int width;   // Level width in cells
     int height;  // Level height
+    int _x;
+    int _y;
 };
 
 #endif // DRAW_ENGINE_H

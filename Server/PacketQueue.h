@@ -16,7 +16,7 @@
 	}\
 }
 
-typedef struct PacketData {
+struct PacketData {
 	Session* session;
 	char* segment;
 	USHORT packetID;

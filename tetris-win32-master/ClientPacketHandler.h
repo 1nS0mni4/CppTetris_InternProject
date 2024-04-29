@@ -3,7 +3,8 @@
 
 typedef void (*HandlerFunc)(Session* session, char* segment, USHORT size);
 
-static void TestPacketHandler(Session* session, char* segment, USHORT size);
+void TestPacketHandler(Session* session, char* segment, USHORT size);
+void StC_LoginResponseHandler(Session* session, char* segment, USHORT size);
 
 class ClientPacketHandler {
 	SINGLETON(ClientPacketHandler);

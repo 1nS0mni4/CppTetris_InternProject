@@ -2,6 +2,7 @@
 #include "RoomManager.h"
 
 RoomManager::RoomManager() {
+	_isClosed = false;
 	lock_guard<mutex> guard(m_room);
 
 	for (UINT32 i = 0; i < MAX_ROOM_COUNT; i++) {
@@ -17,9 +18,10 @@ RoomManager::~RoomManager() {
 		
 		delete room;
 	}
+	_onUpdates.clear();
 }
 
-void RoomManager::EnterRoom(Session* session) {
+void RoomManager::EnterRoom(ClientSession* session) {
 	lock_guard<mutex> guard(m_room);
 	if (_rooms.size() <= 0)
 		return;
@@ -36,21 +38,22 @@ void RoomManager::EnterRoom(Session* session) {
 	}
 }
 
-void RoomManager::ExitRoom(Session* session) {
+void RoomManager::ExitRoom(ClientSession* session) {
 	lock_guard<mutex> guard(m_room);
-	if (_rooms.size() <= 0)
+	Room* room = session->_room;
+	if (room == nullptr)
 		return;
 
-	Room* room = _rooms.front();
-
+	session->_room = nullptr;
 	room->Exit(session);
 
-	if (room->IsEmpty() == 0) {
+	if (room->IsEmpty()) {
 		_onUpdates[room->GetID()] = 0;
 		_rooms.push(room);
 
 		room->Clear();
 	}
+
 }
 
 void RoomManager::UpdateRooms() {
@@ -68,3 +71,5 @@ void RoomManager::UpdateRooms() {
 		}
 	}
 }
+
+void RoomManager::Close() { _isClosed = true; }

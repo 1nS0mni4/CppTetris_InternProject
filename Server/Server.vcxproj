@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClCompile Include="ClientSession.cpp" />
     <ClCompile Include="db.cpp" />
+    <ClCompile Include="Job.cpp" />
+    <ClCompile Include="JobQueue.cpp" />
+    <ClCompile Include="JobTimer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PacketQueue.cpp" />
     <ClCompile Include="pch.cpp">
@@ -35,6 +38,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientSession.h" />
+    <ClInclude Include="Job.h" />
+    <ClInclude Include="JobQueue.h" />
+    <ClInclude Include="JobTimer.h" />
     <ClInclude Include="PacketQueue.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Room.h" />
