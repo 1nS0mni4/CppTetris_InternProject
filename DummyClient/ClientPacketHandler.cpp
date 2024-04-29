@@ -18,7 +18,7 @@ void ClientPacketHandler::Init() {
 }
 
 void ClientPacketHandler::Register() {
-	_func[PacketType::TestPacket] = TestPacketHandler;
+	_func[PacketType::Test] = TestPacketHandler;
 }
 
 static void TestPacketHandler(Session* session, char* segment, USHORT size) {

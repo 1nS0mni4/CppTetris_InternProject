@@ -1,8 +1,7 @@
 #pragma once
-#include "pch.h"
+#include "CorePch.h"
 #include "Session.h"
 #include "SessionManager.h"
-#include "ClientPacketHandler.h"
 
 class ServerSession : public Session {
 public:
@@ -21,6 +20,9 @@ public:
 	virtual int OnRecv(char* packet, int size) override;
 	virtual void OnConnect() override;
 	virtual void OnDisconnect() override;
+
+public:
+	wchar_t name[NAME_LEN];
 };
 
 using ServerSessionManager = SessionManager<ServerSession>;

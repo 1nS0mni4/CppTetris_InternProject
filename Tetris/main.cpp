@@ -1,58 +1,52 @@
-#include "CorePch.h"
-
-#ifdef _DEBUG
-#pragma comment (lib, "Debug/ServerCore.lib")
+癤�#ifdef _DEBUG
+#pragma comment(lib, "/Debug/ServerCore.lib")
 #else
-#pragma comment (lib, "Release/ServerCore.lib")
+#pragma comment(lib, "/Release/ServerCore.lib")
 #endif
-
-#include "ClientPacketHandler.h"
-#include "PacketQueue.h"
+#include "CorePch.h"
+#include "Defines.h"
 #include "OvlpCallback.h"
+#include "PacketQueue.h"
+#include "ServerSession.h"
 #include "Packet.h"
 
-#include<Windows.h>
-#include<iostream>
+//#include <Windows.h>
 #include <chrono>
 
 void CreateAssets();
 int Rotate(int pieceX, int pieceY, int degree);
 void DrawField(wchar_t* screen);
 bool DoesPieceIft(int pieceId, int rotation, int poxX, int posY);
-void SetOppoField(char* field);
+void ClearField(unsigned char* Field, unsigned char* otherField);
 
 using namespace std;
 
 wstring Pieces[7];
 
-const int FieldWidth = 12, FieldHeight = 18;
-const int ScreenWidth = 120, ScreenHeight = 30;
-unsigned char* Field = nullptr;
-char* oField = nullptr;
-int oScore = 0;
-
+int FieldWidth = 12, FieldHeight = 18;
+int ScreenWidth = 120, ScreenHeight = 30;
+unsigned char Field[FIELD_LEN];
 bool Keys[4];
 
-bool isLogin = false;
-int myWin = 0, myLose = 0, myMaxScore = 0;
+atomic<bool> isLogined = false;
+atomic<bool> isRunning = false;
 
-void GlobalFunctionTest();
+unsigned char otherField[FIELD_LEN];
+wchar_t otherName[NAME_LEN];
+int otherCurX;
+int otherCurY;
+int otherRotation;
+int otherCurPiece;
+int otherScore;
+
+CtS_NotifyFieldPacket* fieldNoti = new CtS_NotifyFieldPacket();
+CtS_NotifyCurrentPiecePacket* pieceNoti = new CtS_NotifyCurrentPiecePacket();
+CtS_NotifyScorePacket* scoreNoti = new CtS_NotifyScorePacket();
 
 int main() {
 	CreateAssets();
 
-	Field = new unsigned char[FieldWidth * FieldHeight];
-	oField = new char[FieldWidth * FieldHeight];
-
-	for (int x = 0; x < FieldWidth; x++)
-		for (int y = 0; y < FieldHeight; y++) {
-			bool isLeftWall = x == 0;
-			bool isRightWall = x == (FieldWidth - 1);
-			bool isBottomWall = y == (FieldHeight - 1);
-			int value = (isLeftWall || isRightWall || isBottomWall) ? 9 : 0;
-			Field[y * FieldWidth + x] = value;
-			oField[y * FieldWidth + x] = value;
-		}
+	ClearField(Field, otherField);
 
 	int screenBufferSize = ScreenWidth * ScreenHeight;
 
@@ -67,8 +61,6 @@ int main() {
 
 	DWORD bytesWritten = 0;
 
-	bool isRunning = true;
-
 	int currentPiece = 0;
 	int currentRotation = 0;
 	int currentX = (FieldWidth / 2) - 2;
@@ -82,6 +74,13 @@ int main() {
 	vector<int> lines;
 	int score = 0;
 
+	CtS_LoginRequestPacket* packet = new CtS_LoginRequestPacket();
+
+
+
+	wcout << L"Input Name: ";
+	memcpy(packet->name, L"Hell", 10);
+
 	SessionManager<ServerSession>::GetInstance().Init();
 	std::thread packetFetchLoop(&PacketQueue::Flush, &PacketQueue::GetInstance());
 
@@ -92,124 +91,93 @@ int main() {
 	if (session == nullptr)
 		return -1;
 
-	CtS_LoginRequestPacket* packet = new CtS_LoginRequestPacket();
-
-	cout << "NAME: ";
-	cin >> packet->id;
-
 	session->Send(packet);
-	string signal = "Waiting for Signals";
-	int count = 0;
 
-	CtS_NotifyFieldPacket* notiField = new CtS_NotifyFieldPacket();
-	CtS_NotifyScorePacket* notiScore = new CtS_NotifyScorePacket();
+	while (!isLogined);
 
-	char otherName[50];
-	int otherScore = 0;
+	while (isLogined) {
 
-	while (!isLogin) {
-		system("cls");
-		string output = signal;
-		for (int i = 0; i < count % 3; i++) {
-			output.append(".");
-		}
+		while (isRunning) {
+			// Game Timing
+			this_thread::sleep_for(50ms);
+			speedCount++;
+			forceDown = (speedCount == gameSpeed);
 
-		cout << output;
-		Sleep(500);
-		count++;
-	}
+			// Input
+			for (size_t keyIndex = 0; keyIndex < 4; keyIndex++) {
+				// Right arrow virtual key code // Left arrow virtual key code // Down arrow virtual key code // Z virtual key code key
+				Keys[keyIndex] = (0x8000 & GetAsyncKeyState((unsigned char)("\x27\x25\x28Z"[keyIndex]))) != 0;
+			}
 
-	while (true) {
-		int input = -1;
-		cout << "1. Matchmaking\n";
-		cout << "2. Quit\n";
-		cout << ">>>  ";
-		cin >> input;
+			// LOGIC
 
-		if (input == 1) {
+			// Can move right?
+			currentX += (Keys[0] && DoesPieceIft(currentPiece, currentRotation, currentX + 1, currentY));
 
-			//TODO: 매칭될 때 까지 대기
+			// Can move left?
+			currentX -= (Keys[1] && DoesPieceIft(currentPiece, currentRotation, currentX - 1, currentY));
 
-			while (isRunning) {
-				// Game Timing
-				this_thread::sleep_for(50ms);
-				speedCount++;
-				forceDown = (speedCount == gameSpeed);
+			// Can move down?
+			currentY += Keys[2] && DoesPieceIft(currentPiece, currentRotation, currentX, currentY + 1);
 
-				// Input
-				for (size_t keyIndex = 0; keyIndex < 4; keyIndex++) {
-					// Right arrow virtual key code // Left arrow virtual key code // Down arrow virtual key code // Z virtual key code key
-					Keys[keyIndex] = (0x8000 & GetAsyncKeyState((unsigned char)("\x27\x25\x28Z"[keyIndex]))) != 0;
-				}
+			if (Keys[3]) {
+				currentRotation += !rotateButtonHeld && DoesPieceIft(currentPiece, currentRotation + 1, currentX, currentY) ? 1 : 0;
+				rotateButtonHeld = true;
+			}
+			else {
+				rotateButtonHeld = false;
+			}
 
-				// LOGIC
-
-				// Can move right?
-				currentX += (Keys[0] && DoesPieceIft(currentPiece, currentRotation, currentX + 1, currentY));
-
-				// Can move left?
-				currentX -= (Keys[1] && DoesPieceIft(currentPiece, currentRotation, currentX - 1, currentY));
-
-				// Can move down?
-				currentY += Keys[2] && DoesPieceIft(currentPiece, currentRotation, currentX, currentY + 1);
-
-				if (Keys[3]) {
-					currentRotation += !rotateButtonHeld && DoesPieceIft(currentPiece, currentRotation + 1, currentX, currentY) ? 1 : 0;
-					rotateButtonHeld = true;
-				}
+			if (forceDown) {
+				if (DoesPieceIft(currentPiece, currentRotation, currentX, currentY + 1))
+					currentY++;
 				else {
-					rotateButtonHeld = false;
-				}
-
-				if (forceDown) {
-					if (DoesPieceIft(currentPiece, currentRotation, currentX, currentY + 1))
-						currentY++;
-					else {
-						// Lock the current piece into the field,
-						for (size_t pieceX = 0; pieceX < 4; pieceX++)
-							for (size_t pieceY = 0; pieceY < 4; pieceY++)
-								if (Pieces[currentPiece][Rotate(pieceX, pieceY, currentRotation)] == L'X')
-									Field[(currentY + pieceY) * FieldWidth + (currentX + pieceX)] = currentPiece + 1;
-
-						// Check have we created full horizontal line
+					// Lock the current piece into the field,
+					for (size_t pieceX = 0; pieceX < 4; pieceX++)
 						for (size_t pieceY = 0; pieceY < 4; pieceY++)
-							if (currentY + pieceY < FieldHeight - 1) {
-								bool isLine = true;
-								for (size_t pieceX = 1; pieceX < FieldWidth - 1; pieceX++)
-									isLine &= (Field[(currentY + pieceY) * FieldWidth + pieceX]) != 0;
+							if (Pieces[currentPiece][Rotate(pieceX, pieceY, currentRotation)] == L'X')
+								Field[(currentY + pieceY) * FieldWidth + (currentX + pieceX)] = currentPiece + 1;
 
-								if (isLine) {
-									// Set line to equal symbol
-									for (size_t pieceX = 0; pieceX < FieldWidth; pieceX++)
-										Field[(currentY + pieceY) * FieldWidth + pieceX] = 8;
+					// Check have we created full horizontal line
+					for (size_t pieceY = 0; pieceY < 4; pieceY++)
+						if (currentY + pieceY < FieldHeight - 1) {
+							bool isLine = true;
+							for (size_t pieceX = 1; pieceX < FieldWidth - 1; pieceX++)
+								isLine &= (Field[(currentY + pieceY) * FieldWidth + pieceX]) != 0;
 
-									lines.push_back(currentY + pieceY);
-								}
+							if (isLine) {
+								// Set line to equal symbol
+								for (size_t pieceX = 0; pieceX < FieldWidth; pieceX++)
+									Field[(currentY + pieceY) * FieldWidth + pieceX] = 8;
+
+								lines.push_back(currentY + pieceY);
 							}
+						}
 
-						score += 25;
+					score += 25;
 
-						if ((!lines.empty()))
-							score += (1 << lines.size()) * 100;
+					if ((!lines.empty()))
+						score += (1 << lines.size()) * 100;
 
-						// choose the next piece
-						currentPiece = 0;
-						currentRotation = 0;
-						currentX = FieldWidth / 2;
-						currentY = 0;
-						currentPiece = rand() % 7;
+					// choose the next piece
+					currentPiece = 0;
+					currentRotation = 0;
+					currentX = FieldWidth / 2;
+					currentY = 0;
+					currentPiece = rand() % 7;
 
-						// If we cant fit next piece then its game over
-						isRunning = DoesPieceIft(currentPiece, currentRotation, currentX, currentY);
-					}
-
-					speedCount = 0;
+					// If we cant fit next piece then its game over
+					isRunning = DoesPieceIft(currentPiece, currentRotation, currentX, currentY);
 				}
 
-				// Draw Field
-				DrawField(screen);
+				speedCount = 0;
+			}
 
-				// Draw current piece
+			// Draw Field
+			DrawField(screen);
+
+			// Draw current piece
+			{
 				for (size_t pieceX = 0; pieceX < 4; pieceX++) {
 					for (size_t pieceY = 0; pieceY < 4; pieceY++) {
 						if (Pieces[currentPiece][Rotate(pieceX, pieceY, currentRotation)] == L'X') {
@@ -218,44 +186,61 @@ int main() {
 					}
 				}
 
-				int scorePosX = 22 * ScreenWidth;
-				// Draw score
-				swprintf_s(&screen[21 * ScreenWidth] + 6, 4, L"YOU");
-				swprintf_s(&screen[scorePosX], 16, L"Score: %8d", score);
-				//swprintf_s(&screen[sc], 16, L"Score: %8d", oScore);
-
-				// 줄을 완성했을 때
-				if (!lines.empty()) {
-					// Display frame
-					WriteConsoleOutputCharacter(consoleHandle, screen, screenBufferSize, { 0, 0 }, &bytesWritten);
-					this_thread::sleep_for(400ms);
-
-					for (auto& line : lines) {
-						for (size_t pieceX = 1; pieceX < FieldWidth - 1; pieceX++) {
-							for (size_t pieceY = line; pieceY > 0; pieceY--)
-								Field[pieceY * FieldWidth + pieceX] = Field[(pieceY - 1) * FieldWidth + pieceX];
-
-							Field[pieceX] = 0;
+				for (size_t pieceX = 0; pieceX < 4; pieceX++) {
+					for (size_t pieceY = 0; pieceY < 4; pieceY++) {
+						if (Pieces[otherCurPiece][Rotate(pieceX, pieceY, otherRotation)] == L'X') {
+							screen[(otherCurY + pieceY + 2) * ScreenWidth + (FieldWidth + otherCurX + pieceX + 8)] = otherCurPiece + 65;
 						}
 					}
+				}
+			}
 
-					lines.clear();
+
+			// Draw score
+			swprintf_s(&screen[21 * ScreenWidth + 2], sizeof(L"YOU") / 2, L"YOU");
+			swprintf_s(&screen[22 * ScreenWidth + 2], 16, L"Score: %8d", score);
+			swprintf_s(&screen[21 * ScreenWidth + FieldWidth + 7], NAME_LEN, L"%s", otherName);
+			swprintf_s(&screen[22 * ScreenWidth + FieldWidth + 8], 16, L"Score: %8d", otherScore);
+
+			{
+				pieceNoti->currentPiece = currentPiece;
+				pieceNoti->rotation = currentRotation;
+				pieceNoti->currentX = currentX;
+				pieceNoti->currentY = currentY;
+
+				scoreNoti->score = score;
+
+				memcpy(fieldNoti->field, Field, FIELD_LEN);
+			}
+			{
+				session->Send(fieldNoti);
+				session->Send(scoreNoti);
+				session->Send(pieceNoti);
+			}
+
+			// Draw finish lines
+			if (!lines.empty()) {
+				// Display frame
+				WriteConsoleOutputCharacter(consoleHandle, screen, screenBufferSize, { 0, 0 }, &bytesWritten);
+				//this_thread::sleep_for(400ms);
+
+				for (auto& line : lines) {
+					for (size_t pieceX = 1; pieceX < FieldWidth - 1; pieceX++) {
+						for (size_t pieceY = line; pieceY > 0; pieceY--)
+							Field[pieceY * FieldWidth + pieceX] = Field[(pieceY - 1) * FieldWidth + pieceX];
+
+						Field[pieceX] = 0;
+					}
 				}
 
-
-				notiField->field = (char*)Field;
-				notiScore->score = score;
-				session->Send(notiField);
-				session->Send(notiScore);
-
-				WriteConsoleOutputCharacter(consoleHandle, screen, screenBufferSize, { 0, 0 }, &bytesWritten);
-				//TODO: 맵 데이터 송신
+				lines.clear();
 			}
-		}
-		else {
-			break;
+
+			WriteConsoleOutputCharacter(consoleHandle, screen, screenBufferSize, { 0, 0 }, &bytesWritten);
 		}
 	}
+
+	
 
 	CloseHandle(consoleHandle);
 
@@ -271,8 +256,11 @@ int main() {
 
 void DrawField(wchar_t* screen) {
 	for (int x = 0; x < FieldWidth; x++)
-		for (int y = 0; y < FieldHeight; y++)
+		for (int y = 0; y < FieldHeight; y++) {
 			screen[(y + 2) * ScreenWidth + (x + 2)] = L" ABCDEFG=#"[Field[y * FieldWidth + x]];
+			screen[(y + 2) * ScreenWidth + (FieldWidth + x + 8)] = L" ABCDEFG=#"[otherField[y * FieldWidth + x]];
+		}
+			
 }
 
 bool DoesPieceIft(int pieceId, int rotation, int posX, int posY) {
@@ -343,14 +331,15 @@ int Rotate(int pieceX, int pieceY, int degree) {
 	}
 }
 
-void SetOppoField(char* field) {
-	strcpy_s(oField, FieldWidth * FieldHeight, field);
-}
+void ClearField(unsigned char* Field, unsigned char* otherField) {
 
-void Result(bool win) {
-
-}
-
-void GlobalFunctionTest() {
-
+	for (int x = 0; x < FieldWidth; x++)
+		for (int y = 0; y < FieldHeight; y++) {
+			bool isLeftWall = x == 0;
+			bool isRightWall = x == (FieldWidth - 1);
+			bool isBottomWall = y == (FieldHeight - 1);
+			int value = (isLeftWall || isRightWall || isBottomWall) ? 9 : 0;
+			Field[y * FieldWidth + x] = value;
+			otherField[y * FieldWidth + x] = value;
+		}
 }

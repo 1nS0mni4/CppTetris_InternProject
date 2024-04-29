@@ -1,13 +1,10 @@
-#include "pch.h"
+#include "CorePch.h"
 #include "ClientPacketHandler.h"
+#include "Packet.h"
 
-extern char userName[50];
-extern int oScore;
-extern char* oField;
-extern bool isLogin;
-extern int myWin;
-extern int myLose;
-extern int myMaxScore;
+#define REGISTER_HANDLE(x) _func[PacketType::x] = x##PacketHandler;
+#define BEGIN_FUNC(x)void x##PacketHandler(Session* session, char* segment, USHORT size) {
+#define END_FUNC	}
 
 ClientPacketHandler::ClientPacketHandler() {
 	Init();
@@ -26,7 +23,7 @@ void ClientPacketHandler::Init() {
 }
 
 void ClientPacketHandler::Register() {
-	_func[PacketType::TestPacket] = TestPacketHandler;
+	REGISTER_HANDLE(Test);
 }
 
 void TestPacketHandler(Session* session, char* segment, USHORT size) {
@@ -48,77 +45,14 @@ void TestPacketHandler(Session* session, char* segment, USHORT size) {
 	return;
 }
 
-void StC_LoginResponseHandler(Session* session, char* segment, USHORT size) {
-	if (session == nullptr)
+void StC_MatchingResultPacketHandler(Session* session, char* segment, USHORT size) {
+	if (session == nullptr || segment == nullptr || size == 0)
 		return;
 
-	if (segment == nullptr)
-		return;
-
-	if (size == 0)
-		return;
-
-	StC_LoginResponsePacket packet;
+	StC_MatchingResultPacket packet;
 	if (size != packet.Read(segment))
 		return;
 
-	if (packet.result != 0) {
-		cout << "Error!\n";
-		return;
-	}
 
-	isLogin = true;
-}
 
-void StC_UserDataHandler(Session* session, char* segment, USHORT size) {
-	if (session == nullptr)
-		return;
-
-	if (segment == nullptr)
-		return;
-
-	if (size == 0)
-		return;
-
-	StC_UserDataPacket packet;
-	if (size != packet.Read(segment))
-		return;
-
-	myWin = packet.win;
-	myLose = packet.lose;
-	myMaxScore = packet.maxScore;
-}
-
-void StC_UserFieldHandler(Session* session, char* segment, USHORT size) {
-	if (session == nullptr)
-		return;
-
-	if (segment == nullptr)
-		return;
-
-	if (size == 0)
-		return;
-
-	StC_UserFieldPacket packet;
-	if (size != packet.Read(segment))
-		return;
-
-	strcpy_s((char*)oField, 216, packet.field);
-}
-
-void StC_UserScoreHandler(Session* session, char* segment, USHORT size) {
-	if (session == nullptr)
-		return;
-
-	if (segment == nullptr)
-		return;
-
-	if (size == 0)
-		return;
-
-	StC_UserScorePacket packet;
-	if (size != packet.Read(segment))
-		return;
-
-	oScore = packet.score;
 }

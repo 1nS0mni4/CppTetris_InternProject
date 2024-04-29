@@ -21,6 +21,9 @@ public:
 	virtual int OnRecv(char* packet, int size) override;
 	virtual void OnConnect() override;
 	virtual void OnDisconnect() override;
+
+public:
+	wchar_t name[NAME_LEN];
 };
 
 using ServerSessionManager = SessionManager<ServerSession>;

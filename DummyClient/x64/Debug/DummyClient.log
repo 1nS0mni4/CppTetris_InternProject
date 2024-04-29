@@ -1,44 +1,38 @@
 ﻿  ClientPacketHandler.cpp
   PacketQueue.cpp
-D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.h(24,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'PacketData' 왼쪽은 무시됩니다.
+D:\Projects\Github\TermProject\DummyClient\PacketQueue.h(24,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'PacketData' 왼쪽은 무시됩니다.
   (소스 파일 '/PacketQueue.cpp'을(를) 컴파일하는 중)
   
-D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267: '인수': 'size_t'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267:         with
-D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267:         [
-D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267:             _Ty=int
-D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267:         ]
+D:\Projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267: '인수': 'size_t'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267:         with
+D:\Projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267:         [
+D:\Projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267:             _Ty=int
+D:\Projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267:         ]
   (소스 파일 '/PacketQueue.cpp'을(를) 컴파일하는 중)
   
-D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.cpp(74,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\DummyClient\PacketQueue.cpp(74,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/PacketQueue.cpp'을(를) 컴파일하는 중)
   
   ServerSession.cpp
-D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.h(24,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'PacketData' 왼쪽은 무시됩니다.
+D:\Projects\Github\TermProject\DummyClient\PacketQueue.h(24,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'PacketData' 왼쪽은 무시됩니다.
   (소스 파일 '/ServerSession.cpp'을(를) 컴파일하는 중)
   
   main.cpp
-D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.h(24,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'PacketData' 왼쪽은 무시됩니다.
+D:\Projects\Github\TermProject\DummyClient\PacketQueue.h(24,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'PacketData' 왼쪽은 무시됩니다.
   (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
   
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(52,8): warning C4101: 'sentBytes' :참조되지 않은 지역 변수입니다.
+D:\Projects\Github\TermProject\ServerCore\SessionManager.h(57,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
-  
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(69,8): warning C4101: 'recvBytes' :참조되지 않은 지역 변수입니다.
-  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
-  
-D:\personal\projects\Github\TermProject\ServerCore\SessionManager.h(57,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
-  D:\personal\projects\Github\TermProject\ServerCore\SessionManager.h(57,11):
+  D:\Projects\Github\TermProject\ServerCore\SessionManager.h(57,11):
   템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
-  	D:\personal\projects\Github\TermProject\DummyClient\main.cpp(24,33):
+  	D:\Projects\Github\TermProject\DummyClient\main.cpp(22,44):
   	컴파일되는 클래스 템플릿 인스턴스화 'SessionManager<ServerSession>'에 대한 참조를 확인하세요.
-  	D:\personal\projects\Github\TermProject\ServerCore\SessionManager.h(56,7):
+  	D:\Projects\Github\TermProject\ServerCore\SessionManager.h(56,7):
   	클래스 템플릿 멤버 함수 'void SessionManager<ServerSession>::AddSession(int)'을(를) 컴파일하는 중입니다.
-  		D:\personal\projects\Github\TermProject\ServerCore\SessionManager.h(28,13):
+  		D:\Projects\Github\TermProject\ServerCore\SessionManager.h(28,13):
   		'SessionManager<ServerSession>::Init'에서 'SessionManager<ServerSession>::AddSession'에 대한 첫 번째 참조를 확인하세요.
-  		D:\personal\projects\Github\TermProject\DummyClient\main.cpp(24,51):
+  		D:\Projects\Github\TermProject\DummyClient\main.cpp(22,51):
   		'main'에서 'SessionManager<ServerSession>::Init'에 대한 첫 번째 참조를 확인하세요.
   
   코드를 생성하고 있습니다...
-  DummyClient.vcxproj -> D:\personal\projects\Github\TermProject\Binary\Debug\DummyClient\DummyClient.exe
+  DummyClient.vcxproj -> D:\Projects\Github\TermProject\Binary\Debug\DummyClient\DummyClient.exe

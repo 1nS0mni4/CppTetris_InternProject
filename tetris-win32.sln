@@ -3,11 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tetris-win32", "tetris-win32-master\tetris-win32.vcxproj", "{278AC16E-53B1-4910-BAD7-5B146DAF9B4E}"
-	ProjectSection(ProjectDependencies) = postProject
-		{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0} = {C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}
-	EndProjectSection
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Server", "Server\Server.vcxproj", "{C36B466D-D619-49A1-9634-8F3BD90254C0}"
 	ProjectSection(ProjectDependencies) = postProject
 		{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0} = {C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}
@@ -22,7 +17,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ServerCore", "ServerCore\Se
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PacketGenerator", "PacketGenerator\PacketGenerator.vcxproj", "{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tetris", "Tetris\Tetris.vcxproj", "{89849011-FAD3-412C-B6F2-4996252C9C2F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tetris", "Tetris\Tetris.vcxproj", "{C786F8D7-570E-4026-A106-6DC2DAA5FA85}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0} = {C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,14 +30,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{278AC16E-53B1-4910-BAD7-5B146DAF9B4E}.Debug|x64.ActiveCfg = Debug|x64
-		{278AC16E-53B1-4910-BAD7-5B146DAF9B4E}.Debug|x64.Build.0 = Debug|x64
-		{278AC16E-53B1-4910-BAD7-5B146DAF9B4E}.Debug|x86.ActiveCfg = Debug|Win32
-		{278AC16E-53B1-4910-BAD7-5B146DAF9B4E}.Debug|x86.Build.0 = Debug|Win32
-		{278AC16E-53B1-4910-BAD7-5B146DAF9B4E}.Release|x64.ActiveCfg = Release|Win32
-		{278AC16E-53B1-4910-BAD7-5B146DAF9B4E}.Release|x64.Build.0 = Release|Win32
-		{278AC16E-53B1-4910-BAD7-5B146DAF9B4E}.Release|x86.ActiveCfg = Release|Win32
-		{278AC16E-53B1-4910-BAD7-5B146DAF9B4E}.Release|x86.Build.0 = Release|Win32
 		{C36B466D-D619-49A1-9634-8F3BD90254C0}.Debug|x64.ActiveCfg = Debug|x64
 		{C36B466D-D619-49A1-9634-8F3BD90254C0}.Debug|x64.Build.0 = Debug|x64
 		{C36B466D-D619-49A1-9634-8F3BD90254C0}.Debug|x86.ActiveCfg = Debug|Win32
@@ -72,14 +62,14 @@ Global
 		{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}.Release|x64.Build.0 = Release|x64
 		{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}.Release|x86.ActiveCfg = Release|Win32
 		{203EB30E-3DA9-4B1A-80AF-AFEFFD42C0D2}.Release|x86.Build.0 = Release|Win32
-		{89849011-FAD3-412C-B6F2-4996252C9C2F}.Debug|x64.ActiveCfg = Debug|x64
-		{89849011-FAD3-412C-B6F2-4996252C9C2F}.Debug|x64.Build.0 = Debug|x64
-		{89849011-FAD3-412C-B6F2-4996252C9C2F}.Debug|x86.ActiveCfg = Debug|Win32
-		{89849011-FAD3-412C-B6F2-4996252C9C2F}.Debug|x86.Build.0 = Debug|Win32
-		{89849011-FAD3-412C-B6F2-4996252C9C2F}.Release|x64.ActiveCfg = Release|x64
-		{89849011-FAD3-412C-B6F2-4996252C9C2F}.Release|x64.Build.0 = Release|x64
-		{89849011-FAD3-412C-B6F2-4996252C9C2F}.Release|x86.ActiveCfg = Release|Win32
-		{89849011-FAD3-412C-B6F2-4996252C9C2F}.Release|x86.Build.0 = Release|Win32
+		{C786F8D7-570E-4026-A106-6DC2DAA5FA85}.Debug|x64.ActiveCfg = Debug|x64
+		{C786F8D7-570E-4026-A106-6DC2DAA5FA85}.Debug|x64.Build.0 = Debug|x64
+		{C786F8D7-570E-4026-A106-6DC2DAA5FA85}.Debug|x86.ActiveCfg = Debug|Win32
+		{C786F8D7-570E-4026-A106-6DC2DAA5FA85}.Debug|x86.Build.0 = Debug|Win32
+		{C786F8D7-570E-4026-A106-6DC2DAA5FA85}.Release|x64.ActiveCfg = Release|x64
+		{C786F8D7-570E-4026-A106-6DC2DAA5FA85}.Release|x64.Build.0 = Release|x64
+		{C786F8D7-570E-4026-A106-6DC2DAA5FA85}.Release|x86.ActiveCfg = Release|Win32
+		{C786F8D7-570E-4026-A106-6DC2DAA5FA85}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

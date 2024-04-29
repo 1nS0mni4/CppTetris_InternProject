@@ -1,5 +1,5 @@
 #pragma once
-#include "pch.h"
+#include "CorePch.h"
 #include "Defines.h"
 #include "Session.h"
 

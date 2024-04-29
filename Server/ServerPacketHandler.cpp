@@ -18,7 +18,7 @@ void ServerPacketHandler::Init() {
 }
 
 void ServerPacketHandler::Register() {
-	_func[PacketType::TestPacket] = TestPacketHandler;
+	_func[PacketType::Test] = TestPacketHandler;
 	_func[PacketType::CtS_LoginRequest] = CtS_LoginAccessPacketHandler;
 }
 
@@ -55,7 +55,7 @@ void CtS_LoginAccessPacketHandler(Session* session, char* segment, USHORT size) 
 	if (size != packet.Read(segment))
 		return;
 
-	cout << packet.id << '\n';
+	cout << packet.name << '\n';
 
 	//cout << "Session: " << session->GetSessionID() << " Sended: " << packet.data << '\n';
 

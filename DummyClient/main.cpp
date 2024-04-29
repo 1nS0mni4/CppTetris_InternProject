@@ -17,8 +17,6 @@ typedef struct {
 	WSABUF wsaBuf;
 }PER_IO_DATA, * LPPER_IO_DATA;
 
-void CALLBACK RecvCompRoutine(DWORD, DWORD, LPWSAOVERLAPPED, DWORD);
-void CALLBACK SendCompRoutine(DWORD, DWORD, LPWSAOVERLAPPED, DWORD);
 
 int main(int argc, char* argv[]) {
 	SessionManager<ServerSession>::GetInstance().Init();
@@ -44,33 +42,6 @@ int main(int argc, char* argv[]) {
 
 	return 0;
 }
-
-void CALLBACK RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOVERLAPPED lpOverlapped, DWORD flags) {
-	LPPER_IO_DATA hbInfo = (LPPER_IO_DATA)lpOverlapped->hEvent;
-	SOCKET hSock = hbInfo->hServSock;
-	LPWSABUF bufInfo = &(hbInfo->wsaBuf);
-	DWORD sentBytes;
-
-	if (szRecvBytes == 0) {
-		closesocket(hSock);
-		free(lpOverlapped->hEvent); free(lpOverlapped);
-
-		puts("client disconnected....");
-	}
-	else {
-		cout << bufInfo->buf << '\n';
-	}
-}
-
-void CALLBACK SendCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOVERLAPPED lpOverlapped, DWORD flags) {
-	LPPER_IO_DATA hbInfo = (LPPER_IO_DATA)lpOverlapped->hEvent;
-	SOCKET hSock = hbInfo->hServSock;
-	LPWSABUF bufInfo = &(hbInfo->wsaBuf);
-	DWORD recvBytes;
-
-	DWORD flagInfo = 0;
-}
-
 void ErrorHandling(const char* message) {
 	fputs(message, stderr);
 	fputc('\n', stderr);
