@@ -6,7 +6,7 @@
 
 class ClientSession : public Session {
 public:
-	ClientSession(int sessionID) : 
+	ClientSession(UINT32 sessionID) : 
 		Session(sessionID) {
 		_room = nullptr;
 	}
@@ -24,6 +24,7 @@ public:
 	virtual void OnDisconnect() override;
 
 public:
+	wchar_t name[NAME_LEN];
 	Room* _room;
 };
 

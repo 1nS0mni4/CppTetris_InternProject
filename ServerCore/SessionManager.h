@@ -13,7 +13,7 @@ public:
 
 protected:
 	SessionManager() {
-
+		_sessions.push_back(nullptr);
 	}
 	virtual ~SessionManager(){
 		_sessions.clear();
@@ -31,7 +31,7 @@ public:
 	}
 
 	T* CreateSession() {
-		int sessionID = -1;
+		UINT32 sessionID = 0;
 		{
 			lock_guard<std::mutex> guard(_mutex);
 
@@ -46,7 +46,7 @@ public:
 		_sessionCnt++;
 		return _sessions[sessionID];
 	}
-	void RemoveSession(int sessionID) {
+	void RemoveSession(UINT32 sessionID) {
 		lock_guard<std::mutex> guard(_mutex);
 		_onClosed.push(sessionID);
 		_sessionCnt--;
@@ -54,8 +54,8 @@ public:
 
 protected:
 	void AddSession(int count) {
-		int idx = _sessions.size();
-		for (int i = idx; i <= idx + count; i++) {
+		UINT32 idx = _sessions.size();
+		for (UINT32 i = idx; i < idx + count; i++) {
 			_sessions.push_back(new T(i));
 			_onClosed.push(i);
 		}
@@ -63,7 +63,7 @@ protected:
 
 protected:
 	vector<T*> _sessions;
-	priority_queue<int, vector<int>, less<int>> _onClosed;
+	priority_queue<UINT32, vector<UINT32>, greater<UINT32>> _onClosed;
 
 };
 

@@ -24,7 +24,7 @@ enum class PacketType : USHORT {
 	StC_UserCurrentPiece,
 	StC_UserLose,
 	StC_UserExit,
-
+	StC_GameStart,
 
 
 
@@ -229,10 +229,10 @@ public:
 };
 
 //
-class Stc_ChallengerDataPacket : public Packet {
+class StC_ChallengerDataPacket : public Packet {
 public:
-	Stc_ChallengerDataPacket();
-	~Stc_ChallengerDataPacket() override;
+	StC_ChallengerDataPacket();
+	~StC_ChallengerDataPacket() override;
 
 	int Read(char* segment) override;
 	int Write(char* buffer) override;
@@ -251,6 +251,7 @@ public:
 	int Write(char* buffer) override;
 };
 
+//
 class StC_UserExitPacket : public Packet {
 public:
 	StC_UserExitPacket();
@@ -258,4 +259,14 @@ public:
 
 	int Read(char* segment) override;
 	int Write(char* buffer) override;
+};
+
+
+class StC_GameStartPacket : public Packet {
+public:
+	StC_GameStartPacket();
+	~StC_GameStartPacket();
+
+	int Read(char* segment);
+	int Write(char* buffer);
 };

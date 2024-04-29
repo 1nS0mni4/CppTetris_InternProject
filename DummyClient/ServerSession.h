@@ -24,6 +24,11 @@ public:
 
 public:
 	wchar_t name[NAME_LEN];
+	atomic<bool> isLogined;
+	atomic<bool> isRunning;
+	mutex m_piece;
+	mutex m_score;
+	mutex m_field;
 };
 
 using ServerSessionManager = SessionManager<ServerSession>;

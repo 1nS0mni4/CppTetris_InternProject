@@ -3,7 +3,6 @@
 #include "Defines.h"
 #include "Session.h"
 
-
 class Room {
 public:
 	Room(UINT32 roomID);
@@ -22,6 +21,10 @@ public:
 	
 	void Start();
 	void Clear();
+
+	Session* GetOtherSession(UINT32 sessionID);
+	void UpdateScore(UINT32 sessionID, int score);
+	void SaveScore();
 
 private:
 	UINT32 _roomID;

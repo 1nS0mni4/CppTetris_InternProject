@@ -10,7 +10,7 @@
 #include "ServerSession.h"
 #include "Packet.h"
 
-//#include <Windows.h>
+#include <Windows.h>
 #include <chrono>
 
 void CreateAssets();
@@ -27,23 +27,24 @@ int FieldWidth = 12, FieldHeight = 18;
 int ScreenWidth = 120, ScreenHeight = 30;
 unsigned char Field[FIELD_LEN];
 bool Keys[4];
+extern int myWin = 0, myLose = 0, maxScore = 0;
 
 atomic<bool> isLogined = false;
 atomic<bool> isRunning = false;
 
-unsigned char otherField[FIELD_LEN];
-wchar_t otherName[NAME_LEN];
-int otherCurX;
-int otherCurY;
-int otherRotation;
-int otherCurPiece;
-int otherScore;
+extern unsigned char otherField[FIELD_LEN] = "";
+extern wchar_t otherName[NAME_LEN] = L"";
+extern int otherCurX = 0;
+extern int otherCurY = 0;
+extern int otherRotation = 0;
+extern int otherCurPiece = 0;
+extern int otherScore = 0;
 
-CtS_NotifyFieldPacket* fieldNoti = new CtS_NotifyFieldPacket();
-CtS_NotifyCurrentPiecePacket* pieceNoti = new CtS_NotifyCurrentPiecePacket();
-CtS_NotifyScorePacket* scoreNoti = new CtS_NotifyScorePacket();
+CtS_NotifyFieldPacket* fieldNoti;
+CtS_NotifyCurrentPiecePacket* pieceNoti;
+CtS_NotifyScorePacket* scoreNoti;
 
-int main() {
+int wmain() {
 	CreateAssets();
 
 	ClearField(Field, otherField);
@@ -76,9 +77,6 @@ int main() {
 
 	CtS_LoginRequestPacket* packet = new CtS_LoginRequestPacket();
 
-
-
-	wcout << L"Input Name: ";
 	memcpy(packet->name, L"Hell", 10);
 
 	SessionManager<ServerSession>::GetInstance().Init();
@@ -93,9 +91,12 @@ int main() {
 
 	session->Send(packet);
 
-	while (!isLogined);
+	while (isLogined == false) {
+		if (isLogined)
+			break;
+	}
 
-	while (isLogined) {
+	while (true) {
 
 		while (isRunning) {
 			// Game Timing
@@ -203,6 +204,10 @@ int main() {
 			swprintf_s(&screen[22 * ScreenWidth + FieldWidth + 8], 16, L"Score: %8d", otherScore);
 
 			{
+				pieceNoti = new CtS_NotifyCurrentPiecePacket();
+				scoreNoti = new CtS_NotifyScorePacket();
+				fieldNoti = new CtS_NotifyFieldPacket();
+
 				pieceNoti->currentPiece = currentPiece;
 				pieceNoti->rotation = currentRotation;
 				pieceNoti->currentX = currentX;

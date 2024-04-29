@@ -2,31 +2,31 @@
 D:\Projects\Github\TermProject\Tetris\PacketQueue.h(24,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'PacketData' 왼쪽은 무시됩니다.
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
   
-D:\Projects\Github\TermProject\Tetris\main.cpp(138,48): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Projects\Github\TermProject\Tetris\main.cpp(138,40): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Projects\Github\TermProject\Tetris\main.cpp(153,34): warning C4267: '인수': 'size_t'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Projects\Github\TermProject\Tetris\main.cpp(153,34): warning C4267:         with
-D:\Projects\Github\TermProject\Tetris\main.cpp(153,34): warning C4267:         [
-D:\Projects\Github\TermProject\Tetris\main.cpp(153,34): warning C4267:             _Ty=int
-D:\Projects\Github\TermProject\Tetris\main.cpp(153,34): warning C4267:         ]
-D:\Projects\Github\TermProject\Tetris\main.cpp(183,47): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Projects\Github\TermProject\Tetris\main.cpp(183,39): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Projects\Github\TermProject\Tetris\main.cpp(191,48): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Projects\Github\TermProject\Tetris\main.cpp(191,40): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Projects\Github\TermProject\Tetris\main.cpp(270,31): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Projects\Github\TermProject\Tetris\main.cpp(270,28): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Projects\Github\TermProject\Tetris\main.cpp(273,19): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Projects\Github\TermProject\ServerCore\SessionManager.h(57,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\Tetris\main.cpp(139,48): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\Tetris\main.cpp(139,40): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\Tetris\main.cpp(154,34): warning C4267: '인수': 'size_t'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\Tetris\main.cpp(154,34): warning C4267:         with
+D:\Projects\Github\TermProject\Tetris\main.cpp(154,34): warning C4267:         [
+D:\Projects\Github\TermProject\Tetris\main.cpp(154,34): warning C4267:             _Ty=int
+D:\Projects\Github\TermProject\Tetris\main.cpp(154,34): warning C4267:         ]
+D:\Projects\Github\TermProject\Tetris\main.cpp(184,47): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\Tetris\main.cpp(184,39): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\Tetris\main.cpp(192,48): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\Tetris\main.cpp(192,40): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\Tetris\main.cpp(275,31): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\Tetris\main.cpp(275,28): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\Tetris\main.cpp(278,19): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Projects\Github\TermProject\ServerCore\SessionManager.h(57,14): warning C4267: '초기화 중': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 'main.cpp'을(를) 컴파일하는 중)
-  D:\Projects\Github\TermProject\ServerCore\SessionManager.h(57,11):
+  D:\Projects\Github\TermProject\ServerCore\SessionManager.h(57,14):
   템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
-  	D:\Projects\Github\TermProject\Tetris\main.cpp(84,44):
+  	D:\Projects\Github\TermProject\Tetris\main.cpp(82,44):
   	컴파일되는 클래스 템플릿 인스턴스화 'SessionManager<ServerSession>'에 대한 참조를 확인하세요.
   	D:\Projects\Github\TermProject\ServerCore\SessionManager.h(56,7):
   	클래스 템플릿 멤버 함수 'void SessionManager<ServerSession>::AddSession(int)'을(를) 컴파일하는 중입니다.
   		D:\Projects\Github\TermProject\ServerCore\SessionManager.h(28,13):
   		'SessionManager<ServerSession>::Init'에서 'SessionManager<ServerSession>::AddSession'에 대한 첫 번째 참조를 확인하세요.
-  		D:\Projects\Github\TermProject\Tetris\main.cpp(84,51):
-  		'main'에서 'SessionManager<ServerSession>::Init'에 대한 첫 번째 참조를 확인하세요.
+  		D:\Projects\Github\TermProject\Tetris\main.cpp(82,51):
+  		'wmain'에서 'SessionManager<ServerSession>::Init'에 대한 첫 번째 참조를 확인하세요.
   
   Tetris.vcxproj -> D:\Projects\Github\TermProject\Binary\Debug\Tetris\Tetris.exe

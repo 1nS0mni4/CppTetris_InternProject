@@ -33,7 +33,6 @@ void PacketQueue::Push(Session* session, char* segment, USHORT packetID, USHORT 
 
 void PacketQueue::Flush() {
 	while (_isClosed == false) {
-		SleepEx(10, TRUE);
 		{
 			lock_guard<std::mutex> guard(m_fetch);
 			vector<PacketData*> flushed;
@@ -47,7 +46,7 @@ void PacketQueue::Flush() {
 				fetched++;
 			}
 			ReleasePD(flushed);
-			cout << "Fetched: " << fetched << '\n';
+			//cout << "Fetched: " << fetched << '\n';
 		}
 
 		if (store.size() > 0) {

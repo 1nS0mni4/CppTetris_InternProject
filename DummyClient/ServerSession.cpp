@@ -15,7 +15,7 @@ int ServerSession::OnRecv(char* segment, int totalSize) {
 	int processed = 0;
 	char* buffer = segment;
 
-	while (totalSize > PACKET_HEADER_SIZE) {
+	while (totalSize >= PACKET_HEADER_SIZE ) {
 		USHORT packetID = *((USHORT*)&(segment[0]));
 		USHORT size = *((USHORT*)&(segment[2]));
 

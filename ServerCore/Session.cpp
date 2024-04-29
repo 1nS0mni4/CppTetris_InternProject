@@ -2,7 +2,7 @@
 #include "Session.h"
 
 
-Session::Session(int sessionID) 
+Session::Session(UINT32 sessionID) 
 	: _sessionID(sessionID) {
 	sendOvlp = (LPWSAOVERLAPPED)malloc(sizeof(WSAOVERLAPPED));
 	recvOvlp = (LPWSAOVERLAPPED)malloc(sizeof(WSAOVERLAPPED));
@@ -49,7 +49,6 @@ void Session::Clear() {
 }
 
 int Session::SendSegment() {
-	lock_guard<std::mutex> guard(sendMtx);
 	int processed = 0;
 	{
 		lock_guard<std::mutex> guard(pendMtx);
@@ -62,22 +61,24 @@ int Session::SendSegment() {
 			sPending.pop_back();
 		}
 	}
+	{
+		lock_guard<std::mutex> guard(sendMtx);
+		char* startPos = sendInfo->buf;
+		while (sending.empty() == false) {
+			Packet* packet = sending.back().get();
 
-	char* startPos = sendInfo->buf;
-	while (sending.empty() == false) {
-		Packet* packet = sending.back().get();
+			int size = packet->Write(startPos);
+			startPos += size;
+			processed += size;
+			sending.pop_back();
+		}
+		sendInfo->wsaBuf.len = processed;
 
-		int size = packet->Write(startPos);
-		startPos += size;
-		processed += size;
-		sending.pop_back();
+		int result = ::WSASend(_socket, &(sendInfo->wsaBuf), 1, &sentBytes, 0, sendOvlp, SendCompRoutine);
+		result = WSAGetLastError();
+		result;
+		return processed;
 	}
-	sendInfo->wsaBuf.len = processed;
-
-	int result = ::WSASend(_socket, &(sendInfo->wsaBuf), 1, &sentBytes, 0, sendOvlp, SendCompRoutine);
-	result = WSAGetLastError();
-	result;
-	return processed;
 }
 
 void CALLBACK Session::SendCompRoutine(DWORD dwError, DWORD szSentBytes, LPWSAOVERLAPPED lpOverlapped, DWORD flags) {
@@ -85,7 +86,6 @@ void CALLBACK Session::SendCompRoutine(DWORD dwError, DWORD szSentBytes, LPWSAOV
 	Session* session = info->session;
 	WSABUF buf = info->wsaBuf;
 
-	lock_guard<std::mutex> guard(session->pendMtx);
 	info->wsaBuf.len = 0;
 	session->SendSegment();
 }
@@ -97,6 +97,7 @@ void Session::Recv() {
 	int result = ::WSARecv(_socket, &(recvInfo->wsaBuf), 1, &recvBytes, &flags, recvOvlp, RecvCompRoutine);
 	result = WSAGetLastError();
 	result;
+	SleepEx(1, TRUE);
 }
 
 void CALLBACK Session::RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOVERLAPPED lpOverlapped, DWORD flags) {
@@ -111,7 +112,9 @@ void CALLBACK Session::RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOV
 	} 
 	session->_rcWrite += szRecvBytes;
 	session->OnRecv(bufInfo.buf, szRecvBytes);
+	session->OrganizeRecvBuf();
 	session->recvAtm.exchange(false);
+
 	session->Recv();
 }
 

@@ -26,7 +26,7 @@ public:
 						[Constructor / Destructor]
 	***********************************************************/
 public:
-	Session(int sessionID);
+	Session(UINT32 sessionID);
 	virtual ~Session();
 
 
@@ -56,6 +56,7 @@ public:
 		if (sPending.size() <= 1)
 			size = SendSegment();
 
+		SleepEx(1, TRUE);
 		return size;
 	}
 	void Recv();
@@ -93,7 +94,8 @@ protected:
 	std::vector<shared_ptr<Packet>> sPending;
 	std::vector<shared_ptr<Packet>> sending;
 
-	std::mutex pendMtx, sendMtx;
+	std::mutex pendMtx;
+	std::mutex sendMtx;
 	std::atomic<bool> recvAtm;
 	int _rcRead, _rcWrite;
 	int _sdUsed, _sdWrite;

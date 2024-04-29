@@ -31,10 +31,10 @@ public:
 	template <typename T = Session>
 	void AcceptLoop() {
 		while (!_isClosed) {
-			int remoteAdrSz = sizeof(SOCKADDR_IN);
+			_remoteAdrSz = sizeof(SOCKADDR_IN);
 			memset(&_remoteAdr, 0, sizeof(SOCKADDR_IN));
 
-			_remoteSock = ::accept(_localSock, (SOCKADDR*)&_remoteAdr, &remoteAdrSz);
+			_remoteSock = ::accept(_localSock, (SOCKADDR*)&_remoteAdr, &_remoteAdrSz);
 			if (_remoteSock == INVALID_SOCKET) {
 				if (WSAGetLastError() != WSAEWOULDBLOCK)
 					ErrorHandling("::accept() error");
@@ -84,6 +84,7 @@ public:
 private:
 	SOCKET _localSock = 0, _remoteSock = 0;
 	SOCKADDR_IN _localAdr, _remoteAdr;
+	int _remoteAdrSz;
 
 };
 

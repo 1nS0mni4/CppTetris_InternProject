@@ -416,11 +416,11 @@ int StC_UserCurrentPiecePacket::Write(char* buffer) {
 #pragma endregion
 
 #pragma region StC_ChallengerDataPacket
-Stc_ChallengerDataPacket::Stc_ChallengerDataPacket() : Packet(PacketType::StC_ChallengerData) {}
+StC_ChallengerDataPacket::StC_ChallengerDataPacket() : Packet(PacketType::StC_ChallengerData) {}
 
-Stc_ChallengerDataPacket::~Stc_ChallengerDataPacket() {}
+StC_ChallengerDataPacket::~StC_ChallengerDataPacket() {}
 
-int Stc_ChallengerDataPacket::Read(char* segment) {
+int StC_ChallengerDataPacket::Read(char* segment) {
 	int index = Packet::Read(segment);
 
 	int len = *((USHORT*)(&(segment[index])));
@@ -431,7 +431,7 @@ int Stc_ChallengerDataPacket::Read(char* segment) {
 	return 0;
 }
 
-int Stc_ChallengerDataPacket::Write(char* buffer) {
+int StC_ChallengerDataPacket::Write(char* buffer) {
 	WRITESEGMENT(USHORT) = 10;
 	_size += sizeof(USHORT);
 	memcpy(&(buffer[_size]), name, NAME_LEN);
@@ -480,6 +480,24 @@ int StC_UserExitPacket::Write(char* buffer) {
 }
 
 #pragma endregion
+
+#pragma region StC_GameStartPacket
+StC_GameStartPacket::StC_GameStartPacket() : Packet(PacketType::StC_GameStart) { }
+StC_GameStartPacket::~StC_GameStartPacket() {}
+
+int StC_GameStartPacket::Read(char* segment) {
+	int index = Packet::Read(segment);
+	return index;
+}
+
+int StC_GameStartPacket::Write(char* buffer) {
+	_size += PACKET_HEADER_SIZE;
+
+	Packet::Write(buffer);
+	return _size;
+}
+#pragma endregion
+
 
 
 #pragma endregion
