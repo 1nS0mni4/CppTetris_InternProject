@@ -22,8 +22,6 @@ int main(int argc, char* argv[]) {
 	std::thread fetchThread(&PacketQueue::Flush, &PacketQueue::GetInstance());
 	std::thread olvpThread(&OvlpCallback::AcceptLoop<ClientSession>, &OvlpCallback::GetInstance());
 	std::thread roomThread(&RoomManager::UpdateRooms, &RoomManager::GetInstance());
-	std::thread jobThread(&JobQueue::Fetch, &JobQueue::GetInstance());
-	std::thread timerThread(&JobTimer::OnUpdate, &JobTimer::GetInstance());
 	
 	std::string input;
 
@@ -45,8 +43,6 @@ int main(int argc, char* argv[]) {
 	fetchThread.join();
 	olvpThread.join();
 	roomThread.join();
-	jobThread.join();
-	timerThread.join();
 
 
 	std::cout << "Server Closed" << std::endl;

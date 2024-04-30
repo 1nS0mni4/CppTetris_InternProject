@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClientSession.cpp" />
-    <ClCompile Include="db.cpp" />
     <ClCompile Include="Job.cpp" />
     <ClCompile Include="JobQueue.cpp" />
     <ClCompile Include="JobTimer.cpp" />

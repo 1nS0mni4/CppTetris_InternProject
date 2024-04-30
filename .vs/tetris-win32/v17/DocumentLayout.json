@@ -3,52 +3,99 @@
   "WorkspaceRootPath": "D:\\personal\\projects\\Github\\TermProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{89849011-FAD3-412C-B6F2-4996252C9C2F}|Tetris\\Tetris.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Tetris\\ClientPacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{89849011-FAD3-412C-B6F2-4996252C9C2F}|Tetris\\Tetris.vcxproj|solutionrelative:Tetris\\ClientPacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Session.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89849011-FAD3-412C-B6F2-4996252C9C2F}|Tetris\\Tetris.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Tetris\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{89849011-FAD3-412C-B6F2-4996252C9C2F}|Tetris\\Tetris.vcxproj|solutionrelative:Tetris\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89849011-FAD3-412C-B6F2-4996252C9C2F}|Tetris\\Tetris.vcxproj|D:\\PERSONAL\\PROJECTS\\GITHUB\\TERMPROJECT\\SERVERCORE\\PACKET.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{89849011-FAD3-412C-B6F2-4996252C9C2F}|Tetris\\Tetris.vcxproj|solutionrelative:SERVERCORE\\PACKET.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.cpp||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Packet.cpp||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\ClientSession.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\ClientSession.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\OvlpCallback.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\ClientSession.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\ClientSession.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Session.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\PERSONAL\\PROJECTS\\GITHUB\\TERMPROJECT\\SERVERCORE\\SESSION.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:SERVERCORE\\SESSION.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Session.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\ClientSession.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\ClientSession.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89849011-FAD3-412C-B6F2-4996252C9C2F}|Tetris\\Tetris.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Tetris\\ClientPacketHandler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{89849011-FAD3-412C-B6F2-4996252C9C2F}|Tetris\\Tetris.vcxproj|solutionrelative:Tetris\\ClientPacketHandler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\PacketQueue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\PacketQueue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89849011-FAD3-412C-B6F2-4996252C9C2F}|Tetris\\Tetris.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Tetris\\PacketQueue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{89849011-FAD3-412C-B6F2-4996252C9C2F}|Tetris\\Tetris.vcxproj|solutionrelative:Tetris\\PacketQueue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89849011-FAD3-412C-B6F2-4996252C9C2F}|Tetris\\Tetris.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Tetris\\ServerSession.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{89849011-FAD3-412C-B6F2-4996252C9C2F}|Tetris\\Tetris.vcxproj|solutionrelative:Tetris\\ServerSession.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\ServerPacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89849011-FAD3-412C-B6F2-4996252C9C2F}|Tetris\\Tetris.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Tetris\\PacketQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{89849011-FAD3-412C-B6F2-4996252C9C2F}|Tetris\\Tetris.vcxproj|solutionrelative:Tetris\\PacketQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\ServerPacketHandler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\PacketQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\PacketQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.cpp||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Packet.cpp||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\OvlpCallback.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\RoomManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\RoomManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\Room.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\Room.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C786F8D7-570E-4026-A106-6DC2DAA5FA85}|Tetris\\Tetris.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Tetris\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C786F8D7-570E-4026-A106-6DC2DAA5FA85}|Tetris\\Tetris.vcxproj|solutionrelative:Tetris\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C786F8D7-570E-4026-A106-6DC2DAA5FA85}|Tetris\\Tetris.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Tetris\\ClientPacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C786F8D7-570E-4026-A106-6DC2DAA5FA85}|Tetris\\Tetris.vcxproj|solutionrelative:Tetris\\ClientPacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\SERVERCORE\\PACKET.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:SERVERCORE\\PACKET.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C786F8D7-570E-4026-A106-6DC2DAA5FA85}|Tetris\\Tetris.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Tetris\\ServerSession.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C786F8D7-570E-4026-A106-6DC2DAA5FA85}|Tetris\\Tetris.vcxproj|solutionrelative:Tetris\\ServerSession.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C786F8D7-570E-4026-A106-6DC2DAA5FA85}|Tetris\\Tetris.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Tetris\\PacketQueue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C786F8D7-570E-4026-A106-6DC2DAA5FA85}|Tetris\\Tetris.vcxproj|solutionrelative:Tetris\\PacketQueue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C786F8D7-570E-4026-A106-6DC2DAA5FA85}|Tetris\\Tetris.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Tetris\\ClientPacketHandler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C786F8D7-570E-4026-A106-6DC2DAA5FA85}|Tetris\\Tetris.vcxproj|solutionrelative:Tetris\\ClientPacketHandler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C786F8D7-570E-4026-A106-6DC2DAA5FA85}|Tetris\\Tetris.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Tetris\\PacketQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C786F8D7-570E-4026-A106-6DC2DAA5FA85}|Tetris\\Tetris.vcxproj|solutionrelative:Tetris\\PacketQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\SERVERCORE\\PACKETHANDLER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:SERVERCORE\\PACKETHANDLER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\SERVERCORE\\DEFINES.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:SERVERCORE\\DEFINES.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\mutex||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,37 +105,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 198,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Packet.h",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.h",
-              "RelativeDocumentMoniker": "ServerCore\\Packet.h",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.h",
-              "RelativeToolTip": "ServerCore\\Packet.h",
-              "ViewState": "AQIAABQAAAAAAAAAAAAewIYAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "OvlpCallback.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.h",
+              "RelativeDocumentMoniker": "ServerCore\\OvlpCallback.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.h",
+              "RelativeToolTip": "ServerCore\\OvlpCallback.h",
+              "ViewState": "AQIAABUAAAAAAAAAAAAewCQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-29T09:06:59.391Z",
+              "WhenOpened": "2024-04-30T01:32:49.945Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 14,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\main.cpp",
               "RelativeDocumentMoniker": "Tetris\\main.cpp",
               "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\main.cpp",
               "RelativeToolTip": "Tetris\\main.cpp",
-              "ViewState": "AQIAANsAAAAAAAAAAAAwwPAAAAAAAAAA",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAwwPUAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-29T08:58:00.047Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-29T08:58:00.047Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 17,
               "Title": "ServerSession.h",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\ServerSession.h",
               "RelativeDocumentMoniker": "Tetris\\ServerSession.h",
@@ -96,79 +142,19 @@
               "RelativeToolTip": "Tetris\\ServerSession.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-29T08:57:50.559Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-29T08:57:50.559Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "PacketQueue.cpp",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\PacketQueue.cpp",
-              "RelativeDocumentMoniker": "Tetris\\PacketQueue.cpp",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\PacketQueue.cpp",
-              "RelativeToolTip": "Tetris\\PacketQueue.cpp",
-              "ViewState": "AQIAACEAAAAAAAAAAAAuwCkAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-29T08:57:14.368Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ClientPacketHandler.h",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\ClientPacketHandler.h",
-              "RelativeDocumentMoniker": "Tetris\\ClientPacketHandler.h",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\ClientPacketHandler.h",
-              "RelativeToolTip": "Tetris\\ClientPacketHandler.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-29T08:56:58.527Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
               "Title": "PacketQueue.h",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\PacketQueue.h",
-              "RelativeDocumentMoniker": "Tetris\\PacketQueue.h",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\PacketQueue.h",
-              "RelativeToolTip": "Tetris\\PacketQueue.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAARAAAA",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\PacketQueue.h",
+              "RelativeDocumentMoniker": "Server\\PacketQueue.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\PacketQueue.h",
+              "RelativeToolTip": "Server\\PacketQueue.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-29T08:57:06.838Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 202,
-          "SelectedChildIndex": 4,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Session.cpp",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp",
-              "RelativeDocumentMoniker": "ServerCore\\Session.cpp",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp",
-              "RelativeToolTip": "ServerCore\\Session.cpp",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACkAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-29T09:43:50.92Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Session.h",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.h",
-              "RelativeDocumentMoniker": "ServerCore\\Session.h",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.h",
-              "RelativeToolTip": "ServerCore\\Session.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-29T09:43:50.507Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-30T07:34:57.82Z"
             },
             {
               "$type": "Document",
@@ -178,49 +164,246 @@
               "RelativeDocumentMoniker": "Server\\ClientSession.h",
               "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\ClientSession.h",
               "RelativeToolTip": "Server\\ClientSession.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAACAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-29T09:43:43.043Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PacketHandler.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\PacketHandler.h",
+              "RelativeDocumentMoniker": "ServerCore\\PacketHandler.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\PacketHandler.h",
+              "RelativeToolTip": "ServerCore\\PacketHandler.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-30T01:40:38.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Session.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.h",
+              "RelativeDocumentMoniker": "ServerCore\\Session.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.h",
+              "RelativeToolTip": "ServerCore\\Session.h",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAAEIAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-29T09:43:50.507Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Packet.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.h",
+              "RelativeDocumentMoniker": "ServerCore\\Packet.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.h",
+              "RelativeToolTip": "ServerCore\\Packet.h",
+              "ViewState": "AQIAABQAAAAAAAAAAAAewIYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-29T09:06:59.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Defines.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Defines.h",
+              "RelativeDocumentMoniker": "ServerCore\\Defines.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Defines.h",
+              "RelativeToolTip": "ServerCore\\Defines.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-30T07:47:14.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "PacketQueue.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\PacketQueue.cpp",
+              "RelativeDocumentMoniker": "Tetris\\PacketQueue.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\PacketQueue.cpp",
+              "RelativeToolTip": "Tetris\\PacketQueue.cpp",
+              "ViewState": "AQIAACEAAAAAAAAAAAAuwCkAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-29T08:57:14.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ClientPacketHandler.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\ClientPacketHandler.h",
+              "RelativeDocumentMoniker": "Tetris\\ClientPacketHandler.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\ClientPacketHandler.h",
+              "RelativeToolTip": "Tetris\\ClientPacketHandler.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-29T08:56:58.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "PacketQueue.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\PacketQueue.h",
+              "RelativeDocumentMoniker": "Tetris\\PacketQueue.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\PacketQueue.h",
+              "RelativeToolTip": "Tetris\\PacketQueue.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-29T08:57:06.838Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 202,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ServerPacketHandler.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.cpp",
+              "RelativeDocumentMoniker": "Server\\ServerPacketHandler.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.cpp",
+              "RelativeToolTip": "Server\\ServerPacketHandler.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-30T01:41:07.156Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "PacketQueue.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\PacketQueue.cpp",
+              "RelativeDocumentMoniker": "Server\\PacketQueue.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\PacketQueue.cpp",
+              "RelativeToolTip": "Server\\PacketQueue.cpp",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACcAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-30T02:01:23.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Session.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp",
+              "RelativeDocumentMoniker": "ServerCore\\Session.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp",
+              "RelativeToolTip": "ServerCore\\Session.cpp",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAwwGwAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-29T09:43:50.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Packet.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.cpp",
+              "RelativeDocumentMoniker": "ServerCore\\Packet.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.cpp",
+              "RelativeToolTip": "ServerCore\\Packet.cpp",
+              "ViewState": "AQIAAJgBAAAAAAAAAAApwKwBAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-29T09:08:34.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "main.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\main.cpp",
+              "RelativeDocumentMoniker": "Server\\main.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\main.cpp",
+              "RelativeToolTip": "Server\\main.cpp",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-30T01:41:43.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ClientSession.cpp",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\ClientSession.cpp",
               "RelativeDocumentMoniker": "Server\\ClientSession.cpp",
               "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\ClientSession.cpp",
               "RelativeToolTip": "Server\\ClientSession.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAALAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAC0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-29T09:43:38.152Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
+              "Title": "ServerPacketHandler.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.h",
+              "RelativeDocumentMoniker": "Server\\ServerPacketHandler.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.h",
+              "RelativeToolTip": "Server\\ServerPacketHandler.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-30T07:47:37.552Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "mutex",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\mutex",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\mutex",
+              "ViewState": "AQIAALYBAAAAAAAAAAAwwM4BAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-04-30T07:52:44.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "OvlpCallback.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.cpp",
+              "RelativeDocumentMoniker": "ServerCore\\OvlpCallback.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.cpp",
+              "RelativeToolTip": "ServerCore\\OvlpCallback.cpp",
+              "ViewState": "AQIAABAAAAAAAAAAAAAAACcAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-30T01:32:50.796Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "RoomManager.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\RoomManager.h",
+              "RelativeDocumentMoniker": "Server\\RoomManager.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\RoomManager.h",
+              "RelativeToolTip": "Server\\RoomManager.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-30T01:42:01.4Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Room.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\Room.h",
+              "RelativeDocumentMoniker": "Server\\Room.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\Room.h",
+              "RelativeToolTip": "Server\\Room.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-30T01:42:02.563Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "ClientPacketHandler.cpp",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\ClientPacketHandler.cpp",
               "RelativeDocumentMoniker": "Tetris\\ClientPacketHandler.cpp",
               "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Tetris\\ClientPacketHandler.cpp",
               "RelativeToolTip": "Tetris\\ClientPacketHandler.cpp",
-              "ViewState": "AQIAABMAAAAAAAAAAAAwwGMAAAAJAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAwwDkAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-29T08:57:17.88Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Packet.cpp",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.cpp",
-              "RelativeDocumentMoniker": "ServerCore\\Packet.cpp",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.cpp",
-              "RelativeToolTip": "ServerCore\\Packet.cpp",
-              "ViewState": "AQIAAIgAAAAAAAAAAAAwwP0AAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-29T09:08:34.002Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-29T08:57:17.88Z"
             }
           ]
         }

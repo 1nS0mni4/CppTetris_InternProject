@@ -31,8 +31,8 @@ protected:\
 
 #define INIT_SESSION_COUNT	200
 
-#define SENDBUF_SIZE		65535
-#define RECVBUF_SIZE		65535
+#define SENDBUF_SIZE		10000
+#define RECVBUF_SIZE		10000
 
 #define PACKET_HEADER_SIZE		sizeof(USHORT) + sizeof(USHORT)
 

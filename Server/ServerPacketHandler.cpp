@@ -25,7 +25,12 @@ ServerPacketHandler::~ServerPacketHandler() {
 }
 
 void ServerPacketHandler::HandlePacket(Session*  session, char* packet, USHORT packetID, USHORT size) {
-	_func[(PacketType)packetID](session, packet, size);
+	auto func = _func[(PacketType)packetID];
+	if (func == nullptr) {
+		DefaultPacketHandler(session, packet, size);
+	}
+	else
+		func(session, packet, size);
 }
 
 void ServerPacketHandler::Init() {
@@ -33,12 +38,34 @@ void ServerPacketHandler::Init() {
 }
 
 void ServerPacketHandler::Register() {
+	_func[PacketType::Test] = TestPacketHandler;
 	_func[PacketType::CtS_LoginRequest] = CtS_LoginRequestPacketHandler;
 	_func[PacketType::CtS_MatchingRequest] = CtS_MatchingRequestPacketHandler;
 	_func[PacketType::CtS_NotifyField] = CtS_NotifyFieldPacketHandler;
 	_func[PacketType::CtS_NotifyScore] = CtS_NotifyScorePacketHandler;
 	_func[PacketType::CtS_NotifyCurrentPiece] = CtS_NotifyCurrentPiecePacketHandler;
 	_func[PacketType::CtS_NotifyLose] = CtS_NotifyLosePacketHandler;
+}
+
+void DefaultPacketHandler(Session* session, char* segment, USHORT size) {
+	if (session == nullptr || segment == nullptr)
+		return;
+
+	ClientSession* s = (ClientSession*)session;
+	
+	cout << "[UnRegistered Packet Used] : SessionID(" << session->GetSessionID() << ")\n";
+}
+
+void TestPacketHandler(Session* session, char* segment, USHORT size) {
+	if (session == nullptr || segment == nullptr)
+		return;
+
+	ClientSession* s = (ClientSession*)session;
+	TestPacket packet;
+	if (size != packet.Read(segment))
+		return;
+
+	cout << "Session ID: " << s->GetSessionID() << " / Data: " << packet.data << '\n';
 }
 
 void CtS_LoginRequestPacketHandler(Session* session, char* segment, USHORT size) {
@@ -58,8 +85,6 @@ void CtS_LoginRequestPacketHandler(Session* session, char* segment, USHORT size)
 
 	cout << "Sended Response to: " << s->GetSessionID() << '\n';
 }
-
-//TODO: DB에서 이름 확인해서 있으면 데이터 전송 없으면 생성 후 데이터 전송(디폴트)
 
 void CtS_MatchingRequestPacketHandler(Session* session, char* segment, USHORT size) {
 	if (session == nullptr || segment == nullptr)

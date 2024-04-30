@@ -5,9 +5,8 @@
 
 #define PACKETDATA_POOL_SIZE		1000
 
-#define DELETEPOOL(x, m)\
+#define DELETEPOOL(x)\
 {\
-	lock_guard<mutex> guard(m);\
 	if (x.size() > 0) {\
 		while (!x.empty()) {\
 			PacketData* deleted = x.back(); x.pop_back();\
@@ -49,6 +48,6 @@ private:
 	vector<PacketData*> store, fetch, pool;
 	atomic<bool> _isClosed;
 	atomic<int> poolSize;
-	std::mutex m_store, m_fetch, m_pool;
+	std::mutex mtx;
 };
 

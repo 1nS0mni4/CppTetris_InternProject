@@ -3,6 +3,7 @@
 #include "ClientSession.h"
 #include "PacketHandler.h"
 
+void DefaultPacketHandler(Session* session, char* segment, USHORT size);
 void TestPacketHandler(Session* session, char* segment, USHORT size);
 void CtS_LoginRequestPacketHandler(Session* session, char* segment, USHORT size);
 void CtS_MatchingRequestPacketHandler(Session* session, char* segment, USHORT size);
