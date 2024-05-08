@@ -46,6 +46,7 @@ void Session::Clear() {
 	_socket = INVALID_SOCKET;
 	memset(&_remoteAdr, 0, sizeof(_remoteAdr));
 	_rcRead = _rcWrite = 0;
+	recvAtm = false;
 }
 
 int Session::SendSegment() {
@@ -97,7 +98,6 @@ void Session::Recv() {
 	int result = ::WSARecv(_socket, &(recvInfo->wsaBuf), 1, &recvBytes, &flags, recvOvlp, RecvCompRoutine);
 	result = WSAGetLastError();
 	result;
-	SleepEx(1, TRUE);
 }
 
 void CALLBACK Session::RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOVERLAPPED lpOverlapped, DWORD flags) {
@@ -107,6 +107,7 @@ void CALLBACK Session::RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOV
 
 	if (szRecvBytes == 0) {
 		puts("Client disconnected...");
+		bool success = CancelIo((HANDLE)session->GetSocket());
 		session->Disconnect();
 		return;
 	} 

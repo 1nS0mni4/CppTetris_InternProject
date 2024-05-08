@@ -22,6 +22,7 @@ int main(int argc, char* argv[]) {
 	std::thread fetchThread(&PacketQueue::Flush, &PacketQueue::GetInstance());
 	std::thread olvpThread(&OvlpCallback::AcceptLoop<ClientSession>, &OvlpCallback::GetInstance());
 	std::thread roomThread(&RoomManager::UpdateRooms, &RoomManager::GetInstance());
+	std::thread processThread = SessionManager<ClientSession>::GetInstance().Start();
 	
 	std::string input;
 
@@ -39,11 +40,12 @@ int main(int argc, char* argv[]) {
 	OvlpCallback::GetInstance().Close();
 	JobQueue::GetInstance().Close();
 	JobTimer::GetInstance().Close();
+	SessionManager<ClientSession>::GetInstance().Close();
 
 	fetchThread.join();
 	olvpThread.join();
 	roomThread.join();
-
+	processThread.join();
 
 	std::cout << "Server Closed" << std::endl;
 

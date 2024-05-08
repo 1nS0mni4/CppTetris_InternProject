@@ -26,6 +26,10 @@ int OvlpCallback::Start() {
 		return -1;
 	}
 
+	int optval = 1;
+
+	::setsockopt(_localSock, SOL_SOCKET, SO_REUSEADDR, (const char*) & optval, sizeof(optval));
+
 	return 0;
 }
 
@@ -50,8 +54,6 @@ int OvlpCallback::BindnListen(std::string ipAddress, USHORT port, int backlog) {
 
 void OvlpCallback::Close() {
 	_isClosed = true;
-	if(_remoteSock != 0)
-		closesocket(_remoteSock);
 
 	if(_localSock != 0)
 		closesocket(_localSock);

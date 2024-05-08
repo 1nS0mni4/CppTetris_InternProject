@@ -29,6 +29,11 @@ public:
 
 		_sessionCnt = 0;
 	}
+	std::thread Start() {
+		std::thread processThread(&SessionManager<T>::Process, this);
+
+		return processThread;
+	}
 
 	T* CreateSession() {
 		UINT32 sessionID = 0;
@@ -51,6 +56,15 @@ public:
 		_onClosed.push(sessionID);
 		_sessionCnt--;
 	}
+	void Close() {
+		_isClosed = true;
+	}
+
+	void RegisterSession(T* session) {
+		lock_guard<std::mutex> guard(m_register);
+
+		registWait.push_back(session);
+	}
 
 protected:
 	void AddSession(int count) {
@@ -60,10 +74,27 @@ protected:
 			_onClosed.push(i);
 		}
 	}
+	void Process() {
+		while (!_isClosed) {
+			if (registWait.empty() == false) {
+				lock_guard<mutex> guard(m_register);
+
+				while (registWait.empty() == false) {
+					T* session = registWait.back();
+					registWait.pop_back();
+					session->Recv();
+				}
+			}
+
+			SleepEx(0, TRUE);
+		}
+	}
 
 protected:
 	vector<T*> _sessions;
 	priority_queue<UINT32, vector<UINT32>, greater<UINT32>> _onClosed;
-
+	atomic<bool> _isClosed = false;
+	std::mutex m_register;
+	vector<T*> registWait;
 };
 
