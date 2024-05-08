@@ -3,9 +3,6 @@
 #include "PacketQueue.h"
 #include "ServerPacketHandler.h"
 
-
-
-
 void ClientSession::OnSend() {
 
 }

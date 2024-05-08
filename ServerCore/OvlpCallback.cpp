@@ -14,6 +14,7 @@ OvlpCallback::~OvlpCallback() {
 
 int OvlpCallback::Start() {
 	WSADATA wsaData;
+	u_long mode = 1;
 
 	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
 		ErrorHandling("WSAStartup() error");
@@ -29,7 +30,7 @@ int OvlpCallback::Start() {
 	int optval = 1;
 
 	::setsockopt(_localSock, SOL_SOCKET, SO_REUSEADDR, (const char*) & optval, sizeof(optval));
-
+	::ioctlsocket(_localSock, FIONBIO, &mode);
 	return 0;
 }
 
