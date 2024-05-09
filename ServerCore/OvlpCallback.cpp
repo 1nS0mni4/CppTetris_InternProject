@@ -14,7 +14,7 @@ OvlpCallback::~OvlpCallback() {
 
 int OvlpCallback::Start() {
 	WSADATA wsaData;
-	u_long mode = 1;
+
 
 	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
 		ErrorHandling("WSAStartup() error");
@@ -27,14 +27,16 @@ int OvlpCallback::Start() {
 		return -1;
 	}
 
-	int optval = 1;
-
-	::setsockopt(_localSock, SOL_SOCKET, SO_REUSEADDR, (const char*) & optval, sizeof(optval));
-	::ioctlsocket(_localSock, FIONBIO, &mode);
 	return 0;
 }
 
 int OvlpCallback::BindnListen(std::string ipAddress, USHORT port, int backlog) {
+	u_long mode = 1;
+	int optval = 1;
+
+	::setsockopt(_localSock, SOL_SOCKET, SO_REUSEADDR, (const char*)&optval, sizeof(optval));
+	::ioctlsocket(_localSock, FIONBIO, &mode);
+
 	memset(&_localAdr, 0, sizeof(_localAdr));
 	_localAdr.sin_family = AF_INET;
 	_localAdr.sin_addr.S_un.S_addr = inet_addr(ipAddress.c_str());

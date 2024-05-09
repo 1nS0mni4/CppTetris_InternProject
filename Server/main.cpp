@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
 	std::string input;
 
 	while (true) {
-		SleepEx(1, TRUE);
+		Sleep(100);
 		//std::cin >> input;
 
 		//if (strcmp(input.c_str(), "quit") == 0 || strcmp(input.c_str(), "Quit") == 0)

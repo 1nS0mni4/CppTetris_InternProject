@@ -14,7 +14,7 @@
 #include <unordered_set>
 
 #include <thread>
-#include <WinSock2.h>
+#include <winsock2.h>
 
 #include <thread>
 

@@ -4,7 +4,7 @@
 #include "ServerSession.h"
 #include "OvlpCallback.h"
 #include "PacketQueue.h"
-#include <WinSock2.h>
+//#include <WinSock2.h>
 
 void ErrorHandling(const char* message);
 
@@ -47,38 +47,244 @@ CtS_NotifyCurrentPiecePacket* pieceNoti;
 CtS_NotifyScorePacket* scoreNoti;
 
 int main(int argc, char* argv[]) {
-	cout << "HEllo" << '\n';
-	CreateAssets();
+	//cout << "HEllo" << '\n';
+	//CreateAssets();
 
-	ClearField(Field, otherField);
+	//ClearField(Field, otherField);
 
-	int screenBufferSize = ScreenWidth * ScreenHeight;
+	//int screenBufferSize = ScreenWidth * ScreenHeight;
 
-	wchar_t* screen = new wchar_t[screenBufferSize];
+	//wchar_t* screen = new wchar_t[screenBufferSize];
 
-	for (int i = 0; i < screenBufferSize; i++)
-		screen[i] = L' ';
+	//for (int i = 0; i < screenBufferSize; i++)
+	//	screen[i] = L' ';
 
 
 
-	DWORD bytesWritten = 0;
+	//DWORD bytesWritten = 0;
 
-	int currentPiece = 0;
-	int currentRotation = 0;
-	int currentX = (FieldWidth / 2) - 2;
-	int currentY = 0;
+	//int currentPiece = 0;
+	//int currentRotation = 0;
+	//int currentX = (FieldWidth / 2) - 2;
+	//int currentY = 0;
 
-	bool rotateButtonHeld = false;
+	//bool rotateButtonHeld = false;
 
-	int gameSpeed = 20;
-	int speedCount = 0;
-	bool forceDown = false;
-	vector<int> lines;
-	int score = 0;
+	//int gameSpeed = 20;
+	//int speedCount = 0;
+	//bool forceDown = false;
+	//vector<int> lines;
+	//int score = 0;
 
-	CtS_LoginRequestPacket* packet = new CtS_LoginRequestPacket();
+	//CtS_LoginRequestPacket* packet = new CtS_LoginRequestPacket();
 
-	memcpy(packet->name, L"Hell", 10);
+	//memcpy(packet->name, L"Hell", 10);
+
+	//SessionManager<ServerSession>::GetInstance().Init();
+	//std::thread packetFetchLoop(&PacketQueue::Flush, &PacketQueue::GetInstance());
+
+	//if (OvlpCallback::GetInstance().Start() == SOCKET_ERROR)
+	//	return -1;
+
+	//ServerSession* session = OvlpCallback::GetInstance().Connect<ServerSession>(PF_INET, "127.0.0.1", 9190);
+	//if (session == nullptr)
+	//	return -1;
+
+	//
+
+	//session->Send(packet);
+	//
+	//while (session->isLogined == false) { SleepEx(10, TRUE); }
+
+	//CtS_MatchingRequestPacket* match = new CtS_MatchingRequestPacket();
+	//session->Send(match);
+	//
+
+	//HANDLE consoleHandle = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, NULL, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
+
+	//SetConsoleActiveScreenBuffer(consoleHandle);
+
+	//while (true) {
+	//	SleepEx(10, TRUE);
+
+	//	while (session->isRunning) {
+	//		int prevScore = score;
+	//		// Game Timing
+	//		SleepEx(1, TRUE);
+	//		this_thread::sleep_for(50ms);
+	//		speedCount++;
+	//		forceDown = (speedCount == gameSpeed);
+
+	//		// Input
+	//		for (size_t keyIndex = 0; keyIndex < 4; keyIndex++) {
+	//			// Right arrow virtual key code // Left arrow virtual key code // Down arrow virtual key code // Z virtual key code key
+	//			Keys[keyIndex] = (0x8000 & GetAsyncKeyState((unsigned char)("\x27\x25\x28Z"[keyIndex]))) != 0;
+	//		}
+
+	//		// LOGIC
+
+	//		// Can move right?
+	//		currentX += (Keys[0] && DoesPieceIft(currentPiece, currentRotation, currentX + 1, currentY));
+
+	//		// Can move left?
+	//		currentX -= (Keys[1] && DoesPieceIft(currentPiece, currentRotation, currentX - 1, currentY));
+
+	//		// Can move down?
+	//		currentY += Keys[2] && DoesPieceIft(currentPiece, currentRotation, currentX, currentY + 1);
+
+	//		if (Keys[3]) {
+	//			currentRotation += !rotateButtonHeld && DoesPieceIft(currentPiece, currentRotation + 1, currentX, currentY) ? 1 : 0;
+	//			rotateButtonHeld = true;
+	//		}
+	//		else {
+	//			rotateButtonHeld = false;
+	//		}
+
+	//		if (forceDown) {
+	//			if (DoesPieceIft(currentPiece, currentRotation, currentX, currentY + 1))
+	//				currentY++;
+	//			else {
+	//				// Lock the current piece into the field,
+	//				for (size_t pieceX = 0; pieceX < 4; pieceX++)
+	//					for (size_t pieceY = 0; pieceY < 4; pieceY++)
+	//						if (Pieces[currentPiece][Rotate(pieceX, pieceY, currentRotation)] == L'X')
+	//							Field[(currentY + pieceY) * FieldWidth + (currentX + pieceX)] = currentPiece + 1;
+
+	//				// Check have we created full horizontal line
+	//				for (size_t pieceY = 0; pieceY < 4; pieceY++)
+	//					if (currentY + pieceY < FieldHeight - 1) {
+	//						bool isLine = true;
+	//						for (size_t pieceX = 1; pieceX < FieldWidth - 1; pieceX++)
+	//							isLine &= (Field[(currentY + pieceY) * FieldWidth + pieceX]) != 0;
+
+	//						if (isLine) {
+	//							// Set line to equal symbol
+	//							for (size_t pieceX = 0; pieceX < FieldWidth; pieceX++)
+	//								Field[(currentY + pieceY) * FieldWidth + pieceX] = 8;
+
+	//							lines.push_back(currentY + pieceY);
+	//						}
+	//					}
+
+	//				score += 25;
+
+	//				if ((!lines.empty()))
+	//					score += (1 << lines.size()) * 100;
+
+	//				{
+	//					lock_guard<mutex> guard(session->m_piece);
+	//					// choose the next piece
+	//					currentPiece = 0;
+	//					currentRotation = 0;
+	//					currentX = FieldWidth / 2;
+	//					currentY = 0;
+	//					currentPiece = rand() % 7;
+	//				}
+
+
+	//				// If we cant fit next piece then its game over
+	//				isRunning = DoesPieceIft(currentPiece, currentRotation, currentX, currentY);
+	//			}
+
+	//			speedCount = 0;
+	//		}
+
+	//		// Draw Field
+	//		DrawField(screen);
+
+	//		// Draw current piece
+	//		{
+	//			for (size_t pieceX = 0; pieceX < 4; pieceX++) {
+	//				for (size_t pieceY = 0; pieceY < 4; pieceY++) {
+	//					if (Pieces[currentPiece][Rotate(pieceX, pieceY, currentRotation)] == L'X') {
+	//						screen[(currentY + pieceY + 2) * ScreenWidth + (currentX + pieceX + 2)] = currentPiece + 65;
+	//					}
+	//				}
+	//			}
+
+	//			{
+	//				lock_guard<mutex> guard(session->m_piece);
+	//				for (size_t pieceX = 0; pieceX < 4; pieceX++) {
+	//					for (size_t pieceY = 0; pieceY < 4; pieceY++) {
+	//						if (Pieces[otherCurPiece][Rotate(pieceX, pieceY, otherRotation)] == L'X') {
+	//							screen[(otherCurY + pieceY + 2) * ScreenWidth + (FieldWidth + otherCurX + pieceX + 8)] = otherCurPiece + 65;
+	//						}
+	//					}
+	//				}
+	//			}
+
+	//		}
+
+
+	//		// Draw score
+	//		swprintf_s(&screen[21 * ScreenWidth + 2], sizeof(L"YOU") / 2, L"YOU");
+	//		swprintf_s(&screen[22 * ScreenWidth + 2], 16, L"Score: %8d", score);
+	//		{
+	//			lock_guard<mutex> guard(session->m_score);
+	//			swprintf_s(&screen[21 * ScreenWidth + FieldWidth + 7], 10, L"%s", otherName);
+	//			swprintf_s(&screen[22 * ScreenWidth + FieldWidth + 8], 16, L"Score: %8d", otherScore);
+	//		}
+
+	//		{
+	//			pieceNoti = new CtS_NotifyCurrentPiecePacket();
+	//			scoreNoti = new CtS_NotifyScorePacket();
+	//			fieldNoti = new CtS_NotifyFieldPacket();
+
+	//			pieceNoti->currentPiece = currentPiece;
+	//			pieceNoti->rotation = currentRotation;
+	//			pieceNoti->currentX = currentX;
+	//			pieceNoti->currentY = currentY;
+
+	//			
+	//			{
+	//				lock_guard<mutex> guard(session->m_field);
+	//				memcpy(fieldNoti->field, Field, FIELD_LEN);
+	//			}
+	//		}
+	//		{
+	//			session->Send(fieldNoti);
+	//			session->Send(pieceNoti);
+
+
+	//			if (score != prevScore) {
+	//				scoreNoti->score = score;
+	//				session->Send(scoreNoti);
+	//			}
+	//		}
+
+	//		// Draw finish lines
+	//		if (!lines.empty()) {
+	//			// Display frame
+	//			WriteConsoleOutputCharacter(consoleHandle, screen, screenBufferSize, { 0, 0 }, &bytesWritten);
+	//			//this_thread::sleep_for(400ms);
+
+	//			for (auto& line : lines) {
+	//				for (size_t pieceX = 1; pieceX < FieldWidth - 1; pieceX++) {
+	//					for (size_t pieceY = line; pieceY > 0; pieceY--)
+	//						Field[pieceY * FieldWidth + pieceX] = Field[(pieceY - 1) * FieldWidth + pieceX];
+
+	//					Field[pieceX] = 0;
+	//				}
+	//			}
+
+	//			lines.clear();
+	//		}
+
+	//		WriteConsoleOutputCharacter(consoleHandle, screen, screenBufferSize, { 0, 0 }, &bytesWritten);
+	//	}
+	//}
+
+	//CloseHandle(consoleHandle);
+
+	//OvlpCallback::GetInstance().Close();
+	//PacketQueue::GetInstance().Close();
+
+	//packetFetchLoop.join();
+
+	//cout << "Game over!! :(, your score: " << score << endl;
+	//std::cout << "Server Closed" << std::endl;
+
+	//return 0;
 
 	SessionManager<ServerSession>::GetInstance().Init();
 	std::thread packetFetchLoop(&PacketQueue::Flush, &PacketQueue::GetInstance());
@@ -90,198 +296,24 @@ int main(int argc, char* argv[]) {
 	if (session == nullptr)
 		return -1;
 
-	
+	TestPacket* packet;
+	int i = 1;
 
-	session->Send(packet);
-	
-	while (session->isLogined == false) { SleepEx(10, TRUE); }
-
-	CtS_MatchingRequestPacket* match = new CtS_MatchingRequestPacket();
-	session->Send(match);
-	
-
-	HANDLE consoleHandle = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE, NULL, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
-
-	SetConsoleActiveScreenBuffer(consoleHandle);
+	std::string input;
 
 	while (true) {
-		SleepEx(10, TRUE);
-
-		while (session->isRunning) {
-			int prevScore = score;
-			// Game Timing
-			SleepEx(1, TRUE);
-			this_thread::sleep_for(50ms);
-			speedCount++;
-			forceDown = (speedCount == gameSpeed);
-
-			// Input
-			for (size_t keyIndex = 0; keyIndex < 4; keyIndex++) {
-				// Right arrow virtual key code // Left arrow virtual key code // Down arrow virtual key code // Z virtual key code key
-				Keys[keyIndex] = (0x8000 & GetAsyncKeyState((unsigned char)("\x27\x25\x28Z"[keyIndex]))) != 0;
-			}
-
-			// LOGIC
-
-			// Can move right?
-			currentX += (Keys[0] && DoesPieceIft(currentPiece, currentRotation, currentX + 1, currentY));
-
-			// Can move left?
-			currentX -= (Keys[1] && DoesPieceIft(currentPiece, currentRotation, currentX - 1, currentY));
-
-			// Can move down?
-			currentY += Keys[2] && DoesPieceIft(currentPiece, currentRotation, currentX, currentY + 1);
-
-			if (Keys[3]) {
-				currentRotation += !rotateButtonHeld && DoesPieceIft(currentPiece, currentRotation + 1, currentX, currentY) ? 1 : 0;
-				rotateButtonHeld = true;
-			}
-			else {
-				rotateButtonHeld = false;
-			}
-
-			if (forceDown) {
-				if (DoesPieceIft(currentPiece, currentRotation, currentX, currentY + 1))
-					currentY++;
-				else {
-					// Lock the current piece into the field,
-					for (size_t pieceX = 0; pieceX < 4; pieceX++)
-						for (size_t pieceY = 0; pieceY < 4; pieceY++)
-							if (Pieces[currentPiece][Rotate(pieceX, pieceY, currentRotation)] == L'X')
-								Field[(currentY + pieceY) * FieldWidth + (currentX + pieceX)] = currentPiece + 1;
-
-					// Check have we created full horizontal line
-					for (size_t pieceY = 0; pieceY < 4; pieceY++)
-						if (currentY + pieceY < FieldHeight - 1) {
-							bool isLine = true;
-							for (size_t pieceX = 1; pieceX < FieldWidth - 1; pieceX++)
-								isLine &= (Field[(currentY + pieceY) * FieldWidth + pieceX]) != 0;
-
-							if (isLine) {
-								// Set line to equal symbol
-								for (size_t pieceX = 0; pieceX < FieldWidth; pieceX++)
-									Field[(currentY + pieceY) * FieldWidth + pieceX] = 8;
-
-								lines.push_back(currentY + pieceY);
-							}
-						}
-
-					score += 25;
-
-					if ((!lines.empty()))
-						score += (1 << lines.size()) * 100;
-
-					{
-						lock_guard<mutex> guard(session->m_piece);
-						// choose the next piece
-						currentPiece = 0;
-						currentRotation = 0;
-						currentX = FieldWidth / 2;
-						currentY = 0;
-						currentPiece = rand() % 7;
-					}
-
-
-					// If we cant fit next piece then its game over
-					isRunning = DoesPieceIft(currentPiece, currentRotation, currentX, currentY);
-				}
-
-				speedCount = 0;
-			}
-
-			// Draw Field
-			DrawField(screen);
-
-			// Draw current piece
-			{
-				for (size_t pieceX = 0; pieceX < 4; pieceX++) {
-					for (size_t pieceY = 0; pieceY < 4; pieceY++) {
-						if (Pieces[currentPiece][Rotate(pieceX, pieceY, currentRotation)] == L'X') {
-							screen[(currentY + pieceY + 2) * ScreenWidth + (currentX + pieceX + 2)] = currentPiece + 65;
-						}
-					}
-				}
-
-				{
-					lock_guard<mutex> guard(session->m_piece);
-					for (size_t pieceX = 0; pieceX < 4; pieceX++) {
-						for (size_t pieceY = 0; pieceY < 4; pieceY++) {
-							if (Pieces[otherCurPiece][Rotate(pieceX, pieceY, otherRotation)] == L'X') {
-								screen[(otherCurY + pieceY + 2) * ScreenWidth + (FieldWidth + otherCurX + pieceX + 8)] = otherCurPiece + 65;
-							}
-						}
-					}
-				}
-
-			}
-
-
-			// Draw score
-			swprintf_s(&screen[21 * ScreenWidth + 2], sizeof(L"YOU") / 2, L"YOU");
-			swprintf_s(&screen[22 * ScreenWidth + 2], 16, L"Score: %8d", score);
-			{
-				lock_guard<mutex> guard(session->m_score);
-				swprintf_s(&screen[21 * ScreenWidth + FieldWidth + 7], 10, L"%s", otherName);
-				swprintf_s(&screen[22 * ScreenWidth + FieldWidth + 8], 16, L"Score: %8d", otherScore);
-			}
-
-			{
-				pieceNoti = new CtS_NotifyCurrentPiecePacket();
-				scoreNoti = new CtS_NotifyScorePacket();
-				fieldNoti = new CtS_NotifyFieldPacket();
-
-				pieceNoti->currentPiece = currentPiece;
-				pieceNoti->rotation = currentRotation;
-				pieceNoti->currentX = currentX;
-				pieceNoti->currentY = currentY;
-
-				
-				{
-					lock_guard<mutex> guard(session->m_field);
-					memcpy(fieldNoti->field, Field, FIELD_LEN);
-				}
-			}
-			{
-				session->Send(fieldNoti);
-				session->Send(pieceNoti);
-
-
-				if (score != prevScore) {
-					scoreNoti->score = score;
-					session->Send(scoreNoti);
-				}
-			}
-
-			// Draw finish lines
-			if (!lines.empty()) {
-				// Display frame
-				WriteConsoleOutputCharacter(consoleHandle, screen, screenBufferSize, { 0, 0 }, &bytesWritten);
-				//this_thread::sleep_for(400ms);
-
-				for (auto& line : lines) {
-					for (size_t pieceX = 1; pieceX < FieldWidth - 1; pieceX++) {
-						for (size_t pieceY = line; pieceY > 0; pieceY--)
-							Field[pieceY * FieldWidth + pieceX] = Field[(pieceY - 1) * FieldWidth + pieceX];
-
-						Field[pieceX] = 0;
-					}
-				}
-
-				lines.clear();
-			}
-
-			WriteConsoleOutputCharacter(consoleHandle, screen, screenBufferSize, { 0, 0 }, &bytesWritten);
-		}
+		packet = new TestPacket();
+		packet->data = i;
+		session->Send(packet);
+		Sleep(10);
+		i++;
 	}
-
-	CloseHandle(consoleHandle);
 
 	OvlpCallback::GetInstance().Close();
 	PacketQueue::GetInstance().Close();
 
 	packetFetchLoop.join();
 
-	cout << "Game over!! :(, your score: " << score << endl;
 	std::cout << "Server Closed" << std::endl;
 
 	return 0;

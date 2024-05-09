@@ -67,6 +67,12 @@ public:
 			return nullptr;
 		}
 
+		u_long mode = 1;
+		int optval = 1;
+
+		::setsockopt(_localSock, SOL_SOCKET, SO_REUSEADDR, (const char*)&optval, sizeof(optval));
+		::ioctlsocket(_localSock, FIONBIO, &mode);
+
 		T* session = nullptr;
 		session = SessionManager<T>::GetInstance().CreateSession();
 		session->Initialize(_localSock, _remoteAdr);
