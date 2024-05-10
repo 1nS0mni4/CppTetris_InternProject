@@ -1,20 +1,7 @@
 #include "pch.h"
 #include "ServerPacketHandler.h"
 #include "RoomManager.h"
-
-#define BEGIN_HANDLER(x) void x ## Handler(Session* session, char* segment, USHORT size) {\
-if (session == nullptr || segment == nullptr)\
-return;\
-\
-ClientSession* s = (ClientSession*)session;\
-\
-x packet;\
-if (size != packet.Read(segment))\
-return;
-
-#define END_HANDLER	}
-
-#define REGISTER_HANDLER(x) _func[PacketType::x] = x ## PacketHandler
+#include "DBManager.h"
 
 ServerPacketHandler::ServerPacketHandler() {
 	Init();
@@ -77,7 +64,10 @@ void CtS_LoginRequestPacketHandler(Session* session, char* segment, USHORT size)
 		return;
 
 	CtS_LoginRequestPacket packet;
-	
+	if (size != packet.Read(segment))
+		return;
+
+	memcpy(s->name, packet.name, lstrlenW(packet.name) * 2);
 
 	StC_LoginResponsePacket* p = new StC_LoginResponsePacket();
 	p->result = 0;
@@ -159,6 +149,8 @@ void CtS_NotifyCurrentPiecePacketHandler(Session* session, char* segment, USHORT
 	Session* other = room->GetOtherSession(s->GetSessionID());
 	if (other == nullptr)
 		return;
+
+	cout << "Piece: " << packet.currentPiece << " Rotation: " << packet.rotation << " currentX: " << packet.currentX << " currentY: " << packet.currentY << '\n';
 
 	StC_UserCurrentPiecePacket* p = new StC_UserCurrentPiecePacket();
 	p->currentPiece = packet.currentPiece;

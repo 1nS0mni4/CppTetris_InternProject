@@ -31,7 +31,6 @@ void Session::Initialize(SOCKET socket, SOCKADDR_IN remoteAdr) {
 	_socket = socket;
 	_remoteAdr = remoteAdr;
 
-	_rcRead = _rcWrite = 0;
 	sentBytes = recvBytes = flags = 0;
 }
 
@@ -45,41 +44,42 @@ void Session::Disconnect() {
 void Session::Clear() {
 	_socket = INVALID_SOCKET;
 	memset(&_remoteAdr, 0, sizeof(_remoteAdr));
-	_rcRead = _rcWrite = 0;
 	recvAtm = false;
 }
 
 int Session::SendSegment() {
 	int processed = 0;
-	{
-		lock_guard<std::mutex> guard(pendMtx);
 
-		if (sPending.empty())
-			return 0;
+	lock_guard<std::mutex> guard(sendMtx);
+	if (sending.empty() == false)
+		return 0;
 
-		while (sPending.empty() == false) {
-			sending.push_back(sPending.back());
-			sPending.pop_back();
-		}
+	if (sPending.empty())
+		return 0;
+
+	while (sPending.empty() == false) {
+		sending.push_back(sPending.back());
+		sPending.pop_back();
 	}
-	{
-		lock_guard<std::mutex> guard(sendMtx);
-		char* startPos = sendInfo->buf;
-		while (sending.empty() == false) {
-			Packet* packet = sending.back().get();
 
-			int size = packet->Write(startPos);
-			startPos += size;
-			processed += size;
-			sending.pop_back();
-		}
-		sendInfo->wsaBuf.len = processed;
+	char* startPos = sendInfo->buf;
+	for(auto i : sending) {
+		Packet* packet = i.get();
 
-		int result = ::WSASend(_socket, &(sendInfo->wsaBuf), 1, &sentBytes, 0, sendOvlp, SendCompRoutine);
-		result = WSAGetLastError();
-		result;
+		int size = packet->Write(startPos);
+		startPos += size;
+		processed += size;
+	}
+
+	if (processed <= 0)
 		return processed;
-	}
+
+	sendInfo->wsaBuf.len = processed;
+
+	int result = ::WSASend(_socket, &(sendInfo->wsaBuf), 1, &sentBytes, 0, sendOvlp, SendCompRoutine);
+	result = WSAGetLastError();
+	result;
+	return processed;
 }
 
 void CALLBACK Session::SendCompRoutine(DWORD dwError, DWORD szSentBytes, LPWSAOVERLAPPED lpOverlapped, DWORD flags) {
@@ -87,7 +87,11 @@ void CALLBACK Session::SendCompRoutine(DWORD dwError, DWORD szSentBytes, LPWSAOV
 	Session* session = info->session;
 	WSABUF buf = info->wsaBuf;
 
-	info->wsaBuf.len = 0;
+	{
+		lock_guard<mutex> guard(session->sendMtx);
+		session->sending.clear();
+	}
+
 	session->SendSegment();
 }
 
@@ -110,33 +114,8 @@ void CALLBACK Session::RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOV
 		bool success = CancelIo((HANDLE)session->GetSocket());
 		session->Disconnect();
 		return;
-	} 
-	session->_rcWrite += szRecvBytes;
+	}
 	session->OnRecv(bufInfo.buf, szRecvBytes);
-	session->OrganizeRecvBuf();
 	session->recvAtm.exchange(false);
-
 	session->Recv();
-}
-
-void Session::OrganizeRecvBuf() {
-	if (_rcWrite != _rcRead) {
-		strcpy_s(recvInfo->buf, RECVBUF_SIZE, &recvInfo->buf[_rcRead]);
-		_rcWrite -= _rcRead;
-		_rcRead = 0;
-		return;
-	}
-
-	_rcRead = _rcWrite = 0;
-}
-
-void Session::OrganizeSendBuf() {
-	if (_sdWrite != _sdUsed) {
-		strcpy_s(sendInfo->buf, SENDBUF_SIZE, &(sendInfo->buf[_sdUsed]));
-		_sdWrite -= _sdUsed;
-		_sdUsed = 0;
-		return;
-	}
-
-	_sdUsed = _sdWrite = 0;
 }

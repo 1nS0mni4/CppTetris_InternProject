@@ -49,11 +49,11 @@ public:
 	int Send(Packet* packet) {
 		int size = 0;
 		{
-			lock_guard<std::mutex> guard(pendMtx);
+			lock_guard<std::mutex> guard(sendMtx);
 			sPending.emplace_back(packet);
 		}
 
-		if (sPending.size() <= 1)
+		if (sPending.size() > 0)
 			size = SendSegment();
 
 		SleepEx(1, TRUE);
@@ -94,11 +94,8 @@ protected:
 	std::vector<shared_ptr<Packet>> sPending;
 	std::vector<shared_ptr<Packet>> sending;
 
-	std::mutex pendMtx;
 	std::mutex sendMtx;
 	std::atomic<bool> recvAtm;
-	int _rcRead, _rcWrite;
-	int _sdUsed, _sdWrite;
 
 	/**********************************************************
 				[External Use Purpose Variables]

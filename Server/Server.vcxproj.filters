@@ -25,6 +25,9 @@
     <Filter Include="Job">
       <UniqueIdentifier>{d723ee05-292b-4d50-a2c5-794e1aebda03}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DB">
+      <UniqueIdentifier>{d807323b-1ebc-425a-a716-3eafe5916153}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -57,6 +60,9 @@
     <ClCompile Include="JobTimer.cpp">
       <Filter>Job</Filter>
     </ClCompile>
+    <ClCompile Include="DBManager.cpp">
+      <Filter>DB</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClientSession.h">
@@ -85,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="JobTimer.h">
       <Filter>Job</Filter>
+    </ClInclude>
+    <ClInclude Include="DBManager.h">
+      <Filter>DB</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -76,7 +76,6 @@ public:
 		T* session = nullptr;
 		session = SessionManager<T>::GetInstance().CreateSession();
 		session->Initialize(_localSock, _remoteAdr);
-		session->Recv();
 
 		return session;
 	}

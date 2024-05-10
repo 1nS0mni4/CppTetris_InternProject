@@ -5,6 +5,7 @@
 
 extern atomic<bool> isLogined;
 extern atomic<bool> isRunning;
+extern mutex otherMtx;
 extern unsigned char otherField[FIELD_LEN];
 extern wchar_t otherName[NAME_LEN];
 extern int otherCurX;
@@ -16,19 +17,6 @@ extern int myWin;
 extern int myLose;
 extern int maxScore;
 
-#define REGISTER_HANDLE(x) _func[PacketType::x] = x##PacketHandler;
-#define BEGIN_FUNC(x)  void x##Handler(Session* session, char* segment, USHORT size) {\
-if (session == nullptr || segment == nullptr)\
-return;\
-\
-ServerSession* s = (ServerSession*)session;\
-\
-x packet;\
-if (size != packet.Read(segment))\
-return;
-
-#define END_FUNC	}
-
 ClientPacketHandler::ClientPacketHandler() {
 	Init();
 }
@@ -38,7 +26,12 @@ ClientPacketHandler::~ClientPacketHandler() {
 }
 
 void ClientPacketHandler::HandlePacket(Session* session, char* packet, USHORT packetID, USHORT size) {
-	_func[(PacketType)packetID](session, packet, size);
+	auto func = _func[(PacketType)packetID];
+	if (func == nullptr) {
+		DefaultPacketHandler(session, packet, size);
+	}
+	else
+		func(session, packet, size);
 }
 
 void ClientPacketHandler::Init() {
@@ -153,10 +146,8 @@ void StC_UserFieldPacketHandler(Session* session, char* segment, USHORT size) {
 	if (size != packet.Read(segment))
 		return;
 
-	{
-		lock_guard<mutex> guard(s->m_field);
-		memcpy(otherField, packet.field, FIELD_LEN);
-	}
+	lock_guard<mutex> guard(otherMtx);
+	memcpy(otherField, packet.field, FIELD_LEN);
 }
 
 void StC_UserScorePacketHandler(Session* session, char* segment, USHORT size) {
@@ -171,7 +162,7 @@ void StC_UserScorePacketHandler(Session* session, char* segment, USHORT size) {
 	if (size != packet.Read(segment))
 		return;
 
-	lock_guard<mutex> guard(s->m_score);
+	lock_guard<mutex> guard(otherMtx);
 	otherScore = packet.score;
 }
 
@@ -187,11 +178,13 @@ void StC_UserCurrentPiecePacketHandler(Session* session, char* segment, USHORT s
 	if (size != packet.Read(segment))
 		return;
 
-	lock_guard<mutex> guard(s->m_piece);
-	otherCurPiece = packet.currentPiece;
-	otherRotation = packet.rotation;
-	otherCurX = packet.currentX;
-	otherCurY = packet.currentY;
+	lock_guard<mutex> guard(otherMtx);
+	if (otherCurPiece != packet.currentPiece) {
+		otherCurPiece = packet.currentPiece;
+		otherRotation = packet.rotation;
+		otherCurX = packet.currentX;
+		otherCurY = packet.currentY;
+	}
 }
 
 void StC_ChallengerDataPacketHandler(Session* session, char* segment, USHORT size) {
@@ -240,4 +233,14 @@ void StC_GameStartPacketHandler(Session* session, char* segment, USHORT size) {
 		return;
 
 	s->isRunning = true;
+}
+
+
+void DefaultPacketHandler(Session* session, char* segment, USHORT size) {
+	if (session == nullptr || segment == nullptr)
+		return;
+
+	ServerSession* s = (ServerSession*)session;
+
+	cout << "[UnRegistered Packet Used] : SessionID(" << session->GetSessionID() << ")\n";
 }

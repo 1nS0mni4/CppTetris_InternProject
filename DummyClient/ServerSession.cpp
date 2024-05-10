@@ -2,20 +2,14 @@
 #include "ServerSession.h"
 #include "PacketQueue.h"
 
-void ServerSession::Disconnect() {
-	Session::Disconnect();
-	ServerSessionManager::GetInstance().RemoveSession(_sessionID);
-}
-
 void ServerSession::OnSend() {
 
 }
 
 int ServerSession::OnRecv(char* segment, int totalSize) {
 	int processed = 0;
-	char* buffer = segment;
 
-	while (totalSize >= PACKET_HEADER_SIZE ) {
+	while (totalSize >= PACKET_HEADER_SIZE) {
 		USHORT packetID = *((USHORT*)&(segment[0]));
 		USHORT size = *((USHORT*)&(segment[2]));
 
@@ -24,7 +18,7 @@ int ServerSession::OnRecv(char* segment, int totalSize) {
 
 		PacketQueue::GetInstance().Push(this, segment, packetID, size);
 
-		segment = segment + size;
+		segment += size;
 		totalSize -= size;
 		processed += size;
 	}
@@ -38,4 +32,9 @@ void ServerSession::OnConnect() {
 
 void ServerSession::OnDisconnect() {
 
+}
+
+void ServerSession::Disconnect() {
+	ServerSessionManager::GetInstance().RemoveSession(_sessionID);
+	Session::Disconnect();
 }

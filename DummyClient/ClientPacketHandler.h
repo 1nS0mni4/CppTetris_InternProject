@@ -17,7 +17,7 @@ void StC_ChallengerDataPacketHandler(Session* session, char* segment, USHORT siz
 void StC_UserLosePacketHandler(Session* session, char* segment, USHORT size);
 void StC_UserExitPacketHandler(Session* session, char* segment, USHORT size);
 void StC_GameStartPacketHandler(Session* session, char* segment, USHORT size);
-
+void DefaultPacketHandler(Session* session, char* segment, USHORT size);
 
 class ClientPacketHandler {
 	SINGLETON(ClientPacketHandler);

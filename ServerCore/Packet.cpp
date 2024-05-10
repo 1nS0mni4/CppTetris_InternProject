@@ -2,8 +2,6 @@
 #include "Packet.h"
 #include "Defines.h"
 
-#define WRITESEGMENT(x) *((x*)& buffer[_size])
-
 #pragma region Packet
 Packet::Packet(PacketType packetID) : _packetID((USHORT)packetID), _size(0) {}
 Packet::~Packet() {}
@@ -60,7 +58,7 @@ int CtS_LoginRequestPacket::Read(char* segment) {
 
 	int nameLen = *((USHORT*)(&(segment[index])));
 	index += sizeof(USHORT);
-	memcpy(&(segment[index]), name, NAME_LEN);
+	memcpy(name ,&(segment[index]), nameLen);
 	index += nameLen;
 
 	return index;
@@ -69,7 +67,7 @@ int CtS_LoginRequestPacket::Read(char* segment) {
 int CtS_LoginRequestPacket::Write(char* buffer) {
 	_size += PACKET_HEADER_SIZE;
 
-	WRITESEGMENT(USHORT) = NAME_LEN;
+	*((USHORT*)&buffer[_size]) = NAME_LEN;
 	_size += sizeof(USHORT);
 	memcpy(&(buffer[_size]), name, NAME_LEN);
 	_size += NAME_LEN;
@@ -119,7 +117,7 @@ int CtS_NotifyFieldPacket::Read(char* segment) {
 int CtS_NotifyFieldPacket::Write(char* buffer) {
 	_size += PACKET_HEADER_SIZE;
 
-	WRITESEGMENT(USHORT) = 216;
+	*((USHORT*)&buffer[_size]) = 216;
 	_size += sizeof(USHORT);
 	memcpy(&(buffer[_size]), field, 216);
 	_size += 216;
@@ -145,6 +143,7 @@ int CtS_NotifyScorePacket::Read(char* segment) {
 
 int CtS_NotifyScorePacket::Write(char* buffer) {
 	_size += PACKET_HEADER_SIZE;
+
 	*((int*)&(buffer[_size])) = score;
 	_size += sizeof(int);
 
@@ -161,13 +160,13 @@ CtS_NotifyCurrentPiecePacket::~CtS_NotifyCurrentPiecePacket() {}
 int CtS_NotifyCurrentPiecePacket::Read(char* segment) {
 	int index = Packet::Read(segment);
 
-	currentPiece = *((int*)(&(segment[index])));
+	currentPiece = *((int*)&(segment[index]));
 	index += sizeof(int);
-	rotation = *((int*)(&(segment[index])));
+	rotation = *((int*)&(segment[index]));
 	index += sizeof(int);
-	currentX = *((int*)(&(segment[index])));
+	currentX = *((int*)&(segment[index]));
 	index += sizeof(int);
-	currentY = *((int*)(&(segment[index])));
+	currentY = *((int*)&(segment[index]));
 	index += sizeof(int);
 
 	return index;
@@ -175,6 +174,7 @@ int CtS_NotifyCurrentPiecePacket::Read(char* segment) {
 
 int CtS_NotifyCurrentPiecePacket::Write(char* buffer) {
 	_size += PACKET_HEADER_SIZE;
+
 	*((int*)&(buffer[_size])) = currentPiece;
 	_size += sizeof(int);
 	*((int*)&(buffer[_size])) = rotation;
@@ -343,7 +343,7 @@ int StC_UserFieldPacket::Read(char* segment) {
 int StC_UserFieldPacket::Write(char* buffer) {
 	_size += PACKET_HEADER_SIZE;
 
-	WRITESEGMENT(USHORT) = 216;
+	*((USHORT*)&buffer[_size]) = (USHORT)216;
 	_size += sizeof(USHORT);
 	//strcpy_s(&(buffer[_size]), SENDBUF_SIZE - _size, (char*)field);
 	memcpy(&(buffer[_size]), field, 216);
@@ -428,14 +428,16 @@ int StC_ChallengerDataPacket::Read(char* segment) {
 	memcpy(name, &(segment[index]), len);
 	index += len;
 
-	return 0;
+	return index;
 }
 
 int StC_ChallengerDataPacket::Write(char* buffer) {
-	WRITESEGMENT(USHORT) = 10;
+	_size += PACKET_HEADER_SIZE;
+
+	*((USHORT*)&buffer[_size]) = 10;
 	_size += sizeof(USHORT);
 	memcpy(&(buffer[_size]), name, NAME_LEN);
-	_size += 216;
+	_size += NAME_LEN;
 
 	Packet::Write(buffer);
 	return _size;

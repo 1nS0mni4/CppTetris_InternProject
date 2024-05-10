@@ -68,6 +68,9 @@ void Room::Update() {
 
 void Room::Start() {
     Session* session = GetOtherSession(0);
+    if (session == nullptr)
+        return;
+
     Session* session2 = GetOtherSession(session->GetSessionID());
 
     StC_GameStartPacket* packet = new StC_GameStartPacket();

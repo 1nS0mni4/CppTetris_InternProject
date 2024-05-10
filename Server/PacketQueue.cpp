@@ -54,7 +54,12 @@ void PacketQueue::Flush() {
 
 		if (store.size() > 0) {
 			lock_guard<std::mutex> guard(mtx);
-			fetch = store;
+			
+			while (store.empty() == false) {
+				fetch.push_back(store.back());
+				store.pop_back();
+			}
+
 			store.clear();
 		}
 	}

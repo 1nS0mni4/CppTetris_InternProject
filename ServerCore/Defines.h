@@ -39,5 +39,5 @@ protected:\
 #define MAX_ROOM_COUNT		500
 #define MAX_ROOM_CAPACITY	2
 
-#define NAME_LEN			10
+#define NAME_LEN			(USHORT)10
 #define FIELD_LEN			216

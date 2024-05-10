@@ -60,7 +60,7 @@ public:
 	int Write(char* buffer) override;
 
 public:
-	int data;
+	volatile int data;
 };
 
 
