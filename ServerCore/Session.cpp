@@ -115,7 +115,18 @@ void CALLBACK Session::RecvCompRoutine(DWORD dwError, DWORD szRecvBytes, LPWSAOV
 		session->Disconnect();
 		return;
 	}
-	session->OnRecv(bufInfo.buf, szRecvBytes);
+
+	int processed = session->OnRecv(bufInfo.buf, szRecvBytes);
+
+	if (processed < szRecvBytes) {
+		int left = szRecvBytes - processed;
+		memcpy(info->buf, &(info->buf[left]), left);
+		info->wsaBuf.buf = &(info->buf[left]);
+	}
+	else {
+		info->wsaBuf.buf = info->buf;
+	}
+
 	session->recvAtm.exchange(false);
 	session->Recv();
 }

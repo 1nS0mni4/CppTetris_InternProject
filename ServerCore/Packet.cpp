@@ -345,7 +345,6 @@ int StC_UserFieldPacket::Write(char* buffer) {
 
 	*((USHORT*)&buffer[_size]) = (USHORT)216;
 	_size += sizeof(USHORT);
-	//strcpy_s(&(buffer[_size]), SENDBUF_SIZE - _size, (char*)field);
 	memcpy(&(buffer[_size]), field, 216);
 	_size += 216;
 

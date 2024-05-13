@@ -3,8 +3,6 @@
 #include "Packet.h"
 #include "ServerSession.h"
 
-extern atomic<bool> isLogined;
-extern atomic<bool> isRunning;
 extern mutex otherMtx;
 extern unsigned char otherField[FIELD_LEN];
 extern wchar_t otherName[NAME_LEN];
@@ -26,7 +24,7 @@ ClientPacketHandler::~ClientPacketHandler() {
 }
 
 void ClientPacketHandler::HandlePacket(Session* session, char* packet, USHORT packetID, USHORT size) {
-	auto func = _func[(PacketType)packetID];
+	auto func = _func[packetID];
 	if (func == nullptr) {
 		DefaultPacketHandler(session, packet, size);
 	}
@@ -39,18 +37,18 @@ void ClientPacketHandler::Init() {
 }
 
 void ClientPacketHandler::Register() {
-	_func[PacketType::Test] = TestPacketHandler;
-	_func[PacketType::StC_MatchingResult] = StC_MatchingResultPacketHandler;
-	_func[PacketType::StC_LoginResponse] = StC_LoginResponsePacketHandler;
-	_func[PacketType::StC_AlreadyInUser] = StC_AlreadyInUserPacketHandler;
-	_func[PacketType::StC_UserData] = StC_UserDataPacketHandler;
-	_func[PacketType::StC_UserField] = StC_UserFieldPacketHandler;
-	_func[PacketType::StC_UserScore] = StC_UserScorePacketHandler;
-	_func[PacketType::StC_UserCurrentPiece] = StC_UserCurrentPiecePacketHandler;
-	_func[PacketType::StC_ChallengerData] = StC_ChallengerDataPacketHandler;
-	_func[PacketType::StC_UserLose] = StC_UserLosePacketHandler;
-	_func[PacketType::StC_UserExit] = StC_UserExitPacketHandler;
-	_func[PacketType::StC_GameStart] = StC_GameStartPacketHandler;
+	_func[(USHORT)PacketType::Test] = TestPacketHandler;
+	_func[(USHORT)PacketType::StC_MatchingResult] = StC_MatchingResultPacketHandler;
+	_func[(USHORT)PacketType::StC_LoginResponse] = StC_LoginResponsePacketHandler;
+	_func[(USHORT)PacketType::StC_AlreadyInUser] = StC_AlreadyInUserPacketHandler;
+	_func[(USHORT)PacketType::StC_UserData] = StC_UserDataPacketHandler;
+	_func[(USHORT)PacketType::StC_UserField] = StC_UserFieldPacketHandler;
+	_func[(USHORT)PacketType::StC_UserScore] = StC_UserScorePacketHandler;
+	_func[(USHORT)PacketType::StC_UserCurrentPiece] = StC_UserCurrentPiecePacketHandler;
+	_func[(USHORT)PacketType::StC_ChallengerData] = StC_ChallengerDataPacketHandler;
+	_func[(USHORT)PacketType::StC_UserLose] = StC_UserLosePacketHandler;
+	_func[(USHORT)PacketType::StC_UserExit] = StC_UserExitPacketHandler;
+	_func[(USHORT)PacketType::StC_GameStart] = StC_GameStartPacketHandler;
 }
 
 void TestPacketHandler(Session* session, char* segment, USHORT size) {
@@ -179,12 +177,10 @@ void StC_UserCurrentPiecePacketHandler(Session* session, char* segment, USHORT s
 		return;
 
 	lock_guard<mutex> guard(otherMtx);
-	if (otherCurPiece != packet.currentPiece) {
-		otherCurPiece = packet.currentPiece;
-		otherRotation = packet.rotation;
-		otherCurX = packet.currentX;
-		otherCurY = packet.currentY;
-	}
+	otherCurPiece = packet.currentPiece;
+	otherRotation = packet.rotation;
+	otherCurX = packet.currentX;
+	otherCurY = packet.currentY;
 }
 
 void StC_ChallengerDataPacketHandler(Session* session, char* segment, USHORT size) {
@@ -210,7 +206,9 @@ void StC_UserLosePacketHandler(Session* session, char* segment, USHORT size) {
 	if (s == nullptr)
 		return;
 
+	s->isLose = false;
 	s->isRunning = false;
+	s->isLogined = false;
 }
 
 void StC_UserExitPacketHandler(Session* session, char* segment, USHORT size) {
@@ -235,7 +233,6 @@ void StC_GameStartPacketHandler(Session* session, char* segment, USHORT size) {
 	s->isRunning = true;
 }
 
-
 void DefaultPacketHandler(Session* session, char* segment, USHORT size) {
 	if (session == nullptr || segment == nullptr)
 		return;
@@ -244,3 +241,4 @@ void DefaultPacketHandler(Session* session, char* segment, USHORT size) {
 
 	cout << "[UnRegistered Packet Used] : SessionID(" << session->GetSessionID() << ")\n";
 }
+

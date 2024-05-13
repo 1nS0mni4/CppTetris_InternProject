@@ -26,6 +26,7 @@ public:
 	wchar_t name[NAME_LEN];
 	atomic<bool> isLogined;
 	atomic<bool> isRunning;
+	atomic<bool> isLose;
 };
 
 using ServerSessionManager = SessionManager<ServerSession>;

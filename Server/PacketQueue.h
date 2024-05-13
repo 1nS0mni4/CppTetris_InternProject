@@ -3,7 +3,6 @@
 #include "Defines.h"
 #include "Session.h"
 
-#define PACKETDATA_POOL_SIZE		1000
 
 #define DELETEPOOL(x)\
 {\
@@ -14,6 +13,7 @@
 		}\
 	}\
 }
+
 
 struct PacketData {
 	Session* session;
@@ -44,10 +44,15 @@ public:
 	void ReleasePD(vector<PacketData*>& releasee);
 	void Close();
 
+protected:
+	char* WriteSegment(char* segment, int size);
+
 private:
 	vector<PacketData*> store, fetch, pool;
 	atomic<bool> _isClosed;
 	atomic<int> poolSize;
+	char buffer[PACKETQUEUE_BUF_SIZE];
+	atomic<int> _write, _read;
 	std::mutex mtx;
 };
 

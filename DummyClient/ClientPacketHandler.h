@@ -5,6 +5,7 @@
 
 typedef void (*HandlerFunc)(Session* session, char* segment, USHORT size);
 
+bool Checker(char* segment, PacketType type);
 void TestPacketHandler(Session* session, char* segment, USHORT size);
 void StC_MatchingResultPacketHandler(Session* session, char* segment, USHORT size);
 void StC_LoginResponsePacketHandler(Session* session, char* segment, USHORT size);
@@ -30,6 +31,6 @@ private:
 	void Register();
 
 private:
-	map<PacketType, HandlerFunc> _func;
+	map<USHORT, HandlerFunc> _func;
 };
 

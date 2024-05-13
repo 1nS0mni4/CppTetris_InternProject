@@ -29,15 +29,18 @@ protected:\
 	x(x<T>&& other) = delete;
 
 
-#define INIT_SESSION_COUNT	200
+#define INIT_SESSION_COUNT	50
 
-#define SENDBUF_SIZE		10000
-#define RECVBUF_SIZE		10000
+#define SENDBUF_SIZE		1024
+#define RECVBUF_SIZE		1024
 
 #define PACKET_HEADER_SIZE		sizeof(USHORT) + sizeof(USHORT)
 
-#define MAX_ROOM_COUNT		500
+#define MAX_ROOM_COUNT		10
 #define MAX_ROOM_CAPACITY	2
 
 #define NAME_LEN			(USHORT)10
 #define FIELD_LEN			216
+
+#define PACKETDATA_POOL_SIZE		300
+#define PACKETQUEUE_BUF_SIZE		1024

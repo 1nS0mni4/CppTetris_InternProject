@@ -1,5 +1,11 @@
-﻿  OvlpCallback.cpp
-  PacketHandler.cpp
+﻿  pch.cpp
+  CorePch.cpp
+  OvlpCallback.cpp
+  Packet.cpp
+  SendBuffer.cpp
   Session.cpp
+D:\personal\projects\Github\TermProject\ServerCore\Session.cpp(121,16): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  (소스 파일 '/Session.cpp'을(를) 컴파일하는 중)
+  
   SessionManager.cpp
-  ServerCore.vcxproj -> D:\Projects\Github\TermProject\Libraries\Release\ServerCore.lib
+  ServerCore.vcxproj -> D:\personal\projects\Github\TermProject\Libraries\Release\ServerCore.lib

@@ -12,12 +12,13 @@ ServerPacketHandler::~ServerPacketHandler() {
 }
 
 void ServerPacketHandler::HandlePacket(Session*  session, char* packet, USHORT packetID, USHORT size) {
-	auto func = _func[(PacketType)packetID];
+	auto func = _func[packetID];
 	if (func == nullptr) {
 		DefaultPacketHandler(session, packet, size);
 	}
-	else
+	else {
 		func(session, packet, size);
+	}
 }
 
 void ServerPacketHandler::Init() {
@@ -25,13 +26,13 @@ void ServerPacketHandler::Init() {
 }
 
 void ServerPacketHandler::Register() {
-	_func[PacketType::Test] = TestPacketHandler;
-	_func[PacketType::CtS_LoginRequest] = CtS_LoginRequestPacketHandler;
-	_func[PacketType::CtS_MatchingRequest] = CtS_MatchingRequestPacketHandler;
-	_func[PacketType::CtS_NotifyField] = CtS_NotifyFieldPacketHandler;
-	_func[PacketType::CtS_NotifyScore] = CtS_NotifyScorePacketHandler;
-	_func[PacketType::CtS_NotifyCurrentPiece] = CtS_NotifyCurrentPiecePacketHandler;
-	_func[PacketType::CtS_NotifyLose] = CtS_NotifyLosePacketHandler;
+	_func[(USHORT)PacketType::Test] = TestPacketHandler;
+	_func[(USHORT)PacketType::CtS_LoginRequest] = CtS_LoginRequestPacketHandler;
+	_func[(USHORT)PacketType::CtS_MatchingRequest] = CtS_MatchingRequestPacketHandler;
+	_func[(USHORT)PacketType::CtS_NotifyField] = CtS_NotifyFieldPacketHandler;
+	_func[(USHORT)PacketType::CtS_NotifyScore] = CtS_NotifyScorePacketHandler;
+	_func[(USHORT)PacketType::CtS_NotifyCurrentPiece] = CtS_NotifyCurrentPiecePacketHandler;
+	_func[(USHORT)PacketType::CtS_NotifyLose] = CtS_NotifyLosePacketHandler;
 }
 
 void DefaultPacketHandler(Session* session, char* segment, USHORT size) {
@@ -40,7 +41,7 @@ void DefaultPacketHandler(Session* session, char* segment, USHORT size) {
 
 	ClientSession* s = (ClientSession*)session;
 	
-	cout << "[UnRegistered Packet Used] : SessionID(" << session->GetSessionID() << ")\n";
+	cout << "[WARNING] UnRegistered Packet Used : SessionID (" << session->GetSessionID() << ")\n";
 }
 
 void TestPacketHandler(Session* session, char* segment, USHORT size) {
@@ -73,7 +74,7 @@ void CtS_LoginRequestPacketHandler(Session* session, char* segment, USHORT size)
 	p->result = 0;
 	s->Send(p);
 
-	cout << "Sended Response to: " << s->GetSessionID() << '\n';
+	//cout << "Sended Response to: " << s->GetSessionID() << '\n';
 }
 
 void CtS_MatchingRequestPacketHandler(Session* session, char* segment, USHORT size) {
@@ -86,7 +87,7 @@ void CtS_MatchingRequestPacketHandler(Session* session, char* segment, USHORT si
 
 	RoomManager::GetInstance().EnterRoom(s);
 
-	cout << "Start Matchmaking: " << s->GetSessionID() << '\n';
+	//cout << "Start Matchmaking: " << s->GetSessionID() << '\n';
 }
 
 void CtS_NotifyFieldPacketHandler(Session* session, char* segment, USHORT size) {
@@ -150,7 +151,7 @@ void CtS_NotifyCurrentPiecePacketHandler(Session* session, char* segment, USHORT
 	if (other == nullptr)
 		return;
 
-	cout << "Piece: " << packet.currentPiece << " Rotation: " << packet.rotation << " currentX: " << packet.currentX << " currentY: " << packet.currentY << '\n';
+	//cout << "Piece: " << packet.currentPiece << " Rotation: " << packet.rotation << " currentX: " << packet.currentX << " currentY: " << packet.currentY << '\n';
 
 	StC_UserCurrentPiecePacket* p = new StC_UserCurrentPiecePacket();
 	p->currentPiece = packet.currentPiece;
@@ -180,4 +181,12 @@ void CtS_NotifyLosePacketHandler(Session* session, char* segment, USHORT size) {
 
 	StC_UserLosePacket* p = new StC_UserLosePacket();
 	other->Send(p);
+}
+
+bool Checker(char* segment, PacketType type) {
+	USHORT packetID = *((USHORT*)&segment[0]);
+	USHORT real = (USHORT)type;
+
+	cout << "PacketID: " << packetID << ", Real One: " << real << '\n';
+	return packetID == real;
 }

@@ -11,6 +11,8 @@ PacketQueue::PacketQueue() {
 		pool.push_back(new PacketData());
 	}
 	poolSize = pool.size();
+	buffer.resize(PACKETQUEUE_BUF_SIZE);
+	_write = _read = 0;
 }
 
 PacketQueue::~PacketQueue() {
@@ -24,12 +26,23 @@ void PacketQueue::Push(Session* session, char* segment, USHORT packetID, USHORT 
 	PacketData* data = GetPD();
 
 	data->session = session;
-	data->segment = segment;
+	data->segment = WriteSegment(segment, size);
 	data->packetID = packetID;
 	data->size = size;
 
 	lock_guard<std::mutex> guard(mtx);
 	store.push_back(data);
+}
+
+char* PacketQueue::WriteSegment(char* segment, int size) {
+	if (_write + size >= PACKETQUEUE_BUF_SIZE) {
+		_write = 0;
+	}
+
+	char* start = &buffer[_write];
+	_write += size;
+	memcpy(start, segment, size);
+	return start;
 }
 
 void PacketQueue::Flush() {

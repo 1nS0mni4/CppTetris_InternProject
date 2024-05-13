@@ -77,6 +77,7 @@ int main(int argc, char* argv[]) {
 	bool forceDown = false;
 	vector<int> lines;
 	int score = 0;
+	atomic<bool> isLose = false;
 
 	SessionManager<ServerSession>::GetInstance().Init();
 	std::thread packetFetchLoop(&PacketQueue::Flush, &PacketQueue::GetInstance());
@@ -91,11 +92,6 @@ int main(int argc, char* argv[]) {
 	session->Recv();
 
 	CtS_LoginRequestPacket* packet = new CtS_LoginRequestPacket();
-#ifdef WITH_EDITOR
-	memcpy(packet->name, L"VS", 6);
-#else
-	memcpy(packet->name, L"EX", 6);
-#endif
 
 	session->Send(packet);
 	
@@ -108,7 +104,7 @@ int main(int argc, char* argv[]) {
 
 	SetConsoleActiveScreenBuffer(consoleHandle);
 
-	while (true) {
+	while (session->isLogined) {
 		SleepEx(10, TRUE);
 
 		while (session->isRunning) {
@@ -119,11 +115,11 @@ int main(int argc, char* argv[]) {
 			speedCount++;
 			forceDown = (speedCount == gameSpeed);
 
-			// Input
-			//for (size_t keyIndex = 0; keyIndex < 4; keyIndex++) {
-			//	// Right arrow virtual key code // Left arrow virtual key code // Down arrow virtual key code // Z virtual key code key
-			//	Keys[keyIndex] = (0x8000 & GetAsyncKeyState((unsigned char)("\x27\x25\x28Z"[keyIndex]))) != 0;
-			//}
+			//Input
+			for (size_t keyIndex = 0; keyIndex < 4; keyIndex++) {
+				// Right arrow virtual key code // Left arrow virtual key code // Down arrow virtual key code // Z virtual key code key
+				Keys[keyIndex] = (0x8000 & GetAsyncKeyState((unsigned char)("\x27\x25\x28Z"[keyIndex]))) != 0;
+			}
 
 			// LOGIC
 
@@ -190,7 +186,11 @@ int main(int argc, char* argv[]) {
 
 
 					// If we cant fit next piece then its game over
-					isRunning = DoesPieceIft(currentPiece, currentRotation, currentX, currentY);
+					session->isRunning = DoesPieceIft(currentPiece, currentRotation, currentX, currentY);
+					if (session->isRunning == false) {
+						CtS_NotifyLosePacket* lose = new CtS_NotifyLosePacket();
+						session->Send(lose);
+					}
 				}
 
 				speedCount = 0;
@@ -238,16 +238,17 @@ int main(int argc, char* argv[]) {
 				}
 			}
 
-
 			int test = 22 * ScreenWidth + FieldWidth + 8;
 			int test2 = lstrlenW(L"Score: %4d");
+			int test3 = lstrlenW(L"YOU");
+			int test4 = sizeof(L"YOU");
 			// Draw score
 			swprintf_s(&screen[21 * ScreenWidth + 2], sizeof(L"YOU") / 2, L"YOU");
-			swprintf_s(&screen[22 * ScreenWidth + 2], 16, L"Score: %4d", score);
+			swprintf_s(&screen[22 * ScreenWidth + 2], sizeof(L"Score: %4d"), L"Score: %4d", score);
 			{
 				lock_guard<mutex> guard(otherMtx);
-				swprintf_s(&screen[21 * ScreenWidth + FieldWidth + 7], 10, L"%s", otherName);
-				swprintf_s(&screen[22 * ScreenWidth + FieldWidth + 8], 22, L"Score: %4d", otherScore);
+				swprintf_s(&screen[21 * ScreenWidth + FieldWidth + 7], sizeof(otherName) / 2, L"%s", otherName);
+				swprintf_s(&screen[22 * ScreenWidth + FieldWidth + 8], sizeof(L"Score: %4d"), L"Score: %4d", otherScore);
 			}
 
 			// Draw finish lines
@@ -270,7 +271,13 @@ int main(int argc, char* argv[]) {
 
 			WriteConsoleOutputCharacter(consoleHandle, screen, screenBufferSize, { 0, 0 }, &bytesWritten);
 		}
+
+
 	}
+
+	swprintf_s(&screen[15 * ScreenWidth + 4], sizeof(session->isLose ? L"YOU LOSE" : L"YOU WIN") / 2, session->isLose ? L"YOU LOSE" : L"YOU WIN");
+	swprintf_s(&screen[15 * ScreenWidth + FieldWidth + 9], sizeof(!session->isLose ? L"YOU LOSE" : L"YOU WIN") / 2, !session->isLose ? L"YOU LOSE" : L"YOU WIN");
+
 
 	CloseHandle(consoleHandle);
 

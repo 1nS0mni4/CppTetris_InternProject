@@ -1,6 +1,11 @@
-D:\Projects\Github\TermProject\Server\ClientSession.cpp;D:\Projects\Github\TermProject\Server\x64\Release\ClientSession.obj
-D:\Projects\Github\TermProject\Server\db.cpp;D:\Projects\Github\TermProject\Server\x64\Release\db.obj
-D:\Projects\Github\TermProject\Server\main.cpp;D:\Projects\Github\TermProject\Server\x64\Release\main.obj
-D:\Projects\Github\TermProject\Server\PacketQueue.cpp;D:\Projects\Github\TermProject\Server\x64\Release\PacketQueue.obj
-D:\Projects\Github\TermProject\Server\pch.cpp;D:\Projects\Github\TermProject\Server\x64\Release\pch.obj
-D:\Projects\Github\TermProject\Server\ServerPacketHandler.cpp;D:\Projects\Github\TermProject\Server\x64\Release\ServerPacketHandler.obj
+D:\personal\projects\Github\TermProject\Server\ClientSession.cpp;D:\personal\projects\Github\TermProject\Server\x64\Release\ClientSession.obj
+D:\personal\projects\Github\TermProject\Server\DBManager.cpp;D:\personal\projects\Github\TermProject\Server\x64\Release\DBManager.obj
+D:\personal\projects\Github\TermProject\Server\Job.cpp;D:\personal\projects\Github\TermProject\Server\x64\Release\Job.obj
+D:\personal\projects\Github\TermProject\Server\JobQueue.cpp;D:\personal\projects\Github\TermProject\Server\x64\Release\JobQueue.obj
+D:\personal\projects\Github\TermProject\Server\JobTimer.cpp;D:\personal\projects\Github\TermProject\Server\x64\Release\JobTimer.obj
+D:\personal\projects\Github\TermProject\Server\main.cpp;D:\personal\projects\Github\TermProject\Server\x64\Release\main.obj
+D:\personal\projects\Github\TermProject\Server\PacketQueue.cpp;D:\personal\projects\Github\TermProject\Server\x64\Release\PacketQueue.obj
+D:\personal\projects\Github\TermProject\Server\pch.cpp;D:\personal\projects\Github\TermProject\Server\x64\Release\pch.obj
+D:\personal\projects\Github\TermProject\Server\Room.cpp;D:\personal\projects\Github\TermProject\Server\x64\Release\Room.obj
+D:\personal\projects\Github\TermProject\Server\RoomManager.cpp;D:\personal\projects\Github\TermProject\Server\x64\Release\RoomManager.obj
+D:\personal\projects\Github\TermProject\Server\ServerPacketHandler.cpp;D:\personal\projects\Github\TermProject\Server\x64\Release\ServerPacketHandler.obj

@@ -6,28 +6,23 @@ using Segment = char*;
 
 enum class PacketType : USHORT {
 	Test = 0,
-
-	CtS_LoginRequest,
-	CtS_MatchingRequest,
-	CtS_NotifyField,
-	CtS_NotifyScore,
-	CtS_NotifyCurrentPiece,
-	CtS_NotifyLose,
-
-	StC_MatchingResult,
-	StC_LoginResponse,
 	StC_AlreadyInUser,
-	StC_UserData,
-	StC_ChallengerData,
-	StC_UserField,
-	StC_UserScore,
-	StC_UserCurrentPiece,
-	StC_UserLose,
-	StC_UserExit,
+	CtS_LoginRequest,
 	StC_GameStart,
-
-
-
+	CtS_MatchingRequest,
+	StC_UserLose,
+	CtS_NotifyField,
+	StC_UserData,
+	StC_UserExit,
+	CtS_NotifyScore,
+	StC_LoginResponse,
+	StC_UserCurrentPiece,
+	CtS_NotifyCurrentPiece,
+	StC_UserScore,
+	CtS_NotifyLose,
+	StC_ChallengerData,
+	StC_MatchingResult,
+	StC_UserField,
 
 };
 

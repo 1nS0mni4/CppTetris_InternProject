@@ -14,6 +14,6 @@ protected:
 	virtual void Register() = 0;
 
 protected:
-	map<PacketType, HandlerFunc> _func;
+	map<USHORT, HandlerFunc> _func;
 };
 

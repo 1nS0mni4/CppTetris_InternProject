@@ -1,6 +1,67 @@
-﻿  코드를 생성하고 있습니다.
-  3 of 128 functions ( 2.3%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+﻿  pch.cpp
+  ClientPacketHandler.cpp
+  main.cpp
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(154,48): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(154,40): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(173,34): warning C4267: '인수': 'size_t'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(173,34): warning C4267:         with
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(173,34): warning C4267:         [
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(173,34): warning C4267:             _Ty=int
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(173,34): warning C4267:         ]
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(225,47): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(225,39): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(234,48): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(234,40): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(341,31): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(341,28): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(344,19): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  
+D:\personal\projects\Github\TermProject\ServerCore\SessionManager.h(71,14): warning C4267: '초기화 중': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
+  D:\personal\projects\Github\TermProject\ServerCore\SessionManager.h(71,14):
+  템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+  	D:\personal\projects\Github\TermProject\DummyClient\main.cpp(81,33):
+  	컴파일되는 클래스 템플릿 인스턴스화 'SessionManager<ServerSession>'에 대한 참조를 확인하세요.
+  	D:\personal\projects\Github\TermProject\ServerCore\SessionManager.h(70,7):
+  	클래스 템플릿 멤버 함수 'void SessionManager<ServerSession>::AddSession(int)'을(를) 컴파일하는 중입니다.
+  		D:\personal\projects\Github\TermProject\ServerCore\SessionManager.h(28,13):
+  		'SessionManager<ServerSession>::Init'에서 'SessionManager<ServerSession>::AddSession'에 대한 첫 번째 참조를 확인하세요.
+  		D:\personal\projects\Github\TermProject\DummyClient\main.cpp(81,51):
+  		'main'에서 'SessionManager<ServerSession>::Init'에 대한 첫 번째 참조를 확인하세요.
+  
+  PacketQueue.cpp
+D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267: '인수': 'size_t'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267:         with
+D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267:         [
+D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267:             _Ty=int
+D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.cpp(13,22): warning C4267:         ]
+  (소스 파일 '/PacketQueue.cpp'을(를) 컴파일하는 중)
+  
+D:\personal\projects\Github\TermProject\DummyClient\PacketQueue.cpp(94,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PacketQueue.cpp'을(를) 컴파일하는 중)
+  
+  ServerSession.cpp
+  코드를 생성하고 있습니다.
+  Previous IPDB was built with incompatible compiler, fall back to full compilation.
+  All 827 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   코드를 생성했습니다.
-  DummyClient.vcxproj -> D:\Projects\Github\TermProject\Binary\Release\DummyClient\DummyClient.exe
+  DummyClient.vcxproj -> D:\personal\projects\Github\TermProject\Binary\Release\DummyClient\DummyClient.exe

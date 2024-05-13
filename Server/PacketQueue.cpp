@@ -2,7 +2,7 @@
 #include "PacketQueue.h"
 #include "ServerPacketHandler.h"
 
-PacketQueue::PacketQueue() { 
+PacketQueue::PacketQueue() {
 	_isClosed = false;
 
 	lock_guard<std::mutex> guard(mtx);
@@ -11,9 +11,10 @@ PacketQueue::PacketQueue() {
 		pool.push_back(new PacketData());
 	}
 	poolSize = pool.size();
+	_write = _read = 0;
 }
 
-PacketQueue::~PacketQueue() { 
+PacketQueue::~PacketQueue() {
 	lock_guard<std::mutex> guard(mtx);
 	DELETEPOOL(store);
 	DELETEPOOL(fetch);
@@ -22,14 +23,25 @@ PacketQueue::~PacketQueue() {
 
 void PacketQueue::Push(Session* session, char* segment, USHORT packetID, USHORT size) {
 	PacketData* data = GetPD();
-	
+
 	data->session = session;
-	data->segment = segment;
+	data->segment = WriteSegment(segment, size);
 	data->packetID = packetID;
 	data->size = size;
-	
+
 	lock_guard<std::mutex> guard(mtx);
 	store.push_back(data);
+}
+
+char* PacketQueue::WriteSegment(char* segment, int size) {
+	if (_write + size >= PACKETQUEUE_BUF_SIZE) {
+		_write = 0;
+	}
+
+	char* start = &buffer[_write];
+	_write += size;
+	memcpy(start, segment, size);
+	return start;
 }
 
 void PacketQueue::Flush() {
@@ -37,7 +49,7 @@ void PacketQueue::Flush() {
 		vector<PacketData*> flushed;
 		{
 			lock_guard<std::mutex> guard(mtx);
-			
+
 			int fetched = 0;
 			while (fetch.empty() == false) {
 				PacketData* data = fetch.back();
@@ -47,14 +59,14 @@ void PacketQueue::Flush() {
 				flushed.push_back(data);
 				fetched++;
 			}
-			
+
 			//cout << "Fetched: " << fetched << '\n';
 		}
 		ReleasePD(flushed);
 
 		if (store.size() > 0) {
 			lock_guard<std::mutex> guard(mtx);
-			
+
 			while (store.empty() == false) {
 				fetch.push_back(store.back());
 				store.pop_back();
@@ -72,7 +84,7 @@ PacketData* PacketQueue::GetPD() {
 	lock_guard<std::mutex> guard(mtx);
 	ret = pool.back();
 	pool.pop_back();
-	
+
 	return ret;
 }
 

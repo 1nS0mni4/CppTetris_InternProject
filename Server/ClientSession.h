@@ -7,8 +7,8 @@
 class ClientSession : public Session {
 public:
 	ClientSession(UINT32 sessionID) : 
-		Session(sessionID) {
-		_room = nullptr;
+		Session(sessionID), _room(0) {
+
 	}
 
 	virtual ~ClientSession() override {

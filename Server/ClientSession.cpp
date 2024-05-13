@@ -32,8 +32,10 @@ void ClientSession::OnConnect() {
 }
 
 void ClientSession::OnDisconnect() {
-	if (_room)
-		_room->Exit(this);
+	if (_room == 0)
+		return;
+
+	_room->Exit(this);
 }
 
 void ClientSession::Disconnect() {
