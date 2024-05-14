@@ -39,7 +39,7 @@ protected:\
 #define MAX_ROOM_COUNT		10
 #define MAX_ROOM_CAPACITY	2
 
-#define NAME_LEN			(USHORT)10
+#define NAME_LEN			(USHORT)22
 #define FIELD_LEN			216
 
 #define PACKETDATA_POOL_SIZE		300

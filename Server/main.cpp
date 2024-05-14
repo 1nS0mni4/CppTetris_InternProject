@@ -4,6 +4,7 @@
 #include "ClientSession.h"
 #include "OvlpCallback.h"
 #include "PacketQueue.h"
+#include "DBManager.h"
 #include "RoomManager.h"
 #include "JobQueue.h"
 #include "JobTimer.h"
@@ -12,11 +13,12 @@
 int main(int argc, char* argv[]) {
 	SessionManager<ClientSession>::GetInstance().Init();
 	ServerPacketHandler::GetInstance().Init();
+	DBManager::GetInstance().Init();
 
 	if (OvlpCallback::GetInstance().Start() == SOCKET_ERROR)
 		return -1;
 
-	if (OvlpCallback::GetInstance().BindnListen("127.0.0.1", 9190, 50) == SOCKET_ERROR)
+	if (OvlpCallback::GetInstance().BindnListen("112.185.196.30", 9190, 50) == SOCKET_ERROR)
 		return -1;
 
 	std::thread fetchThread(&PacketQueue::Flush, &PacketQueue::GetInstance());
@@ -26,14 +28,24 @@ int main(int argc, char* argv[]) {
 	
 	std::string input;
 
+	SQLWCHAR* query = new SQLWCHAR[100];
+
+
 	while (true) {
 		Sleep(100);
 		//std::cin >> input;
+		wcout << L">>> ";
+		_fgetts(query, 100, stdin);
+		wcin.clear();
+
+		DBManager::GetInstance().Execute(query);
 
 		//if (strcmp(input.c_str(), "quit") == 0 || strcmp(input.c_str(), "Quit") == 0)
 		//	break;
 
 		//TODO: 커맨드 기능 추가
+
+
 	}
 
 	PacketQueue::GetInstance().Close();

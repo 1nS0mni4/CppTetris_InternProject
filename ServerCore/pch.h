@@ -23,4 +23,11 @@
 
 #include <functional>
 
+#include <sql.h>
+#include <sqlext.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <sal.h>
+#include <tchar.h>
+
 using namespace std;

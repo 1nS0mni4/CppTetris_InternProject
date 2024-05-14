@@ -112,7 +112,7 @@ void StC_AlreadyInUserPacketHandler(Session* session, char* segment, USHORT size
 	if (size != packet.Read(segment))
 		return;
 
-	memcpy(otherName, packet.name, NAME_LEN);
+	wmemcpy(otherName, packet.name, lstrlenW(packet.name) + 2);
 }
 
 void StC_UserDataPacketHandler(Session* session, char* segment, USHORT size) {
@@ -195,7 +195,7 @@ void StC_ChallengerDataPacketHandler(Session* session, char* segment, USHORT siz
 	if (size != packet.Read(segment))
 		return;
 
-	memcpy(otherName, packet.name, NAME_LEN);
+	wmemcpy(otherName, packet.name, lstrlenW(packet.name) + 2);
 }
 
 void StC_UserLosePacketHandler(Session* session, char* segment, USHORT size) {

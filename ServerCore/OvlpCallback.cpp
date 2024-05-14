@@ -34,7 +34,7 @@ int OvlpCallback::BindnListen(std::string ipAddress, USHORT port, int backlog) {
 	u_long mode = 1;
 	int optval = 1;
 
-	::setsockopt(_localSock, SOL_SOCKET, SO_REUSEADDR, (const char*)&optval, sizeof(optval));
+	//::setsockopt(_localSock, SOL_SOCKET, SO_REUSEADDR, (const char*)&optval, sizeof(optval));
 	::ioctlsocket(_localSock, FIONBIO, &mode);
 
 	memset(&_localAdr, 0, sizeof(_localAdr));

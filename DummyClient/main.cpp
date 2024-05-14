@@ -4,13 +4,10 @@
 #include "ServerSession.h"
 #include "OvlpCallback.h"
 #include "PacketQueue.h"
-//#include <WinSock2.h>
 
 void ErrorHandling(const char* message);
 
 static ServerSession* session = nullptr;
-
-
 typedef struct {
 	SOCKET hServSock;
 	char buf[1024];
@@ -29,6 +26,8 @@ int FieldWidth = 12, FieldHeight = 18;
 int ScreenWidth = 120, ScreenHeight = 30;
 unsigned char Field[FIELD_LEN];
 bool Keys[4];
+
+extern wchar_t myName[NAME_LEN] = L"";
 extern int myWin = 0, myLose = 0, maxScore = 0;
 
 extern atomic<bool> isLogined = false;
@@ -52,6 +51,8 @@ int main(int argc, char* argv[]) {
 	cout << "HEllo" << '\n';
 	CreateAssets();
 
+	const HWND curWnd = GetFocus();
+
 	ClearField(Field, otherField);
 
 	int screenBufferSize = ScreenWidth * ScreenHeight;
@@ -62,8 +63,6 @@ int main(int argc, char* argv[]) {
 		screen[i] = L' ';
 
 	DWORD bytesWritten = 0;
-
-
 
 	int currentPiece = 0;
 	int currentRotation = 0;
@@ -79,20 +78,25 @@ int main(int argc, char* argv[]) {
 	int score = 0;
 	atomic<bool> isLose = false;
 
+	cout << "ID: ";
+	memset(myName, 0, sizeof(myName));
+	wcin >> myName;
+
 	SessionManager<ServerSession>::GetInstance().Init();
 	std::thread packetFetchLoop(&PacketQueue::Flush, &PacketQueue::GetInstance());
 
 	if (OvlpCallback::GetInstance().Start() == SOCKET_ERROR)
 		return -1;
 
-	ServerSession* session = OvlpCallback::GetInstance().Connect<ServerSession>(PF_INET, "127.0.0.1", 9190);
+	ServerSession* session = OvlpCallback::GetInstance().Connect<ServerSession>(PF_INET, "112.185.196.30", 9190);
 	if (session == nullptr)
 		return -1;
 
 	session->Recv();
 
 	CtS_LoginRequestPacket* packet = new CtS_LoginRequestPacket();
-
+	packet->nameLen = lstrlenW(myName) + 2;
+	wmemcpy(packet->name, myName, packet->nameLen);
 	session->Send(packet);
 	
 	while (session->isLogined == false) { SleepEx(10, TRUE); }
@@ -116,9 +120,11 @@ int main(int argc, char* argv[]) {
 			forceDown = (speedCount == gameSpeed);
 
 			//Input
-			for (size_t keyIndex = 0; keyIndex < 4; keyIndex++) {
-				// Right arrow virtual key code // Left arrow virtual key code // Down arrow virtual key code // Z virtual key code key
-				Keys[keyIndex] = (0x8000 & GetAsyncKeyState((unsigned char)("\x27\x25\x28Z"[keyIndex]))) != 0;
+			if (GetFocus() == curWnd) {
+				for (size_t keyIndex = 0; keyIndex < 4; keyIndex++) {
+					// Right arrow virtual key code // Left arrow virtual key code // Down arrow virtual key code // Z virtual key code key
+					Keys[keyIndex] = (0x8000 & GetAsyncKeyState((unsigned char)("\x27\x25\x28Z"[keyIndex]))) != 0;
+				}
 			}
 
 			// LOGIC
@@ -238,17 +244,13 @@ int main(int argc, char* argv[]) {
 				}
 			}
 
-			int test = 22 * ScreenWidth + FieldWidth + 8;
-			int test2 = lstrlenW(L"Score: %4d");
-			int test3 = lstrlenW(L"YOU");
-			int test4 = sizeof(L"YOU");
 			// Draw score
-			swprintf_s(&screen[21 * ScreenWidth + 2], sizeof(L"YOU") / 2, L"YOU");
-			swprintf_s(&screen[22 * ScreenWidth + 2], sizeof(L"Score: %4d"), L"Score: %4d", score);
+			swprintf_s(&screen[21 * ScreenWidth + 2], lstrlenW(myName) + 1, myName);
+			swprintf_s(&screen[22 * ScreenWidth + 2], lstrlenW(L"Score: 000000") + 1, L"Score: %6d", score);
 			{
 				lock_guard<mutex> guard(otherMtx);
-				swprintf_s(&screen[21 * ScreenWidth + FieldWidth + 7], sizeof(otherName) / 2, L"%s", otherName);
-				swprintf_s(&screen[22 * ScreenWidth + FieldWidth + 8], sizeof(L"Score: %4d"), L"Score: %4d", otherScore);
+				swprintf_s(&screen[21 * ScreenWidth + FieldWidth + 7], lstrlenW(otherName) + 1, L"%s", otherName);
+				swprintf_s(&screen[22 * ScreenWidth + FieldWidth + 8], lstrlenW(L"Score: 000000") + 1 , L"Score: %6d", otherScore);
 			}
 
 			// Draw finish lines
@@ -275,9 +277,10 @@ int main(int argc, char* argv[]) {
 
 	}
 
-	swprintf_s(&screen[15 * ScreenWidth + 4], sizeof(session->isLose ? L"YOU LOSE" : L"YOU WIN") / 2, session->isLose ? L"YOU LOSE" : L"YOU WIN");
-	swprintf_s(&screen[15 * ScreenWidth + FieldWidth + 9], sizeof(!session->isLose ? L"YOU LOSE" : L"YOU WIN") / 2, !session->isLose ? L"YOU LOSE" : L"YOU WIN");
+	swprintf_s(&screen[15 * ScreenWidth + 4], lstrlenW(session->isLose ? L"YOU LOSE" : L"YOU WIN") + 2, session->isLose ? L"YOU LOSE" : L"YOU WIN");
+	swprintf_s(&screen[15 * ScreenWidth + FieldWidth + 9], lstrlenW(!session->isLose ? L"YOU LOSE" : L"YOU WIN") + 2, !session->isLose ? L"YOU LOSE" : L"YOU WIN");
 
+	getchar();
 
 	CloseHandle(consoleHandle);
 
@@ -286,8 +289,6 @@ int main(int argc, char* argv[]) {
 
 	packetFetchLoop.join();
 
-	cout << "Game over!! :(, your score: " << score << endl;
-	std::cout << "Server Closed" << std::endl;
 
 	return 0;
 

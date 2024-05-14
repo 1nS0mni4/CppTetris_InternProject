@@ -24,7 +24,7 @@ public:
 
 	Session* GetOtherSession(UINT32 sessionID);
 	void UpdateScore(UINT32 sessionID, int score);
-	void SaveScore();
+	int GetScore(UINT64 sessionID);
 
 private:
 	UINT32 _roomID;

@@ -37,7 +37,7 @@ void Session::Initialize(SOCKET socket, SOCKADDR_IN remoteAdr) {
 void Session::Disconnect() {
 	OnDisconnect();
 	shutdown(_socket, SD_BOTH);
-	closesocket(_socket);
+	//closesocket(_socket);
 	Clear();
 }
 

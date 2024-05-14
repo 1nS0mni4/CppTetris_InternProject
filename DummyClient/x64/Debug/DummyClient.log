@@ -1,49 +1,49 @@
 ﻿  main.cpp
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(150,48): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(156,48): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
   
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(150,40): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(156,40): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
   
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(169,34): warning C4267: '인수': 'size_t'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(169,34): warning C4267:         with
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(169,34): warning C4267:         [
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(169,34): warning C4267:             _Ty=int
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(169,34): warning C4267:         ]
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(175,34): warning C4267: '인수': 'size_t'에서 '_Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(175,34): warning C4267:         with
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(175,34): warning C4267:         [
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(175,34): warning C4267:             _Ty=int
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(175,34): warning C4267:         ]
   (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
   
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(225,47): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(231,47): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
   
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(225,39): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(231,39): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
   
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(234,48): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(240,48): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
   
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(234,40): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(240,40): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
   
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(348,31): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(349,31): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
   
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(348,28): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(349,28): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
   
-D:\personal\projects\Github\TermProject\DummyClient\main.cpp(351,19): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\personal\projects\Github\TermProject\DummyClient\main.cpp(352,19): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
   
 D:\personal\projects\Github\TermProject\ServerCore\SessionManager.h(71,14): warning C4267: '초기화 중': 'size_t'에서 'UINT32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/main.cpp'을(를) 컴파일하는 중)
   D:\personal\projects\Github\TermProject\ServerCore\SessionManager.h(71,14):
   템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
-  	D:\personal\projects\Github\TermProject\DummyClient\main.cpp(82,33):
+  	D:\personal\projects\Github\TermProject\DummyClient\main.cpp(85,33):
   	컴파일되는 클래스 템플릿 인스턴스화 'SessionManager<ServerSession>'에 대한 참조를 확인하세요.
   	D:\personal\projects\Github\TermProject\ServerCore\SessionManager.h(70,7):
   	클래스 템플릿 멤버 함수 'void SessionManager<ServerSession>::AddSession(int)'을(를) 컴파일하는 중입니다.
   		D:\personal\projects\Github\TermProject\ServerCore\SessionManager.h(28,13):
   		'SessionManager<ServerSession>::Init'에서 'SessionManager<ServerSession>::AddSession'에 대한 첫 번째 참조를 확인하세요.
-  		D:\personal\projects\Github\TermProject\DummyClient\main.cpp(82,51):
+  		D:\personal\projects\Github\TermProject\DummyClient\main.cpp(85,51):
   		'main'에서 'SessionManager<ServerSession>::Init'에 대한 첫 번째 참조를 확인하세요.
   
   DummyClient.vcxproj -> D:\personal\projects\Github\TermProject\Binary\Debug\DummyClient\DummyClient.exe

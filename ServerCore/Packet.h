@@ -70,6 +70,7 @@ public:
 
 public:
 	wchar_t name[NAME_LEN];
+	USHORT nameLen;
 };
 
 class CtS_MatchingRequestPacket : public Packet {
@@ -164,6 +165,7 @@ public:
 
 public:
 	wchar_t name[NAME_LEN];
+	USHORT nameLen;
 };
 
 //
@@ -234,6 +236,7 @@ public:
 
 public:
 	wchar_t name[NAME_LEN];
+	USHORT nameLen;
 };
 
 //

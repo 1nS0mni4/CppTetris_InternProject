@@ -3,6 +3,15 @@
 #include "RoomManager.h"
 #include "DBManager.h"
 
+#define SQL_ADD_NAME(query, name)\
+	query += L" '";\
+	query += name;\
+	query += L"'";
+
+#define SQL_ADD_PARAMETER(query, param)\
+	query += L" ";\
+	query += param;\
+
 ServerPacketHandler::ServerPacketHandler() {
 	Init();
 }
@@ -68,13 +77,16 @@ void CtS_LoginRequestPacketHandler(Session* session, char* segment, USHORT size)
 	if (size != packet.Read(segment))
 		return;
 
-	memcpy(s->name, packet.name, lstrlenW(packet.name) * 2);
+	wmemcpy(s->name, packet.name, packet.nameLen);
+
+	wstring query = DBManager::GetInstance().GetQuery(QueryType::UserLogin);
+	SQL_ADD_NAME(query, s->name);
+
+	DBManager::GetInstance().Execute((SQLWCHAR*)query.c_str());
 
 	StC_LoginResponsePacket* p = new StC_LoginResponsePacket();
 	p->result = 0;
 	s->Send(p);
-
-	//cout << "Sended Response to: " << s->GetSessionID() << '\n';
 }
 
 void CtS_MatchingRequestPacketHandler(Session* session, char* segment, USHORT size) {
@@ -103,6 +115,9 @@ void CtS_NotifyFieldPacketHandler(Session* session, char* segment, USHORT size) 
 		return;
 
 	Room* room = s->_room;
+	if (room == NULL)
+		return;
+
 	Session* other = room->GetOtherSession(s->GetSessionID());
 	if (other == nullptr)
 		return;
@@ -125,13 +140,10 @@ void CtS_NotifyScorePacketHandler(Session* session, char* segment, USHORT size) 
 		return;
 
 	Room* room = s->_room;
-	Session* other = room->GetOtherSession(s->GetSessionID());
-	if (other == nullptr)
+	if (room == NULL)
 		return;
 
-	StC_UserScorePacket* p = new StC_UserScorePacket();
-	p->score = packet.score;
-	other->Send(p);
+	room->UpdateScore(s->GetSessionID(), packet.score);
 }
 
 void CtS_NotifyCurrentPiecePacketHandler(Session* session, char* segment, USHORT size) {
@@ -147,6 +159,9 @@ void CtS_NotifyCurrentPiecePacketHandler(Session* session, char* segment, USHORT
 		return;
 
 	Room* room = s->_room;
+	if (room == NULL)
+		return;
+
 	Session* other = room->GetOtherSession(s->GetSessionID());
 	if (other == nullptr)
 		return;
@@ -175,12 +190,24 @@ void CtS_NotifyLosePacketHandler(Session* session, char* segment, USHORT size) {
 		return;
 
 	Room* room = s->_room;
-	Session* other = room->GetOtherSession(s->GetSessionID());
+	ClientSession* other = (ClientSession*)room->GetOtherSession(s->GetSessionID());
 	if (other == nullptr)
 		return;
 
 	StC_UserLosePacket* p = new StC_UserLosePacket();
 	other->Send(p);
+
+	wstring query = DBManager::GetQuery(QueryType::UpdateScore);
+	SQL_ADD_NAME(query, s->name);
+	SQL_ADD_PARAMETER(query, L',');
+	SQL_ADD_PARAMETER(query, to_wstring(room->GetScore(s->GetSessionID())));
+	DBManager::GetInstance().Execute(query);
+
+	query = DBManager::GetQuery(QueryType::UpdateScore);
+	SQL_ADD_NAME(query, other->name);
+	SQL_ADD_PARAMETER(query, L',');
+	SQL_ADD_PARAMETER(query, to_wstring(room->GetScore(other->GetSessionID())));
+	DBManager::GetInstance().Execute(query);
 }
 
 bool Checker(char* segment, PacketType type) {

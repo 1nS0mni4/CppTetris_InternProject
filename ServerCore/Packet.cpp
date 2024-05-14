@@ -56,10 +56,10 @@ CtS_LoginRequestPacket::~CtS_LoginRequestPacket() {}
 int CtS_LoginRequestPacket::Read(char* segment) {
 	int index = Packet::Read(segment);
 
-	int nameLen = *((USHORT*)(&(segment[index])));
+	nameLen = *((USHORT*)(&(segment[index])));
 	index += sizeof(USHORT);
-	memcpy(name ,&(segment[index]), nameLen);
-	index += nameLen;
+	wmemcpy(name ,(wchar_t*)&(segment[index]), nameLen);
+	index += (nameLen * 2);
 
 	return index;
 }
@@ -67,10 +67,10 @@ int CtS_LoginRequestPacket::Read(char* segment) {
 int CtS_LoginRequestPacket::Write(char* buffer) {
 	_size += PACKET_HEADER_SIZE;
 
-	*((USHORT*)&buffer[_size]) = NAME_LEN;
+	*((USHORT*)&buffer[_size]) = nameLen;
 	_size += sizeof(USHORT);
-	memcpy(&(buffer[_size]), name, NAME_LEN);
-	_size += NAME_LEN;
+	wmemcpy((wchar_t*)&(buffer[_size]), name, nameLen);
+	_size += (nameLen * 2);
 
 	Packet::Write(buffer);
 	return _size;
@@ -264,10 +264,10 @@ StC_AlreadyInUserPacket::~StC_AlreadyInUserPacket() {}
 int StC_AlreadyInUserPacket::Read(char* segment) {
 	int index = Packet::Read(segment);
 
-	int size = *((USHORT*)&(segment[index]));
+	nameLen = *((USHORT*)(&(segment[index])));
 	index += sizeof(USHORT);
-	memcpy(name, segment, size);
-	index += size;
+	wmemcpy(name, (wchar_t*)&(segment[index]), nameLen);
+	index += (nameLen * 2);
 
 	return index;
 }
@@ -275,10 +275,10 @@ int StC_AlreadyInUserPacket::Read(char* segment) {
 int StC_AlreadyInUserPacket::Write(char* buffer) {
 	_size += PACKET_HEADER_SIZE;
 
-	*(USHORT*)(&(buffer[_size])) = NAME_LEN;
+	*((USHORT*)&buffer[_size]) = nameLen;
 	_size += sizeof(USHORT);
-	memcpy(&(buffer[_size]), name, NAME_LEN);
-	_size += NAME_LEN;
+	wmemcpy((wchar_t*)&(buffer[_size]), name, nameLen);
+	_size += (nameLen * 2);
 
 	Packet::Write(buffer);
 	return _size;
@@ -422,10 +422,10 @@ StC_ChallengerDataPacket::~StC_ChallengerDataPacket() {}
 int StC_ChallengerDataPacket::Read(char* segment) {
 	int index = Packet::Read(segment);
 
-	int len = *((USHORT*)(&(segment[index])));
+	nameLen = *((USHORT*)(&(segment[index])));
 	index += sizeof(USHORT);
-	memcpy(name, &(segment[index]), len);
-	index += len;
+	wmemcpy(name, (wchar_t*)&(segment[index]), nameLen);
+	index += (nameLen * 2);
 
 	return index;
 }
@@ -433,10 +433,10 @@ int StC_ChallengerDataPacket::Read(char* segment) {
 int StC_ChallengerDataPacket::Write(char* buffer) {
 	_size += PACKET_HEADER_SIZE;
 
-	*((USHORT*)&buffer[_size]) = 10;
+	*((USHORT*)&buffer[_size]) = nameLen;
 	_size += sizeof(USHORT);
-	memcpy(&(buffer[_size]), name, NAME_LEN);
-	_size += NAME_LEN;
+	wmemcpy((wchar_t*)&(buffer[_size]), name, nameLen);
+	_size += (nameLen * 2);
 
 	Packet::Write(buffer);
 	return _size;

@@ -26,10 +26,13 @@ void Room::Enter(Session* session) {
         return;
 
     StC_ChallengerDataPacket* challenger = new StC_ChallengerDataPacket();
-    memcpy(challenger->name, s->name, NAME_LEN);
+    challenger->nameLen = lstrlenW(s->name) + 2;
+    wmemcpy(challenger->name, s->name, challenger->nameLen);
+    
 
     StC_AlreadyInUserPacket* already = new StC_AlreadyInUserPacket();
-    memcpy(already->name, other->name, NAME_LEN);
+    already->nameLen = lstrlenW(other->name) + 2;
+    wmemcpy(already->name, other->name, already->nameLen);
 
     session->Send(already);
     other->Send(challenger);
@@ -51,13 +54,17 @@ void Room::Exit(Session* session) {
         other->Send(exit);
     }
 
-    _sessions[session->GetSessionID()] = 0;
-    _scores[session->GetSessionID()] = -1;
+    UINT64 sessionID = session->GetSessionID();
+    if (_sessions.find(sessionID) != _sessions.end())
+        _sessions.erase(session->GetSessionID());
+    if(_scores.find(sessionID) != _scores.end())
+        _scores.erase(session->GetSessionID());
 
     if (_sessions.size() <= 0) {
         Clear();
         return;
     }
+
 
     //TODO: 동기화 패킷 전송
 }
@@ -72,6 +79,8 @@ void Room::Start() {
         return;
 
     Session* session2 = GetOtherSession(session->GetSessionID());
+    if (session2 == NULL)
+        return;
 
     StC_GameStartPacket* packet = new StC_GameStartPacket();
     StC_GameStartPacket* packet2 = new StC_GameStartPacket();
@@ -81,7 +90,6 @@ void Room::Start() {
 }
 
 void Room::Clear() {
-    SaveScore();
     _sessions.clear();
     _scores.clear();
 }
@@ -100,14 +108,20 @@ Session* Room::GetOtherSession(UINT32 sessionID) {
 }
 
 void Room::UpdateScore(UINT32 sessionID, int score) {
-    _scores[sessionID] += score;
+    _scores[sessionID] = score;
 
     Session* other = GetOtherSession(sessionID);
+    if (other == NULL)
+        return;
+
     StC_UserScorePacket* packet = new StC_UserScorePacket();
     packet->score = score;
-    other->Send(packet);
+
 }
 
-void Room::SaveScore() {
-    //TODO: DB에 데이터 저장
+int Room::GetScore(UINT64 sessionID) {
+    if (_scores.find(sessionID) == _scores.end())
+        return -1;
+
+    return _scores[sessionID];
 }

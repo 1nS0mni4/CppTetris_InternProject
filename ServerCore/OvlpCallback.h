@@ -10,12 +10,12 @@ class OvlpCallback {
 	SINGLETON(OvlpCallback);
 
 private:
-	typedef struct {
-		SOCKET hSocket;
-		char buf[BUF_SIZE];
-		WSABUF wsaBuf;
-		DWORD sentBytes, recvBytes, flags;
-	}PER_IO_DATA, * LPPER_IO_DATA;
+	//typedef struct {
+	//	SOCKET hSocket;
+	//	char buf[BUF_SIZE];
+	//	WSABUF wsaBuf;
+	//	DWORD sentBytes, recvBytes, flags;
+	//}PER_IO_DATA, * LPPER_IO_DATA;
 	WSADATA _wsaData;
 	bool _isClosed = false;
 
@@ -31,14 +31,24 @@ public:
 	template <typename T = Session>
 	void AcceptLoop() {
 		while (!_isClosed) {
-			_remoteAdrSz = sizeof(SOCKADDR_IN);
-			memset(&_remoteAdr, 0, sizeof(SOCKADDR_IN));
+			try{
+				_remoteAdrSz = sizeof(SOCKADDR_IN);
+				memset(&_remoteAdr, 0, sizeof(SOCKADDR_IN));
 
-			_remoteSock = ::accept(_localSock, (SOCKADDR*)&_remoteAdr, &_remoteAdrSz);
-			if (_remoteSock == INVALID_SOCKET) {
-				if (WSAGetLastError() != WSAEWOULDBLOCK)
-					ErrorHandling("::accept() error");
+				while (true) {
+					_remoteSock = ::accept(_localSock, (SOCKADDR*)&_remoteAdr, &_remoteAdrSz);
+					if (_remoteSock == INVALID_SOCKET) {
+						if (WSAGetLastError() != WSAEWOULDBLOCK)
+							ErrorHandling("::accept() error");
+						else
+							continue;
+					}
+					else
+						break;
+				}
 
+			} catch (std::exception e) {
+				cout << e.what() << '\n';
 				continue;
 			}
 
@@ -70,7 +80,7 @@ public:
 		u_long mode = 1;
 		int optval = 1;
 
-		::setsockopt(_localSock, SOL_SOCKET, SO_REUSEADDR, (const char*)&optval, sizeof(optval));
+		//::setsockopt(_localSock, SOL_SOCKET, SO_REUSEADDR, (const char*)&optval, sizeof(optval));
 		::ioctlsocket(_localSock, FIONBIO, &mode);
 
 		T* session = nullptr;
@@ -90,6 +100,5 @@ private:
 	SOCKET _localSock = 0, _remoteSock = 0;
 	SOCKADDR_IN _localAdr, _remoteAdr;
 	int _remoteAdrSz;
-
 };
 

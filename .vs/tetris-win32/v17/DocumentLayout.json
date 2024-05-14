@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "D:\\personal\\projects\\Github\\TermProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Session.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|D:\\personal\\projects\\Github\\TermProject\\DummyClient\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|solutionrelative:DummyClient\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\SERVERCORE\\SESSION.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:SERVERCORE\\SESSION.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -19,20 +15,81 @@
       "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\Room.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\SERVERCORE\\SESSION.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:SERVERCORE\\SESSION.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.39.33519\\INCLUDE\\XTREE||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.39.33519\\INCLUDE\\MUTEX||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|D:\\personal\\projects\\Github\\TermProject\\DummyClient\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|solutionrelative:DummyClient\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|D:\\personal\\projects\\Github\\TermProject\\DummyClient\\ClientPacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|solutionrelative:DummyClient\\ClientPacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Packet.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|D:\\PERSONAL\\PROJECTS\\GITHUB\\TERMPROJECT\\SERVERCORE\\PACKET.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|solutionrelative:SERVERCORE\\PACKET.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Packet.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Defines.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Defines.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\Session.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\RoomManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\RoomManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\DBManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\DBManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\DBManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\DBManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\Room.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\Room.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\OvlpCallback.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\ClientSession.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\ClientSession.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\map||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\SERVERCORE\\OVLPCALLBACK.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:SERVERCORE\\OVLPCALLBACK.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|D:\\personal\\projects\\Github\\TermProject\\DummyClient\\ServerSession.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|solutionrelative:DummyClient\\ServerSession.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|D:\\personal\\projects\\Github\\TermProject\\DummyClient\\PacketQueue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|solutionrelative:DummyClient\\PacketQueue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\heap\\malloc.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -44,40 +101,7 @@
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\heap\\new_mode.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\RoomManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\RoomManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.39.33519\\INCLUDE\\MAP||{3B902123-F8A7-4915-9F01-361F908088D0}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.39.33519\\INCLUDE\\XTREE||{3B902123-F8A7-4915-9F01-361F908088D0}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\ClientSession.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\ClientSession.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.39.33519\\INCLUDE\\VECTOR||{3B902123-F8A7-4915-9F01-361F908088D0}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\heap\\debug_heap.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|D:\\personal\\projects\\Github\\TermProject\\DummyClient\\ClientPacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|solutionrelative:DummyClient\\ClientPacketHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|D:\\personal\\projects\\Github\\TermProject\\DummyClient\\ServerSession.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|solutionrelative:DummyClient\\ServerSession.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|D:\\personal\\projects\\Github\\TermProject\\DummyClient\\PacketQueue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|solutionrelative:DummyClient\\PacketQueue.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\ClientSession.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -92,10 +116,6 @@
       "RelativeMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|solutionrelative:DummyClient\\PacketQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\SERVERCORE\\OVLPCALLBACK.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:SERVERCORE\\OVLPCALLBACK.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\per_thread_data.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
@@ -106,25 +126,10 @@
       "RelativeMoniker": "D:0:0:{1866E4D0-8499-4A59-B56E-4E1B9D192557}|DummyClient\\DummyClient.vcxproj|solutionrelative:DummyClient\\ClientPacketHandler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:ServerCore\\OvlpCallback.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xstring||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\DBManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\DBManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|D:\\personal\\projects\\Github\\TermProject\\Server\\DBManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C36B466D-D619-49A1-9634-8F3BD90254C0}|Server\\Server.vcxproj|solutionrelative:Server\\DBManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\um\\sqlext.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\corecrt_wstdio.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\ostream||{3B902123-F8A7-4915-9F01-361F908088D0}"
@@ -135,6 +140,9 @@
     {
       "AbsoluteMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|D:\\personal\\projects\\Github\\TermProject\\SERVERCORE\\PACKETHANDLER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C6A7EE4B-B88F-4463-A7B7-3606FF1092E0}|ServerCore\\ServerCore.vcxproj|solutionrelative:SERVERCORE\\PACKETHANDLER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -144,17 +152,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\main.cpp",
               "RelativeDocumentMoniker": "DummyClient\\main.cpp",
               "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\main.cpp",
               "RelativeToolTip": "DummyClient\\main.cpp",
-              "ViewState": "AQIAAFEAAAAAAAAAAAAvwF8AAAAAAAAA",
+              "ViewState": "AQIAAIIAAAAAAAAAAAAswJsAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-10T02:48:26.908Z",
               "IsPinned": true,
@@ -162,129 +170,122 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ServerPacketHandler.cpp",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.cpp",
-              "RelativeDocumentMoniker": "Server\\ServerPacketHandler.cpp",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.cpp",
-              "RelativeToolTip": "Server\\ServerPacketHandler.cpp",
-              "ViewState": "AQIAAEwAAAAAAAAAAAAAAGQAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-13T03:10:47.139Z",
-              "EditorCaption": ""
+              "DocumentIndex": 9,
+              "Title": "Packet.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.h",
+              "RelativeDocumentMoniker": "ServerCore\\Packet.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.h",
+              "RelativeToolTip": "ServerCore\\Packet.h",
+              "ViewState": "AQIAACwAAAAAAAAAAAAswDwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-10T03:04:30.051Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "RoomManager.cpp",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\RoomManager.cpp",
-              "RelativeDocumentMoniker": "Server\\RoomManager.cpp",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\RoomManager.cpp",
-              "RelativeToolTip": "Server\\RoomManager.cpp",
-              "ViewState": "AQIAABIAAAAAAAAAAAAvwCAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-13T08:29:50.535Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Room.cpp",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\Room.cpp",
-              "RelativeDocumentMoniker": "Server\\Room.cpp",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\Room.cpp",
-              "RelativeToolTip": "Server\\Room.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-10T02:50:45.037Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "xtree",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xtree",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xtree",
-              "ViewState": "AQIAADYGAAAAAAAAAAAvwEQGAAAjAAAA",
+              "DocumentIndex": 19,
+              "Title": "map",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\map",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\map",
+              "ViewState": "AQIAAKAAAAAAAAAAAAAvwK4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-13T08:57:35.905Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T08:58:22.252Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Session.h",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.h",
               "RelativeDocumentMoniker": "ServerCore\\Session.h",
               "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.h",
               "RelativeToolTip": "ServerCore\\Session.h",
-              "ViewState": "AQIAACEAAAAAAAAAAAAYwDsAAAAOAAAA",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAswFwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-10T02:57:40.92Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Packet.h",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.h",
-              "RelativeDocumentMoniker": "ServerCore\\Packet.h",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.h",
-              "RelativeToolTip": "ServerCore\\Packet.h",
-              "ViewState": "AQIAADEAAAAAAAAAAAAIwEQAAAAHAAAA",
+              "DocumentIndex": 20,
+              "Title": "OvlpCallback.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.h",
+              "RelativeDocumentMoniker": "ServerCore\\OvlpCallback.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.h",
+              "RelativeToolTip": "ServerCore\\OvlpCallback.h",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAABcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-10T03:04:30.051Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-10T06:43:52.485Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "new_mode.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\heap\\new_mode.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\heap\\new_mode.cpp",
-              "ViewState": "AQIAABAAAAAAAAAAAAASwB4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-13T07:32:44.646Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "new_scalar.cpp",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\new_scalar.cpp",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\new_scalar.cpp",
-              "ViewState": "AQIAABUAAAAAAAAAAAASwCMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-13T09:03:48.571Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "map",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\map",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\map",
-              "ViewState": "AQIAALcAAAAAAAAAAAAvwMUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-13T08:58:22.252Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "ServerSession.cpp",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\ServerSession.cpp",
               "RelativeDocumentMoniker": "DummyClient\\ServerSession.cpp",
               "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\ServerSession.cpp",
               "RelativeToolTip": "DummyClient\\ServerSession.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-10T06:27:27.746Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-10T06:27:27.746Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 12,
+              "Title": "RoomManager.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\RoomManager.cpp",
+              "RelativeDocumentMoniker": "Server\\RoomManager.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\RoomManager.cpp",
+              "RelativeToolTip": "Server\\RoomManager.cpp",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAswB4AAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T08:29:50.535Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DBManager.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\DBManager.h",
+              "RelativeDocumentMoniker": "Server\\DBManager.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\DBManager.h",
+              "RelativeToolTip": "Server\\DBManager.h",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAswBwAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-10T04:20:09.09Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Room.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\Room.h",
+              "RelativeDocumentMoniker": "Server\\Room.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\Room.h",
+              "RelativeToolTip": "Server\\Room.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-14T06:35:38.23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "new_mode.cpp",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\heap\\new_mode.cpp",
+              "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\heap\\new_mode.cpp",
+              "ViewState": "AQIAABAAAAAAAAAAAAASwB4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T07:32:44.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "new_scalar.cpp",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\new_scalar.cpp",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\new_scalar.cpp",
+              "ViewState": "AQIAABUAAAAAAAAAAAASwCMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T09:03:48.571Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
               "Title": "PacketQueue.h",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\PacketQueue.h",
               "RelativeDocumentMoniker": "DummyClient\\PacketQueue.h",
@@ -292,25 +293,11 @@
               "RelativeToolTip": "DummyClient\\PacketQueue.h",
               "ViewState": "AQIAAB8AAAAAAAAAAAAswDoAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-10T06:26:39.248Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-10T06:26:39.248Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "OvlpCallback.h",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.h",
-              "RelativeDocumentMoniker": "ServerCore\\OvlpCallback.h",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.h",
-              "RelativeToolTip": "ServerCore\\OvlpCallback.h",
-              "ViewState": "AQIAABYAAAAAAAAAAAAvwCQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-10T06:43:52.485Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 28,
               "Title": "ServerSession.h",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\ServerSession.h",
               "RelativeDocumentMoniker": "DummyClient\\ServerSession.h",
@@ -318,12 +305,11 @@
               "RelativeToolTip": "DummyClient\\ServerSession.h",
               "ViewState": "AQIAAAIAAAAAAAAAAAAIwBIAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-10T06:27:27.228Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-10T06:27:27.228Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 32,
               "Title": "ClientPacketHandler.h",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\ClientPacketHandler.h",
               "RelativeDocumentMoniker": "DummyClient\\ClientPacketHandler.h",
@@ -335,7 +321,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 33,
               "Title": "xstring",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xstring",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xstring",
@@ -345,31 +331,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "DBManager.cpp",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\DBManager.cpp",
-              "RelativeDocumentMoniker": "Server\\DBManager.cpp",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\DBManager.cpp",
-              "RelativeToolTip": "Server\\DBManager.cpp",
-              "ViewState": "AQIAACYAAAAAAAAAAAAEwD8AAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-10T04:20:11.78Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "DBManager.h",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\DBManager.h",
-              "RelativeDocumentMoniker": "Server\\DBManager.h",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\DBManager.h",
-              "RelativeToolTip": "Server\\DBManager.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-10T04:20:09.09Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "sqlext.h",
               "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\um\\sqlext.h",
               "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\um\\sqlext.h",
@@ -379,17 +341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "corecrt_wstdio.h",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\corecrt_wstdio.h",
-              "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.22621.0\\ucrt\\corecrt_wstdio.h",
-              "ViewState": "AQIAAOcFAAAAAAAAAAAjwOoFAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-10T07:23:18.056Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 35,
               "Title": "ostream",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\ostream",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\ostream",
@@ -401,17 +353,17 @@
         },
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 6,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\main.cpp",
               "RelativeDocumentMoniker": "Server\\main.cpp",
               "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\main.cpp",
               "RelativeToolTip": "Server\\main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAVAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-10T02:48:24.704Z",
               "IsPinned": true,
@@ -419,7 +371,173 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 3,
+              "Title": "xtree",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xtree",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\xtree",
+              "ViewState": "AQIAAGIEAAAAAAAAAAAvwHAEAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-05-14T08:53:49.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Packet.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.cpp",
+              "RelativeDocumentMoniker": "ServerCore\\Packet.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.cpp",
+              "RelativeToolTip": "ServerCore\\Packet.cpp",
+              "ViewState": "AQIAAAEBAAAAAAAAAAAvwAsBAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-10T02:53:41.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ClientPacketHandler.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\ClientPacketHandler.cpp",
+              "RelativeDocumentMoniker": "DummyClient\\ClientPacketHandler.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\ClientPacketHandler.cpp",
+              "RelativeToolTip": "DummyClient\\ClientPacketHandler.cpp",
+              "ViewState": "AQIAAKoAAAAAAAAAAAAswMUAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-10T02:52:43.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Room.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\Room.cpp",
+              "RelativeDocumentMoniker": "Server\\Room.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\Room.cpp",
+              "RelativeToolTip": "Server\\Room.cpp",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAvwGAAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-10T02:50:45.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DBManager.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\DBManager.cpp",
+              "RelativeDocumentMoniker": "Server\\DBManager.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\DBManager.cpp",
+              "RelativeToolTip": "Server\\DBManager.cpp",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAAAF4AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-10T04:20:11.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ServerPacketHandler.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.cpp",
+              "RelativeDocumentMoniker": "Server\\ServerPacketHandler.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\ServerPacketHandler.cpp",
+              "RelativeToolTip": "Server\\ServerPacketHandler.cpp",
+              "ViewState": "AQIAAIYAAAAAAAAAAAAswJ0AAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T03:10:47.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "mutex",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\mutex",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\mutex",
+              "ViewState": "AQIAAMABAAAAAAAAAAAvwM4BAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-05-14T08:46:26.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Defines.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Defines.h",
+              "RelativeDocumentMoniker": "ServerCore\\Defines.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Defines.h",
+              "RelativeToolTip": "ServerCore\\Defines.h",
+              "ViewState": "AQIAABAAAAAAAAAAAAAIwCoAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-10T08:53:39.307Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Session.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp",
+              "RelativeDocumentMoniker": "ServerCore\\Session.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp",
+              "RelativeToolTip": "ServerCore\\Session.cpp",
+              "ViewState": "AQIAADIAAAAAAAAAAAAvwEQAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-10T06:51:51.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ClientSession.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\ClientSession.cpp",
+              "RelativeDocumentMoniker": "Server\\ClientSession.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\ClientSession.cpp",
+              "RelativeToolTip": "Server\\ClientSession.cpp",
+              "ViewState": "AQIAABMAAAAAAAAAAAAvwCYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-10T02:51:12.05Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "PacketQueue.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\PacketQueue.cpp",
+              "RelativeDocumentMoniker": "DummyClient\\PacketQueue.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\PacketQueue.cpp",
+              "RelativeToolTip": "DummyClient\\PacketQueue.cpp",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAvwBQAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-10T06:26:39.738Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "OvlpCallback.cpp",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.cpp",
+              "RelativeDocumentMoniker": "ServerCore\\OvlpCallback.cpp",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.cpp",
+              "RelativeToolTip": "ServerCore\\OvlpCallback.cpp",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAADEAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T04:12:53.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "pch.h",
+              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\pch.h",
+              "RelativeDocumentMoniker": "ServerCore\\pch.h",
+              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\pch.h",
+              "RelativeToolTip": "ServerCore\\pch.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-14T03:54:02.889Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "malloc.cpp",
+              "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\heap\\malloc.cpp",
+              "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\heap\\malloc.cpp",
+              "ViewState": "AQIAAAwAAAAAAAAAAAASwBUAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-13T07:19:25.792Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "ClientSession.h",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\ClientSession.h",
               "RelativeDocumentMoniker": "Server\\ClientSession.h",
@@ -427,123 +545,31 @@
               "RelativeToolTip": "Server\\ClientSession.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-10T06:27:32.228Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-10T06:27:32.228Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ClientSession.cpp",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\Server\\ClientSession.cpp",
-              "RelativeDocumentMoniker": "Server\\ClientSession.cpp",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\Server\\ClientSession.cpp",
-              "RelativeToolTip": "Server\\ClientSession.cpp",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAnwBUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-10T02:51:12.05Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Session.cpp",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp",
-              "RelativeDocumentMoniker": "ServerCore\\Session.cpp",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Session.cpp",
-              "RelativeToolTip": "ServerCore\\Session.cpp",
-              "ViewState": "AQIAABQAAAAAAAAAAAAAADEAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-10T06:51:51.493Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "malloc.cpp",
-              "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\heap\\malloc.cpp",
-              "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\heap\\malloc.cpp",
-              "ViewState": "AQIAAAwAAAAAAAAAAAASwBUAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-13T07:19:25.792Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Defines.h",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Defines.h",
-              "RelativeDocumentMoniker": "ServerCore\\Defines.h",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Defines.h",
-              "RelativeToolTip": "ServerCore\\Defines.h",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAIwCIAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-10T08:53:39.307Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Packet.cpp",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.cpp",
-              "RelativeDocumentMoniker": "ServerCore\\Packet.cpp",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\Packet.cpp",
-              "RelativeToolTip": "ServerCore\\Packet.cpp",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAvwCIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-10T02:53:41.95Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ClientPacketHandler.cpp",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\ClientPacketHandler.cpp",
-              "RelativeDocumentMoniker": "DummyClient\\ClientPacketHandler.cpp",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\ClientPacketHandler.cpp",
-              "RelativeToolTip": "DummyClient\\ClientPacketHandler.cpp",
-              "ViewState": "AQIAABoAAAAAAAAAAAAswDEAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-10T02:52:43.647Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 26,
               "Title": "debug_heap.cpp",
               "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\heap\\debug_heap.cpp",
               "ToolTip": "C:\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\heap\\debug_heap.cpp",
               "ViewState": "AQIAAFgBAAAAAAAAAAASwGYBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-13T08:50:23.118Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T08:50:23.118Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 38,
               "Title": "vector",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\vector",
               "ViewState": "AQIAAFkDAAAAAAAAAAAvwGcDAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-05-13T08:50:32.887Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T08:50:32.887Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "PacketQueue.cpp",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\PacketQueue.cpp",
-              "RelativeDocumentMoniker": "DummyClient\\PacketQueue.cpp",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\DummyClient\\PacketQueue.cpp",
-              "RelativeToolTip": "DummyClient\\PacketQueue.cpp",
-              "ViewState": "AQIAABEAAAAAAAAAAAAvwBoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-10T06:26:39.738Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 30,
               "Title": "per_thread_data.cpp",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\per_thread_data.cpp",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\per_thread_data.cpp",
@@ -553,7 +579,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 31,
               "Title": "initialization.cpp",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\initialization.cpp",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\crt\\src\\vcruntime\\initialization.cpp",
@@ -563,19 +589,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "OvlpCallback.cpp",
-              "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.cpp",
-              "RelativeDocumentMoniker": "ServerCore\\OvlpCallback.cpp",
-              "ToolTip": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\OvlpCallback.cpp",
-              "RelativeToolTip": "ServerCore\\OvlpCallback.cpp",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAACMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-13T04:12:53.55Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 37,
               "Title": "PacketHandler.h",
               "DocumentMoniker": "D:\\personal\\projects\\Github\\TermProject\\ServerCore\\PacketHandler.h",
               "RelativeDocumentMoniker": "ServerCore\\PacketHandler.h",
@@ -587,7 +601,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 36,
               "Title": "sal.h",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\sal.h",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\sal.h",
