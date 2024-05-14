@@ -30,6 +30,7 @@ private:
 	SQLHSTMT    hStmt = NULL;
 	SQLWCHAR* outConnString;
 	SQLWCHAR connString[155] = L"DRIVER=SQL Server; UID=dgwe; WSID=DESKTOP-1QNQQDF; APP=Microsoft¢ç Windows¢ç Operating System; Trusted_Connection=Yes; SERVER=DESKTOP-1QNQQDF;";
+	SQLWCHAR connStringHome[155] = L"DRIVER=ODBC Driver 17 for SQL Server;TrustServerCertificate=Yes; WSID=D-PERA;APP=Microsoft¢ç Windows¢ç Operating System;Trusted_Connection=Yes;SERVER=D-pera";
 	map<QueryType, wstring> _queries;
 };
 

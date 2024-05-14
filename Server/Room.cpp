@@ -117,6 +117,7 @@ void Room::UpdateScore(UINT32 sessionID, int score) {
     StC_UserScorePacket* packet = new StC_UserScorePacket();
     packet->score = score;
 
+    other->Send(packet);
 }
 
 int Room::GetScore(UINT64 sessionID) {

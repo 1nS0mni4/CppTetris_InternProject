@@ -1,7 +1,7 @@
 [ODBC]
-DRIVER=SQL Server
-UID=dgwe
-WSID=DESKTOP-1QNQQDF
+DRIVER=ODBC Driver 17 for SQL Server
+TrustServerCertificate=No
+WSID=D-PERA
 APP=Microsoft¢ç Windows¢ç Operating System
 Trusted_Connection=Yes
-SERVER=DESKTOP-1QNQQDF
+SERVER=D-pera

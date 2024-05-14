@@ -88,7 +88,7 @@ int main(int argc, char* argv[]) {
 	if (OvlpCallback::GetInstance().Start() == SOCKET_ERROR)
 		return -1;
 
-	ServerSession* session = OvlpCallback::GetInstance().Connect<ServerSession>(PF_INET, "112.185.196.30", 9190);
+	ServerSession* session = OvlpCallback::GetInstance().Connect<ServerSession>(PF_INET, "127.0.0.1", 9190);
 	if (session == nullptr)
 		return -1;
 
@@ -98,7 +98,7 @@ int main(int argc, char* argv[]) {
 	packet->nameLen = lstrlenW(myName) + 2;
 	wmemcpy(packet->name, myName, packet->nameLen);
 	session->Send(packet);
-	
+
 	while (session->isLogined == false) { SleepEx(10, TRUE); }
 
 	CtS_MatchingRequestPacket* match = new CtS_MatchingRequestPacket();
@@ -213,13 +213,13 @@ int main(int argc, char* argv[]) {
 
 				session->Send(pieceNoti);
 			}
-			{
-				if (score != prevScore) {
-					scoreNoti = new CtS_NotifyScorePacket();
-					scoreNoti->score = score;
-					session->Send(scoreNoti);
-				}
+
+			if (score != prevScore) {
+				scoreNoti = new CtS_NotifyScorePacket();
+				scoreNoti->score = score;
+				session->Send(scoreNoti);
 			}
+
 
 			// Draw Field
 			DrawField(screen);
@@ -250,7 +250,7 @@ int main(int argc, char* argv[]) {
 			{
 				lock_guard<mutex> guard(otherMtx);
 				swprintf_s(&screen[21 * ScreenWidth + FieldWidth + 7], lstrlenW(otherName) + 1, L"%s", otherName);
-				swprintf_s(&screen[22 * ScreenWidth + FieldWidth + 8], lstrlenW(L"Score: 000000") + 1 , L"Score: %6d", otherScore);
+				swprintf_s(&screen[22 * ScreenWidth + FieldWidth + 8], lstrlenW(L"Score: 000000") + 1, L"Score: %6d", otherScore);
 			}
 
 			// Draw finish lines
@@ -280,8 +280,6 @@ int main(int argc, char* argv[]) {
 	swprintf_s(&screen[15 * ScreenWidth + 4], lstrlenW(session->isLose ? L"YOU LOSE" : L"YOU WIN") + 2, session->isLose ? L"YOU LOSE" : L"YOU WIN");
 	swprintf_s(&screen[15 * ScreenWidth + FieldWidth + 9], lstrlenW(!session->isLose ? L"YOU LOSE" : L"YOU WIN") + 2, !session->isLose ? L"YOU LOSE" : L"YOU WIN");
 
-	getchar();
-
 	CloseHandle(consoleHandle);
 
 	OvlpCallback::GetInstance().Close();
@@ -291,41 +289,8 @@ int main(int argc, char* argv[]) {
 
 
 	return 0;
-
-	{
-		/*SessionManager<ServerSession>::GetInstance().Init();
-		std::thread packetFetchLoop(&PacketQueue::Flush, &PacketQueue::GetInstance());
-
-		if (OvlpCallback::GetInstance().Start() == SOCKET_ERROR)
-			return -1;
-
-		ServerSession* session = OvlpCallback::GetInstance().Connect<ServerSession>(PF_INET, "127.0.0.1", 9190);
-		if (session == nullptr)
-			return -1;
-
-		TestPacket* packet;
-		int i = 1;
-
-		std::string input;
-
-		while (true) {
-			packet = new TestPacket();
-			packet->data = i;
-			session->Send(packet);
-			Sleep(10);
-			i++;
-		}
-
-		OvlpCallback::GetInstance().Close();
-		PacketQueue::GetInstance().Close();
-
-		packetFetchLoop.join();
-
-		std::cout << "Server Closed" << std::endl;
-
-		return 0;*/
-	}
 }
+
 void ErrorHandling(const char* message) {
 	fputs(message, stderr);
 	fputc('\n', stderr);

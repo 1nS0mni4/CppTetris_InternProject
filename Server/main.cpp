@@ -18,7 +18,7 @@ int main(int argc, char* argv[]) {
 	if (OvlpCallback::GetInstance().Start() == SOCKET_ERROR)
 		return -1;
 
-	if (OvlpCallback::GetInstance().BindnListen("112.185.196.30", 9190, 50) == SOCKET_ERROR)
+	if (OvlpCallback::GetInstance().BindnListen("127.0.0.1", 9190, 50) == SOCKET_ERROR)
 		return -1;
 
 	std::thread fetchThread(&PacketQueue::Flush, &PacketQueue::GetInstance());

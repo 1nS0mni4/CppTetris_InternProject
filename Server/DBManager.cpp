@@ -52,7 +52,7 @@ void DBManager::Init() {
 	// on the input, otherwise let the driver manager prompt for input.
 	{
 		SQLSMALLINT outConnStrSz = 1024;
-		RETCODE rc = SQLDriverConnect(hDbc, GetDesktopWindow(), connString, _countof(connString), outConnString, 1024, &outConnStrSz, SQL_DRIVER_COMPLETE);
+		RETCODE rc = SQLDriverConnect(hDbc, GetDesktopWindow(), connStringHome, _countof(connStringHome), outConnString, 1024, &outConnStrSz, SQL_DRIVER_COMPLETE);
 		if (rc != SQL_SUCCESS) {
 			//HandleDiagnosticRecord(hDbc, SQL_HANDLE_DBC, rc);
 		} if (rc == SQL_ERROR) {
